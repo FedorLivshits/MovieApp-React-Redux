@@ -118,3 +118,19 @@ header .nav-links li {
 header .nav-links li:last-child {
   margin-right: 0;
 }
+.footer{
+  margin-top: auto;
+  background: linear-gradient(to bottom, #032039 0%, #032541 100%);
+}
+.footer-info{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+  display: flex;
+  justify-content: space-between;
+}
+.footer-info p a{
+  color: #02b5e1;
+}
