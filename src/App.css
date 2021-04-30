@@ -84,7 +84,7 @@ body {
 
 .header a {
   color: var(--white);
-  font-size: 1.25rem;
+  font-size: 16px;
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -98,7 +98,7 @@ body {
   -webkit-background-clip: text; /* Обрезаем фон по тексту */
   -webkit-text-fill-color: transparent; /* Прозрачный текст */
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 24px;
   padding-left: 15px;
 }
 
@@ -118,6 +118,18 @@ header .nav-links li {
 header .nav-links li:last-child {
   margin-right: 0;
 }
+
+.carousel-img:after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
 .footer{
   margin-top: auto;
   background: linear-gradient(to bottom, #032039 0%, #032541 100%);
@@ -126,7 +138,7 @@ header .nav-links li:last-child {
   padding-top: 30px;
   padding-bottom: 30px;
   color: white;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   display: flex;
   justify-content: space-between;

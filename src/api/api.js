@@ -15,3 +15,8 @@ export const fetchActualMovies = () => {
     return axios.get(`${nowPlayingUrl}?api_key=${apiKey}&language=en-US&page=1`)
         .then(response => response.data)
 }
+
+export const fetchGenreList = () => {
+    return axios.get(`${genreUrl}?api_key=${apiKey}&language=en-US&page=1`)
+        .then(response => response.data)
+}
