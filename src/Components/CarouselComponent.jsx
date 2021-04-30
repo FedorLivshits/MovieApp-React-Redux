@@ -8,15 +8,25 @@ function CarouselComponent({movies}) {
     return (
         <Carousel>
             {movies.map(m => {
-                return  <Carousel.Item className="carousel-img" interval={3000}>
+                return  <Carousel.Item className="carousel-img" interval={5000}>
                     <img
-                        style={{height: 600}}
                         className="d-block w-100"
                         src={m.backPoster}
                         alt="First slide"
                      />
                     <Carousel.Caption>
-                        <h2>Now at the cinema</h2>
+                        <div className="container">
+                            <div className="input-section-title">
+                                <h2 className="input-title ">Welcome.</h2>
+                                <h3 className="input-title-descr">Millions of movie to discover. Explore now.</h3>
+                            </div>
+                            <div className="input-wrapper">
+                                <input type="text" placeholder="Search for a movie"/>
+                                <button  className="search-film-btn">
+                                    search
+                                </button>
+                            </div>
+                        </div>
                         <h3>{m.title}</h3>
                     </Carousel.Caption>
                 </Carousel.Item>
