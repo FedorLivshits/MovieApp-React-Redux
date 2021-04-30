@@ -20,3 +20,17 @@ export const fetchGenreList = () => {
     return axios.get(`${genreUrl}?api_key=${apiKey}&language=en-US&page=1`)
         .then(response => response.data)
 }
+export const fetchMovieByGenre = (genre_id) => {
+    return axios.get(`${moviesUrl}?api_key=${apiKey}&language=en-US&page=1&with_genres=${genre_id}`)
+        .then(response => response.data)
+}
+
+export const fetchPerson = () => {
+    return axios.get(`${personUrl}?api_key=${apiKey}`)
+        .then(response => response.data)
+}
+
+export const fetchTopRatedMovies = () => {
+    return axios.get(`${topratedUrl}?api_key=${apiKey}&language=en-US&page=1`)
+        .then(response => response.data)
+}
