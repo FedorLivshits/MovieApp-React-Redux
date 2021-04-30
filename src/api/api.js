@@ -10,9 +10,8 @@ const genreUrl = `${url}/genre/movie/list`;
 const moviesUrl = `${url}/discover/movie`;
 const personUrl = `${url}/trending/person/week`;
 
-export const fetchActualMovies = async () => {
-    let response = await axios.get(nowPlayingUrl + `?api_key=${apiKey}&language=en-US&page=1`)
-    if (!response.data.errors) {
-        console.log(response.data)
-    }
+
+export const fetchActualMovies = () => {
+    return axios.get(`${nowPlayingUrl}?api_key=${apiKey}&language=en-US&page=1`)
+        .then(response => response.data)
 }
