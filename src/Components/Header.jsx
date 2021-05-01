@@ -13,6 +13,9 @@ const Header = () => {
 
                     <ul className="nav-links">
                         <li>
+                            <Link to="/movies">Movies</Link>
+                        </li>
+                        <li>
                             <Link to="/watchlist">Watch List</Link>
                         </li>
 

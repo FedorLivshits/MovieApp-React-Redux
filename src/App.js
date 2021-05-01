@@ -5,6 +5,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 import Footer from "./Components/Footer";
 import MainPage from "./Components/MainPage";
 import MoviePage from "./Components/MoviePage";
+import MovieByGenrePage from "./Components/MovieByGenrePage";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
             <div className="app">
                 <Header/>
                 <Route exact path="/" render={() => <MainPage/>}/>
+                <Route path="/movies" render={() => <MovieByGenrePage/>}/>
                 <Route path="/movie/:id" render={() => <MoviePage/>}/>
                 <Footer/>
             </div>
