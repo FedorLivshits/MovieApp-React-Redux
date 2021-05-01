@@ -1,8 +1,8 @@
 import './App.css';
-import Header from "./Components/Header";
+import Header from "./Components/Header/Header";
 import React from "react";
 import {BrowserRouter, Route} from "react-router-dom";
-import Footer from "./Components/Footer";
+import Footer from "./Components/Footer/Footer";
 import MainPage from "./Pages/MainPage";
 import MoviePage from "./Pages/MoviePage";
 import MovieByGenrePage from "./Pages/MovieByGenrePage";
