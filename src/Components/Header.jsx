@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {Container} from "react-bootstrap";
 
 const Header = () => {
     return (
         <header className="header">
-            <div className="container">
+            <Container>
                 <div className="inner-content">
                     <div className="brand">
                         <Link to="/">MovieApp</Link>
@@ -26,7 +27,7 @@ const Header = () => {
                         </li>
                     </ul>
                 </div>
-            </div>
+            </Container>
         </header>
     );
 };
