@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react';
-import CarouselComponent from "./CarouselComponent";
+import CarouselComponent from "../Components/CarouselComponent";
 import {connect} from "react-redux";
 import {getActualFilms, getTopRatedMovies, getTrendingPerson} from "../redux/movie-reducer";
 import {Container} from "react-bootstrap";
-import TrendingPersons from "./TrendingPersons";
-import TopRatedMovies from "./TopRatedMovies";
+import TrendingPersons from "../Components/TrendingPersons";
+import TopRatedMovies from "../Components/TopRatedMovies";
 
 function MainPage(props) {
 
