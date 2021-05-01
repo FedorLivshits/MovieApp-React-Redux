@@ -1,4 +1,5 @@
 import './App.css';
+import "./lib/font-awesome/css/all.min.css";
 import Header from "./Components/Header/Header";
 import React from "react";
 import {BrowserRouter, Route} from "react-router-dom";

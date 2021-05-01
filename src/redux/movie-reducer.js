@@ -1,17 +1,26 @@
-import {fetchActualMovies, fetchGenreList, fetchMovieByGenre, fetchPerson, fetchTopRatedMovies} from "../api/api";
+import {
+    fetchActualMovies,
+    fetchGenreList,
+    fetchMovieByGenre,
+    fetchPerson,
+    fetchPopularMovies,
+    fetchTopRatedMovies
+} from "../api/api";
 
 const SET_MOVIES = "movie-reducer/SET_MOVIES"
 const SET_GENRE = "movie-reducer/SET_GENRE"
 const SET_MOVIES_BY_GENRE = "movie-reducer/SET_MOVIES_BY_GENRE"
 const SET_TRENDING_PERSONS = "movie-reducer/SET_TRENDING_PERSONS"
 const SET_TOP_RATED_MOVIES = "movie-reducer/SET_TOP_RATED_MOVIES"
+const SET_POPULAR_MOVIES = "movie-reducer/SET_POPULAR_MOVIES"
 
 let initialState = {
     movies: [],
     genres: [],
     moviesByGenre: [],
     trendingPersons: [],
-    topRatedMovies: []
+    topRatedMovies: [],
+    popularMovies: []
 }
 
 
@@ -32,6 +41,9 @@ const movieReducer = (state = initialState, action) => {
         case SET_TOP_RATED_MOVIES: {
             return {...state, topRatedMovies: action.topMovies}
         }
+        case SET_POPULAR_MOVIES: {
+            return {...state, popularMovies: action.popularMovies}
+        }
         default:
             return state
     }
@@ -41,6 +53,7 @@ export const setGenre = (genres) => ({type: SET_GENRE, genres})
 export const setMovieByGenre = (moviesByGenre) => ({type: SET_MOVIES_BY_GENRE, moviesByGenre})
 export const setTrendingPersons = (persons) => ({type: SET_TRENDING_PERSONS, persons})
 export const setTopRatedMovies = (topMovies) => ({type: SET_TOP_RATED_MOVIES, topMovies})
+export const setPopularMovies = (popularMovies) => ({type: SET_POPULAR_MOVIES, popularMovies})
 
 
 const modifiedMovieDataFlow = async (dispatch, apiMethod, actionCreator, genreId) => {
@@ -114,6 +127,16 @@ export const getTopRatedMovies = () => {
     return async (dispatch) => {
         try {
             await modifiedMovieDataFlow(dispatch, fetchTopRatedMovies, setTopRatedMovies)
+        } catch (e) {
+            alert("error")
+        }
+    }
+}
+
+export const getPopularMovies = () => {
+    return async (dispatch) => {
+        try {
+            await modifiedMovieDataFlow(dispatch, fetchPopularMovies, setPopularMovies)
         } catch (e) {
             alert("error")
         }

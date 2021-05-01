@@ -7,7 +7,7 @@ function TrendingPersons({trendingPersons}) {
             <div className="row mt-3">
                 <div className="col">
                     <p className="font-weight-bold">
-                        TRENDING PERSONS ON THIS WEEK
+                      Trending Persons Of This Week
                     </p>
                 </div>
             </div>

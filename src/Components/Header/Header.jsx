@@ -26,7 +26,7 @@ const Header = (props) => {
 
                         <li>
                             <Link to="/add" className="btn btn-main">
-                                + Add
+                                <i className="fas fa-search"></i>
                             </Link>
                         </li>
                     </ul>
