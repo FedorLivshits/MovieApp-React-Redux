@@ -1,18 +1,12 @@
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-
-body {
-    font-family: "Source Sans Pro", sans-serif;
-    padding: 0;
-    margin: 0;
-    background: #f9f9f9;
-}
+/*p{*/
+/*    white-space: normal;*/
+/*}*/
 
 .app {
     background: #f9f9f9;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Header Styles */
@@ -158,4 +152,34 @@ body {
 
 .footer-info p a {
     color: #02b5e1;
+}
+
+.scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+.my-card {
+    display: inline-block;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #dbdbdb;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #cecece;
 }
