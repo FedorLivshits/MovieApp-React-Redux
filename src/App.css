@@ -43,28 +43,28 @@
     font-size: 1.75rem;
 }
 
-.main-input {
-    width: 50%;
-    background-color: #ffffff;
-    padding: 10px 15px;
-    border-radius: 30px;
-    border: none;
-    color: #032541;
-    font-size: 15px;
-}
+/*.main-input {*/
+/*    width: 50%;*/
+/*    background-color: #ffffff;*/
+/*    padding: 10px 15px;*/
+/*    border-radius: 30px;*/
+/*    border: none;*/
+/*    color: #032541;*/
+/*    font-size: 15px;*/
+/*}*/
 
-.search-film-btn {
-    background: linear-gradient(to right, #1cd2ae 0%, #02b5e1 100%);
-    padding: 11px 25px;
-    font-size: 15px;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    outline: none;
-    cursor: pointer;
-    position: relative;
-    left: -53px;
-}
+/*.search-film-btn {*/
+/*    background: linear-gradient(to right, #1cd2ae 0%, #02b5e1 100%);*/
+/*    padding: 11px 25px;*/
+/*    font-size: 15px;*/
+/*    color: white;*/
+/*    border: none;*/
+/*    border-radius: 30px;*/
+/*    outline: none;*/
+/*    cursor: pointer;*/
+/*    position: relative;*/
+/*    left: -53px;*/
+/*}*/
 
 .carousel-img {
     max-height: 100vh;

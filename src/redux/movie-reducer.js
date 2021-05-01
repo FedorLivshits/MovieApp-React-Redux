@@ -13,6 +13,7 @@ const SET_MOVIES_BY_GENRE = "movie-reducer/SET_MOVIES_BY_GENRE"
 const SET_TRENDING_PERSONS = "movie-reducer/SET_TRENDING_PERSONS"
 const SET_TOP_RATED_MOVIES = "movie-reducer/SET_TOP_RATED_MOVIES"
 const SET_POPULAR_MOVIES = "movie-reducer/SET_POPULAR_MOVIES"
+const IS_FETCHING = "movie-reducer/IS_FETCHING"
 
 let initialState = {
     movies: [],
@@ -20,7 +21,8 @@ let initialState = {
     moviesByGenre: [],
     trendingPersons: [],
     topRatedMovies: [],
-    popularMovies: []
+    popularMovies: [],
+    isFetching: false
 }
 
 
@@ -44,6 +46,9 @@ const movieReducer = (state = initialState, action) => {
         case SET_POPULAR_MOVIES: {
             return {...state, popularMovies: action.popularMovies}
         }
+        case IS_FETCHING: {
+            return {...state, isFetching: action.isFetching}
+        }
         default:
             return state
     }
@@ -54,6 +59,7 @@ export const setMovieByGenre = (moviesByGenre) => ({type: SET_MOVIES_BY_GENRE, m
 export const setTrendingPersons = (persons) => ({type: SET_TRENDING_PERSONS, persons})
 export const setTopRatedMovies = (topMovies) => ({type: SET_TOP_RATED_MOVIES, topMovies})
 export const setPopularMovies = (popularMovies) => ({type: SET_POPULAR_MOVIES, popularMovies})
+export const setIsFetching = (isFetching) => ({type: IS_FETCHING, isFetching})
 
 
 const modifiedMovieDataFlow = async (dispatch, apiMethod, actionCreator, genreId) => {
@@ -98,7 +104,9 @@ export const getGenre = () => {
 export const getMovieByGenre = (genreId) => {
     return async (dispatch) => {
         try {
+            dispatch(setIsFetching(true))
             await modifiedMovieDataFlow(dispatch, fetchMovieByGenre, setMovieByGenre, genreId)
+            dispatch(setIsFetching(false))
         } catch (e) {
             alert("error")
         }
