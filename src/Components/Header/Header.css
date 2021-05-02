@@ -1,5 +1,6 @@
 /* Header Styles */
-.header{
+
+.header {
     position: absolute;
     top: 0;
     right: 0;
@@ -35,6 +36,7 @@
     font-weight: 700;
     font-size: 24px;
     padding-left: 15px;
+    cursor: pointer;
 }
 
 .header .nav-links {
@@ -59,6 +61,7 @@
 .other-page__header {
     background-color: #032039;
 }
+
 .other-page__header .inner-content {
     display: flex;
     justify-content: space-between;
@@ -72,14 +75,17 @@
     text-decoration: none;
     transition: all 0.3s ease;
 }
+
 .other-page__header a {
     color: white;
 }
+
 .other-page__header a:hover {
-    color: white;
+    color: #ffffff;
     opacity: 0.7;
     text-decoration: none;
 }
+
 .other-page__header .nav-links {
     padding: 0;
     margin: 0;
@@ -92,6 +98,26 @@
     display: inline-block;
     margin-right: 30px;
 }
+
 .other-page__header .nav-links li:last-child {
     margin-right: 0;
+}
+
+.other-page__header a.active {
+    color: #02b5e1;
+    transition: all .3s;
+}
+
+.other-page__header a.active:hover {
+    opacity: 1;
+    cursor: auto;
+}
+header .progress {
+    position: absolute;
+    z-index: 2000;
+    height: 0.2rem;
+    border-radius: 0;
+}
+.progress {
+
 }

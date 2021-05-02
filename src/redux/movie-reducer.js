@@ -1,7 +1,7 @@
 import {
     fetchActualMovies,
     fetchGenreList,
-    fetchMovieByGenre,
+    fetchMovieByGenre, fetchMoviesBySearch,
     fetchPerson,
     fetchPopularMovies,
     fetchTopRatedMovies
@@ -13,6 +13,7 @@ const SET_MOVIES_BY_GENRE = "movie-reducer/SET_MOVIES_BY_GENRE"
 const SET_TRENDING_PERSONS = "movie-reducer/SET_TRENDING_PERSONS"
 const SET_TOP_RATED_MOVIES = "movie-reducer/SET_TOP_RATED_MOVIES"
 const SET_POPULAR_MOVIES = "movie-reducer/SET_POPULAR_MOVIES"
+const SET_MOVIES_BY_SEARCH = "movie-reducer/SET_MOVIES_BY_SEARCH"
 const IS_FETCHING = "movie-reducer/IS_FETCHING"
 
 let initialState = {
@@ -46,6 +47,9 @@ const movieReducer = (state = initialState, action) => {
         case SET_POPULAR_MOVIES: {
             return {...state, popularMovies: action.popularMovies}
         }
+        case SET_MOVIES_BY_SEARCH: {
+            return {...state, moviesByGenre: action.moviesBySearch}
+        }
         case IS_FETCHING: {
             return {...state, isFetching: action.isFetching}
         }
@@ -59,11 +63,12 @@ export const setMovieByGenre = (moviesByGenre) => ({type: SET_MOVIES_BY_GENRE, m
 export const setTrendingPersons = (persons) => ({type: SET_TRENDING_PERSONS, persons})
 export const setTopRatedMovies = (topMovies) => ({type: SET_TOP_RATED_MOVIES, topMovies})
 export const setPopularMovies = (popularMovies) => ({type: SET_POPULAR_MOVIES, popularMovies})
+export const setMovieBySearch = (moviesBySearch) => ({type: SET_MOVIES_BY_SEARCH, moviesBySearch})
 export const setIsFetching = (isFetching) => ({type: IS_FETCHING, isFetching})
 
 
-const modifiedMovieDataFlow = async (dispatch, apiMethod, actionCreator, genreId) => {
-    let data = await apiMethod(genreId)
+const modifiedMovieDataFlow = async (dispatch, apiMethod, actionCreator, parameter) => {
+    let data = await apiMethod(parameter)
     let movies = data.results
     const posterUrl = 'https://image.tmdb.org/t/p/original/';
     const modifiedData = movies.map((m) => ({
@@ -75,6 +80,7 @@ const modifiedMovieDataFlow = async (dispatch, apiMethod, actionCreator, genreId
         overview: m['overview'],
         rating: m['vote_average'],
     }))
+    console.log(modifiedData)
     dispatch(actionCreator(modifiedData))
 }
 
@@ -145,6 +151,18 @@ export const getPopularMovies = () => {
     return async (dispatch) => {
         try {
             await modifiedMovieDataFlow(dispatch, fetchPopularMovies, setPopularMovies)
+        } catch (e) {
+            alert("error")
+        }
+    }
+}
+
+export const getMoviesBySearch = (queryText) => {
+    return async (dispatch) => {
+        try {
+            dispatch(setIsFetching(true))
+            await modifiedMovieDataFlow(dispatch, fetchMoviesBySearch, setMovieBySearch, queryText)
+            dispatch(setIsFetching(false))
         } catch (e) {
             alert("error")
         }

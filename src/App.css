@@ -43,28 +43,29 @@
     font-size: 1.75rem;
 }
 
-/*.main-input {*/
-/*    width: 50%;*/
-/*    background-color: #ffffff;*/
-/*    padding: 10px 15px;*/
-/*    border-radius: 30px;*/
-/*    border: none;*/
-/*    color: #032541;*/
-/*    font-size: 15px;*/
-/*}*/
+.main-input {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 30px;
+    border: none;
+    color: #032541;
+    font-size: 15px;
+    position: relative;
+}
 
-/*.search-film-btn {*/
-/*    background: linear-gradient(to right, #1cd2ae 0%, #02b5e1 100%);*/
-/*    padding: 11px 25px;*/
-/*    font-size: 15px;*/
-/*    color: white;*/
-/*    border: none;*/
-/*    border-radius: 30px;*/
-/*    outline: none;*/
-/*    cursor: pointer;*/
-/*    position: relative;*/
-/*    left: -53px;*/
-/*}*/
+.search-film-btn {
+    background: linear-gradient(to right, #1cd2ae 0%, #02b5e1 100%);
+    padding: 11px 25px;
+    font-size: 15px;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+}
 
 .carousel-img {
     max-height: 100vh;
@@ -104,6 +105,7 @@
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
+    margin-bottom: 50px;
 }
 .my-card {
     display: inline-block;
@@ -128,4 +130,25 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #cecece;
+}
+
+div .spinner-grow {
+    display: inline-block;
+    width: 10rem;
+    height: 10rem;
+    vertical-align: text-bottom;
+    background-color: currentColor;
+    border-radius: 50%;
+    opacity: 0;
+    animation: .75s linear infinite spinner-grow;
+}
+.movies-page{
+    margin-top: 40px;
+}
+section{
+    margin-top: 50px;
+}
+
+.genre-list{
+    padding-left: 0;
 }

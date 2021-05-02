@@ -4,7 +4,7 @@ import ReactStars from "react-rating-stars-component";
 
 function PopularMovies({popularMovies}) {
     return (
-        <>
+        <section>
             <div className="row mt-3">
                 <div className="col">
                     <p className="font-weight-bold">
@@ -33,7 +33,7 @@ function PopularMovies({popularMovies}) {
                     </div>
                 })}
             </div>
-        </>
+        </section>
     );
 }
 

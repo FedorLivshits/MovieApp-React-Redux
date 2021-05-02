@@ -7,6 +7,7 @@ import Footer from "./Components/Footer/Footer";
 import MainPage from "./Pages/MainPage";
 import MoviePage from "./Pages/MoviePage";
 import MovieByGenrePage from "./Pages/MovieByGenrePage";
+import {ProgressBar} from "react-bootstrap";
 
 
 function App() {

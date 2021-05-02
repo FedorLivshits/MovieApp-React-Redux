@@ -1,33 +1,38 @@
 import React from "react";
-import {Link, withRouter} from "react-router-dom";
-import {Container} from "react-bootstrap";
+import {Link, NavLink, withRouter} from "react-router-dom";
+
+import {Container, ProgressBar} from "react-bootstrap";
+
+import {connect} from "react-redux";
+import {compose} from "redux";
 import "./Header.css"
 
 const Header = (props) => {
     return (
         <header className={props.match.isExact ? "header" : "other-page__header"}>
+            {props.isFetching ? <ProgressBar animated now={45} /> : ""}
             <Container>
                 <div className="inner-content">
                     <div className="brand">
-                        <Link to="/">MovieApp</Link>
+                        <NavLink to="/">MovieApp</NavLink>
                     </div>
 
                     <ul className="nav-links">
                         <li>
-                            <Link to="/movies">Movies</Link>
+                            <NavLink to="/movies">Movies</NavLink>
                         </li>
                         <li>
-                            <Link to="/watchlist">Watch List</Link>
-                        </li>
-
-                        <li>
-                            <Link to="/watched">Watched</Link>
+                            <NavLink to="/watchlist">Watch List</NavLink>
                         </li>
 
                         <li>
-                            <Link to="/add" className="btn btn-main">
+                            <NavLink to="/watched">Watched</NavLink>
+                        </li>
+
+                        <li>
+                            <NavLink to="/add" className="btn btn-main">
                                 <i className="fas fa-search"></i>
-                            </Link>
+                            </NavLink>
                         </li>
                     </ul>
                 </div>
@@ -36,4 +41,12 @@ const Header = (props) => {
     );
 };
 
-export default withRouter(Header)
+
+let mapStateToProps = (state) => ({
+    isFetching: state.movieApp.isFetching
+})
+
+export default compose(
+    connect(mapStateToProps, null),
+    withRouter,
+)(Header);

@@ -10,7 +10,7 @@ const genreUrl = `${url}/genre/movie/list`;
 const moviesUrl = `${url}/discover/movie`;
 const personUrl = `${url}/trending/person/week`;
 const popularMoviesUrl = `${url}/movie/popular`;
-
+const searchMoviesURL = `${url}/search/movie`;
 
 export const fetchActualMovies = () => {
     return axios.get(`${nowPlayingUrl}?api_key=${apiKey}&language=en-US&page=1`)
@@ -38,5 +38,10 @@ export const fetchTopRatedMovies = () => {
 
 export const fetchPopularMovies = () => {
     return axios.get(`${popularMoviesUrl}?api_key=${apiKey}&language=en-US&page=1`)
+        .then(response => response.data)
+}
+
+export const fetchMoviesBySearch = (newText) => {
+    return axios.get(`${searchMoviesURL}?api_key=${apiKey}&&language=en-US&page=1&include_adult=false&query=${newText}`)
         .then(response => response.data)
 }

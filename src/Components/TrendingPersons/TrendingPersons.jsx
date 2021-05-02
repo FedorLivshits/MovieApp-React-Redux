@@ -3,7 +3,7 @@ import React from 'react';
 
 function TrendingPersons({trendingPersons}) {
     return (
-        <>
+        <section>
             <div className="row mt-3">
                 <div className="col">
                     <p className="font-weight-bold">
@@ -29,7 +29,7 @@ function TrendingPersons({trendingPersons}) {
                     </div>
                 })}
             </div>
-        </>
+        </section>
     );
 }
 
