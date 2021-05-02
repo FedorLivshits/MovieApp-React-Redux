@@ -146,6 +146,10 @@ div .spinner-grow {
 }
 .movies-page{
     margin-top: 40px;
+    margin-bottom: 40px;
+}
+.no-movies{
+    margin-top: 40px;
 }
 section{
     margin-top: 50px;
@@ -159,6 +163,14 @@ section{
 }
 .card-img{
     border-radius: 10px;
+}
+.list-group-item:hover{
+    background-color: #dbdbdb;
+    transition: 0.2s;
+}
+.list-group-item:active{
+    background-color: #007bff;
+    color: white;
 }
 /*.card-title{*/
 /*    min-height: 60px;*/
