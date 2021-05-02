@@ -31,7 +31,6 @@ function MovieByGenrePage({getMovieByGenre, genres, moviesByGenre, getGenre, isF
         <Container>
             <div className="row movies-page">
                 <div className="col-3">
-
                     <div className="genre-list-wrapper">
                         <ul className="genre-list">
                             {genres.map(g => {
@@ -62,50 +61,54 @@ function MovieByGenrePage({getMovieByGenre, genres, moviesByGenre, getGenre, isF
                         :
                         <div className="row mt-3">
                             {moviesByGenre.map(m => {
-                                return <div className="col-md-3 col-sm-6 card" key={m.id}>
+                                return <div className="col-md-3 col-sm-6 my-card" key={m.id}>
                                     <div className="card">
                                         <Link to={`/movie/${m.id}`}>
-                                            <img className="img-fluid" src={m.poster} alt={m.title}/>
+                                            <img className="img-fluid card-img" src={m.poster} alt={m.title}/>
                                         </Link>
                                     </div>
                                     <div className="mt-2">
-                                        <p style={{fontWeight: "bolder"}}>{m.title}</p>
-                                        <p>Rated: {m.rating}</p>
                                         <ReactStars
                                             value={m.rating}
                                             count={10}
                                             size={15}
                                             color1={"#f4c10f"}
                                         />
+                                        <p>Rated: {m.rating}</p>
+                                        <p className="card-title" style={{fontWeight: "bolder"}}>{m.title}</p>
+
+
                                     </div>
                                 </div>
                             })}
                             {moviesByGenre.length
                                 ?
-                                <Pagination>
-                                    <Pagination.First/>
-                                    <Pagination.Prev/>
-                                    <Pagination.Item>{1}</Pagination.Item>
-                                    <Pagination.Ellipsis/>
+                                <div className="row d-flex w-100 justify-content-center">
+                                    <Pagination>
+                                        <Pagination.First/>
+                                        <Pagination.Prev/>
+                                        <Pagination.Item>{1}</Pagination.Item>
+                                        <Pagination.Ellipsis/>
 
-                                    <Pagination.Item>{10}</Pagination.Item>
-                                    <Pagination.Item>{11}</Pagination.Item>
-                                    <Pagination.Item active>{12}</Pagination.Item>
-                                    <Pagination.Item>{13}</Pagination.Item>
-                                    <Pagination.Item disabled>{14}</Pagination.Item>
+                                        <Pagination.Item>{10}</Pagination.Item>
+                                        <Pagination.Item>{11}</Pagination.Item>
+                                        <Pagination.Item active>{12}</Pagination.Item>
+                                        <Pagination.Item>{13}</Pagination.Item>
+                                        <Pagination.Item disabled>{14}</Pagination.Item>
 
-                                    <Pagination.Ellipsis/>
-                                    <Pagination.Item>{20}</Pagination.Item>
-                                    <Pagination.Next/>
-                                    <Pagination.Last/>
-                                </Pagination>
+                                        <Pagination.Ellipsis/>
+                                        <Pagination.Item>{20}</Pagination.Item>
+                                        <Pagination.Next/>
+                                        <Pagination.Last/>
+                                    </Pagination>
+                                </div>
+
                                 :
                                 ""
                             }
 
                         </div>
                     }
-
                 </div>
             </div>
         </Container>
