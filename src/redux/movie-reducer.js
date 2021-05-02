@@ -1,7 +1,7 @@
 import {
     fetchActualMovies,
     fetchGenreList,
-    fetchMovieByGenre, fetchMoviesBySearch,
+    fetchMovieByGenre, fetchMovieDetail, fetchMoviesBySearch,
     fetchPerson,
     fetchPopularMovies,
     fetchTopRatedMovies
@@ -14,10 +14,12 @@ const SET_TRENDING_PERSONS = "movie-reducer/SET_TRENDING_PERSONS"
 const SET_TOP_RATED_MOVIES = "movie-reducer/SET_TOP_RATED_MOVIES"
 const SET_POPULAR_MOVIES = "movie-reducer/SET_POPULAR_MOVIES"
 const SET_MOVIES_BY_SEARCH = "movie-reducer/SET_MOVIES_BY_SEARCH"
+const SET_MOVIE_DETAILS = "movie-reducer/SET_MOVIE_DETAILS"
 const IS_FETCHING = "movie-reducer/IS_FETCHING"
 
 let initialState = {
     movies: [],
+    movieDetails: [],
     genres: [],
     moviesByGenre: [],
     trendingPersons: [],
@@ -50,6 +52,9 @@ const movieReducer = (state = initialState, action) => {
         case SET_MOVIES_BY_SEARCH: {
             return {...state, moviesByGenre: action.moviesBySearch}
         }
+        case SET_MOVIE_DETAILS: {
+            return {...state, movieDetails: action.movie}
+        }
         case IS_FETCHING: {
             return {...state, isFetching: action.isFetching}
         }
@@ -64,6 +69,7 @@ export const setTrendingPersons = (persons) => ({type: SET_TRENDING_PERSONS, per
 export const setTopRatedMovies = (topMovies) => ({type: SET_TOP_RATED_MOVIES, topMovies})
 export const setPopularMovies = (popularMovies) => ({type: SET_POPULAR_MOVIES, popularMovies})
 export const setMovieBySearch = (moviesBySearch) => ({type: SET_MOVIES_BY_SEARCH, moviesBySearch})
+export const setMovieDetails = (movie) => ({type: SET_MOVIE_DETAILS, movie})
 export const setIsFetching = (isFetching) => ({type: IS_FETCHING, isFetching})
 
 
@@ -163,6 +169,17 @@ export const getMoviesBySearch = (queryText) => {
             dispatch(setIsFetching(true))
             await modifiedMovieDataFlow(dispatch, fetchMoviesBySearch, setMovieBySearch, queryText)
             dispatch(setIsFetching(false))
+        } catch (e) {
+            alert("error")
+        }
+    }
+}
+
+export const getMovieDetails = (id) => {
+    return async (dispatch) => {
+        try {
+            let data = await fetchMovieDetail(id)
+            dispatch(setMovieDetails(data))
         } catch (e) {
             alert("error")
         }

@@ -4,6 +4,7 @@
 html{
     background: #f9f9f9;
 }
+
 .app {
     background: #f9f9f9;
     height: 100vh;
@@ -54,6 +55,7 @@ html{
     color: #032541;
     font-size: 15px;
     position: relative;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
 }
 
 .search-film-btn {
@@ -67,6 +69,7 @@ html{
     cursor: pointer;
     position: absolute;
     right: 0;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
 }
 
 .carousel-img {
@@ -158,11 +161,20 @@ section{
 .genre-list{
     padding-left: 0;
 }
-.my-card{
-    margin-bottom: 20px;
+.card{
+    padding: 0 !important;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
 }
+/*.my-card{*/
+/*    margin-bottom: 20px;*/
+/*}*/
 .card-img{
-    border-radius: 10px;
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-topright: 20px;
+}
+.list-group{
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
 }
 .list-group-item:hover{
     background-color: #dbdbdb;
@@ -172,6 +184,10 @@ section{
     background-color: #007bff;
     color: white;
 }
+.movie-info{
+    font-size: 0.75rem;
+}
+
 /*.card-title{*/
 /*    min-height: 60px;*/
 /*}*/

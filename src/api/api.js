@@ -45,3 +45,12 @@ export const fetchMoviesBySearch = (newText) => {
     return axios.get(`${searchMoviesURL}?api_key=${apiKey}&&language=en-US&page=1&include_adult=false&query=${newText}`)
         .then(response => response.data)
 }
+
+export const fetchMovieDetail = (id) => {
+    return axios.get(`${movieUrl}/${id}?api_key=${apiKey}&&language=en-US`)
+        .then(response => response.data)
+}
+export const fetchMovieVideos = (id) => {
+    return axios.get(`${movieUrl}/${id}/videos?api_key=${apiKey}`)
+        .then(response => response.data)
+}

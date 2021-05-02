@@ -55,25 +55,23 @@ function MovieByGenrePage({getMovieByGenre, genres, moviesByGenre, getGenre, isF
                             <Spinner animation="grow" variant="primary"/>
                         </div>
                         :
-                        <div className="row mt-3">
+                        <div className="row mt-3 justify-content-center">
                             {moviesByGenre.map(m => {
-                                return <div className="col-md-3 col-sm-6 my-card" key={m.id}>
-                                    <div className="card">
+                                return <div className="col-md-2 col-sm-6 card  mb-3 ml-3" key={m.id}>
                                         <Link to={`/movie/${m.id}`}>
                                             <img className="img-fluid card-img" src={m.poster} alt={m.title}/>
                                         </Link>
-                                    </div>
-                                    <div className="mt-2">
+                                    <div className="mt-2 p-2">
                                         <ReactStars
                                             value={m.rating}
                                             count={10}
-                                            size={15}
+                                            size={13}
                                             color1={"#f4c10f"}
                                         />
-                                        <p>Rated: {m.rating}</p>
-                                        <p className="card-title" style={{fontWeight: "bolder"}}>{m.title}</p>
-
-
+                                        <div className="movie-info">
+                                            <p>Rated: {m.rating}</p>
+                                            <p className="card-title" style={{fontWeight: "bolder"}}>{m.title}</p>
+                                        </div>
                                     </div>
                                 </div>
                             })}
