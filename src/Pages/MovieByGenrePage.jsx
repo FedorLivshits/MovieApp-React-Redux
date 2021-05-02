@@ -4,7 +4,7 @@ import ReactStars from "react-rating-stars-component";
 import {connect} from "react-redux";
 import {getGenre, getMovieByGenre, getMoviesBySearch} from "../redux/movie-reducer";
 import Container from "react-bootstrap/cjs/Container";
-import {Button, Pagination, ProgressBar, Spinner} from "react-bootstrap";
+import {Button, Dropdown, Pagination, ProgressBar, Spinner} from "react-bootstrap";
 
 
 function MovieByGenrePage({getMovieByGenre, genres, moviesByGenre, getGenre, isFetching, getMoviesBySearch}) {
@@ -15,9 +15,6 @@ function MovieByGenrePage({getMovieByGenre, genres, moviesByGenre, getGenre, isF
     }, [])
 
     const onGenreChange = (id) => {
-        getMovieByGenre(id)
-    }
-    const showMore = (id) => {
         getMovieByGenre(id)
     }
     const onInputChange = (e) => {
@@ -31,16 +28,17 @@ function MovieByGenrePage({getMovieByGenre, genres, moviesByGenre, getGenre, isF
         <Container>
             <div className="row movies-page">
                 <div className="col-3">
-                    <div className="genre-list-wrapper">
-                        <ul className="genre-list">
+                    <Dropdown>
+                        <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                            Choose genre
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
                             {genres.map(g => {
-                                return <li key={g.id} className="list-inline-item">
-                                    <Button variant="outline-primary"
-                                            onClick={() => onGenreChange(g.id)}>{g.name}</Button>
-                                </li>
+                                return <Dropdown.Item  key={g.id} onClick={() => onGenreChange(g.id)}>{g.name}</Dropdown.Item>
                             })}
-                        </ul>
-                    </div>
+                        </Dropdown.Menu>
+                    </Dropdown>
                 </div>
                 <div className="col-9">
                     <div className="search-input__wrapper">
