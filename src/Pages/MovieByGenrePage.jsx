@@ -20,6 +20,10 @@ function MovieByGenrePage({getMovieByGenre, genres, moviesByGenre, getGenre, isF
         setCurrentGenreId(id)
         getMovieByGenre(id, currentPage)
     }
+    const onPageChange = ( page) => {
+        setCurrentPage(page)
+        getMovieByGenre(currentGenreId, page)
+    }
     const onInputChange = (e) => {
         e.preventDefault()
         setTextInput(e.target.value)
@@ -27,14 +31,12 @@ function MovieByGenrePage({getMovieByGenre, genres, moviesByGenre, getGenre, isF
     const searchMovie = () => {
         getMoviesBySearch(textInput)
     }
+
     let totalPages = [];
     for (let i = 0; i <= pages; i++) {
         totalPages.push(i)
     }
-    const onPageChange = ( page) => {
-        setCurrentPage(page)
-        getMovieByGenre(currentGenreId, page)
-    }
+
 
     return (
         <Container>
@@ -42,7 +44,7 @@ function MovieByGenrePage({getMovieByGenre, genres, moviesByGenre, getGenre, isF
                 <div className="col-3">
                     <ListGroup as="ul">
                         {genres.map(g => {
-                            return <ListGroup.Item key={g.id} onClick={() => onGenreChange(g.id)} as="li">
+                            return <ListGroup.Item className={currentGenreId === g.id ? "active" : ""} key={g.id} onClick={() => onGenreChange(g.id)} as="li">
                                 {g.name}
                             </ListGroup.Item>
                         })}
