@@ -175,6 +175,7 @@ section{
 }
 .list-group{
     box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+    cursor: pointer;
 }
 .list-group-item:hover{
     background-color: #dbdbdb;
@@ -187,7 +188,9 @@ section{
 .movie-info{
     font-size: 0.75rem;
 }
-
+.none-img{
+    background-color: #c7c7c7;
+}
 /*.card-title{*/
 /*    min-height: 60px;*/
 /*}*/

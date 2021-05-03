@@ -21,8 +21,8 @@ export const fetchGenreList = () => {
     return axios.get(`${genreUrl}?api_key=${apiKey}&language=en-US&page=1`)
         .then(response => response.data)
 }
-export const fetchMovieByGenre = (genre_id) => {
-    return axios.get(`${moviesUrl}?api_key=${apiKey}&language=en-US&page=1&with_genres=${genre_id}`)
+export const fetchMovieByGenre = (currentPage, genre_id) => {
+    return axios.get(`${moviesUrl}?api_key=${apiKey}&language=en-US&page=${currentPage}&with_genres=${genre_id}`)
         .then(response => response.data)
 }
 

@@ -16,6 +16,7 @@ const SET_POPULAR_MOVIES = "movie-reducer/SET_POPULAR_MOVIES"
 const SET_MOVIES_BY_SEARCH = "movie-reducer/SET_MOVIES_BY_SEARCH"
 const SET_MOVIE_DETAILS = "movie-reducer/SET_MOVIE_DETAILS"
 const IS_FETCHING = "movie-reducer/IS_FETCHING"
+const SET_PAGES = "movie-reducer/SET_PAGES"
 
 let initialState = {
     movies: [],
@@ -25,7 +26,8 @@ let initialState = {
     trendingPersons: [],
     topRatedMovies: [],
     popularMovies: [],
-    isFetching: false
+    isFetching: false,
+    pages: null,
 }
 
 
@@ -58,6 +60,9 @@ const movieReducer = (state = initialState, action) => {
         case IS_FETCHING: {
             return {...state, isFetching: action.isFetching}
         }
+        case SET_PAGES: {
+            return {...state, pages: action.pages}
+        }
         default:
             return state
     }
@@ -71,13 +76,14 @@ export const setPopularMovies = (popularMovies) => ({type: SET_POPULAR_MOVIES, p
 export const setMovieBySearch = (moviesBySearch) => ({type: SET_MOVIES_BY_SEARCH, moviesBySearch})
 export const setMovieDetails = (movie) => ({type: SET_MOVIE_DETAILS, movie})
 export const setIsFetching = (isFetching) => ({type: IS_FETCHING, isFetching})
+export const setPages = (pages) => ({type: SET_PAGES, pages})
 
 
-const modifiedMovieDataFlow = async (dispatch, apiMethod, actionCreator, parameter) => {
-    let data = await apiMethod(parameter)
-    let movies = data.results
+const modifiedMovieDataFlow = async (dispatch, apiMethod, actionCreator, parameter_1, parameter_2) => {
+    let data = await apiMethod(parameter_1, parameter_2)
     const posterUrl = 'https://image.tmdb.org/t/p/original/';
-    const modifiedData = movies.map((m) => ({
+    const pages = data.total_pages
+    const modifiedData = data.results.map((m) => ({
         id: m['id'],
         backPoster: posterUrl + m['backdrop_path'],
         popularity: m['popularity'],
@@ -87,6 +93,7 @@ const modifiedMovieDataFlow = async (dispatch, apiMethod, actionCreator, paramet
         rating: m['vote_average'],
     }))
     console.log(modifiedData)
+    dispatch(setPages(pages))
     dispatch(actionCreator(modifiedData))
 }
 
@@ -113,11 +120,25 @@ export const getGenre = () => {
     }
 }
 
-export const getMovieByGenre = (genreId) => {
+export const getMovieByGenre = (genreId, currentPage) => {
     return async (dispatch) => {
         try {
             dispatch(setIsFetching(true))
-            await modifiedMovieDataFlow(dispatch, fetchMovieByGenre, setMovieByGenre, genreId)
+            let data = await fetchMovieByGenre(currentPage, genreId)
+            const posterUrl = 'https://image.tmdb.org/t/p/original/';
+            const pages = data.total_pages
+            const modifiedData = data.results.map((m) => ({
+                id: m['id'],
+                backPoster: posterUrl + m['backdrop_path'],
+                popularity: m['popularity'],
+                title: m['title'],
+                poster: posterUrl + m['poster_path'],
+                overview: m['overview'],
+                rating: m['vote_average'],
+            }))
+            console.log(modifiedData)
+            dispatch(setPages(pages))
+            dispatch(setMovieByGenre(modifiedData))
             dispatch(setIsFetching(false))
         } catch (e) {
             alert("error")
