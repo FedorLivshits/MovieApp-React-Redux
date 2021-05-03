@@ -6,8 +6,9 @@ import {BrowserRouter, Route} from "react-router-dom";
 import Footer from "./Components/Footer/Footer";
 import MainPage from "./Pages/MainPage";
 import MoviePage from "./Pages/MoviePage";
-import MovieByGenrePage from "./Pages/MovieByGenrePage";
+import MovieByGenrePage from "./Pages/MoviesPage";
 import {ProgressBar} from "react-bootstrap";
+import MoviesPage from "./Pages/MoviesPage";
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
             <div className="app">
                 <Header/>
                 <Route exact path="/" render={() => <MainPage/>}/>
-                <Route path="/movies" render={() => <MovieByGenrePage/>}/>
+                <Route path="/movies" render={() => <MoviesPage/>}/>
                 <Route path="/movie/:id" render={() => <MoviePage/>}/>
                 <Footer/>
             </div>

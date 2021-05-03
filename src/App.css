@@ -4,7 +4,9 @@
 html{
     background: #f9f9f9;
 }
-
+p{
+    overflow: hidden;
+}
 .app {
     background: #f9f9f9;
     height: 100vh;

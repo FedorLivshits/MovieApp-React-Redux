@@ -2,12 +2,13 @@ import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import {connect} from "react-redux";
-import {getGenre, getMovieByGenre, getMoviesBySearch} from "../redux/movie-reducer";
 import Container from "react-bootstrap/cjs/Container";
-import {Button, Dropdown, ListGroup, Pagination, ProgressBar, Spinner} from "react-bootstrap";
+import {ListGroup, Spinner} from "react-bootstrap";
+import Paginator from "../Components/Paginator/Paginator";
+import {getGenre, getMovieByGenre, getMoviesBySearch} from "../redux/moviesPage-reducer";
 
 
-function MovieByGenrePage({getMovieByGenre, genres, moviesByGenre, getGenre, isFetching, getMoviesBySearch, pages}) {
+function MoviesPage({getMovieByGenre, genres, moviesByGenre, getGenre, isFetching, getMoviesBySearch, pages}) {
     const [textInput, setTextInput] = useState('')
     const [currentPage, setCurrentPage] = useState(1)
     const [currentGenreId, setCurrentGenreId] = useState(null)
@@ -31,12 +32,6 @@ function MovieByGenrePage({getMovieByGenre, genres, moviesByGenre, getGenre, isF
     const searchMovie = () => {
         getMoviesBySearch(textInput)
     }
-
-    let totalPages = [];
-    for (let i = 0; i <= pages; i++) {
-        totalPages.push(i)
-    }
-
 
     return (
         <Container>
@@ -94,19 +89,7 @@ function MovieByGenrePage({getMovieByGenre, genres, moviesByGenre, getGenre, isF
                             })}
                             {moviesByGenre.length
                                 ?
-                                <div className="row d-flex w-100 justify-content-center">
-                                    <Pagination>
-                                        <Pagination.First/>
-                                        <Pagination.Prev/>
-                                        {totalPages.map(p => <Pagination.Item onClick={() => onPageChange(p)}
-                                                                              className={(currentPage === p) ? "active" : ""}>
-                                            {p}
-                                        </Pagination.Item>)}
-                                        <Pagination.Next/>
-                                        <Pagination.Last/>
-                                    </Pagination>
-                                </div>
-
+                               <Paginator pages={pages} onPageChange={onPageChange} currentPage={currentPage}/>
                                 :
                                 ""
                             }
@@ -122,11 +105,11 @@ function MovieByGenrePage({getMovieByGenre, genres, moviesByGenre, getGenre, isF
 
 const mapStateToProps = (state) => {
     return {
-        genres: state.movieApp.genres,
-        moviesByGenre: state.movieApp.moviesByGenre,
-        isFetching: state.movieApp.isFetching,
-        moviesBySearch: state.movieApp.moviesBySearch,
-        pages: state.movieApp.pages,
+        genres: state.moviesPage.genres,
+        moviesByGenre: state.moviesPage.moviesByGenre,
+        isFetching: state.moviesPage.isFetching,
+        moviesBySearch: state.moviesPage.moviesBySearch,
+        pages: state.moviesPage.pages,
     }
 }
 
@@ -134,4 +117,4 @@ export default connect(mapStateToProps, {
     getMovieByGenre,
     getGenre,
     getMoviesBySearch
-})(MovieByGenrePage);
+})(MoviesPage);

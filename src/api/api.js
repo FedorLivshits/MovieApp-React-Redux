@@ -22,7 +22,7 @@ export const fetchGenreList = () => {
         .then(response => response.data)
 }
 export const fetchMovieByGenre = (currentPage, genre_id) => {
-    return axios.get(`${moviesUrl}?api_key=${apiKey}&language=en-US&page=${currentPage}&with_genres=${genre_id}`)
+    return axios.get(`${moviesUrl}?api_key=${apiKey}&language=en-US&include_adult=false&page=${currentPage}&with_genres=${genre_id}`)
         .then(response => response.data)
 }
 

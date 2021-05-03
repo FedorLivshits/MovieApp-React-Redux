@@ -43,7 +43,7 @@ const Header = (props) => {
 
 
 let mapStateToProps = (state) => ({
-    isFetching: state.movieApp.isFetching
+    isFetching: state.moviesPage.isFetching
 })
 
 export default compose(

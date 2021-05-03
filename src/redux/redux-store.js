@@ -1,9 +1,13 @@
 import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import thunkMiddleware from "redux-thunk";
-import movieReducer from "./movie-reducer";
+import mainPageReducer from "./mainPage-reducer";
+import moviePageReducer from "./moviePage-reducer";
+import moviesPageReducer from "./moviesPage-reducer";
 
 let reducers = combineReducers({
-    movieApp: movieReducer,
+    mainPage: mainPageReducer,
+    moviePage: moviePageReducer,
+    moviesPage: moviesPageReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
