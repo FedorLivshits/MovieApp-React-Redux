@@ -54,3 +54,13 @@ export const fetchMovieVideos = (id) => {
     return axios.get(`${movieUrl}/${id}/videos?api_key=${apiKey}`)
         .then(response => response.data)
 }
+
+export const fetchCasts = async (id) => {
+    return axios.get(`${movieUrl}/${id}/credits?api_key=${apiKey}`)
+        .then(response => response.data)
+}
+
+export const fetchSimilarMovies = async (id) => {
+    return axios.get(`${movieUrl}/${id}/similar?api_key=${apiKey}&&language=en-US`)
+        .then(response => response.data)
+}

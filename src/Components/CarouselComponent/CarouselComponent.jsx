@@ -14,18 +14,10 @@ function CarouselComponent({movies}) {
                         src={m.backPoster}
                         alt="First slide"
                     />
-
                         <div className="input-section-title">
                             <h2 className="input-title ">Welcome.</h2>
                             <h3 className="input-title-descr">Millions of movie to discover. Explore now.</h3>
                         </div>
-
-                        {/*<div className="input-wrapper">*/}
-                        {/*    <input  className="main-input" type="text" placeholder="Search for a movie"/>*/}
-                        {/*    <button className="search-film-btn">*/}
-                        {/*        search*/}
-                        {/*    </button>*/}
-                        {/*</div>*/}
                     <Carousel.Caption>
                         <h3>{m.title}</h3>
                     </Carousel.Caption>

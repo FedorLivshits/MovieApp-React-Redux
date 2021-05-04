@@ -88,7 +88,19 @@ p{
     background: rgba(0, 0, 0, 0.5);
     z-index: 2;
 }
-
+.movie-img{
+    max-height: 100vh;
+}
+.movie-img:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.68);
+    z-index: 2;
+}
 .footer {
     margin-top: auto;
     background: linear-gradient(to bottom, #032039 0%, #032541 100%);
@@ -167,6 +179,7 @@ section{
     padding: 0 !important;
     border-radius: 15px;
     box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+    top: 0;
 }
 /*.my-card{*/
 /*    margin-bottom: 20px;*/
@@ -189,6 +202,16 @@ section{
 .none-img{
     background-color: #c7c7c7;
 }
-/*.card-title{*/
-/*    min-height: 60px;*/
-/*}*/
+.movie-img img{
+    height: 100vh;
+    position: relative;
+}
+.movie-overview{
+    font-weight: normal;
+    line-height: 20px;
+    max-width: 500px;
+}
+.movie-page__content{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

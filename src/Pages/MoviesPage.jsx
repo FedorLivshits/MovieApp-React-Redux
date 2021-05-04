@@ -8,7 +8,7 @@ import Paginator from "../Components/Paginator/Paginator";
 import {getGenre, getMovieByGenre, getMoviesBySearch} from "../redux/moviesPage-reducer";
 
 
-function MoviesPage({getMovieByGenre, genres, moviesByGenre, getGenre, isFetching, getMoviesBySearch, pages}) {
+const MoviesPage = ({getMovieByGenre, genres, moviesByGenre, getGenre, isFetching, getMoviesBySearch, pages}) => {
     const [textInput, setTextInput] = useState('')
     const [currentPage, setCurrentPage] = useState(1)
     const [currentGenreId, setCurrentGenreId] = useState(null)
@@ -21,7 +21,7 @@ function MoviesPage({getMovieByGenre, genres, moviesByGenre, getGenre, isFetchin
         setCurrentGenreId(id)
         getMovieByGenre(id, currentPage)
     }
-    const onPageChange = ( page) => {
+    const onPageChange = (page) => {
         setCurrentPage(page)
         getMovieByGenre(currentGenreId, page)
     }
@@ -39,7 +39,8 @@ function MoviesPage({getMovieByGenre, genres, moviesByGenre, getGenre, isFetchin
                 <div className="col-3">
                     <ListGroup as="ul">
                         {genres.map(g => {
-                            return <ListGroup.Item className={currentGenreId === g.id ? "active" : ""} key={g.id} onClick={() => onGenreChange(g.id)} as="li">
+                            return <ListGroup.Item className={currentGenreId === g.id ? "active" : ""} key={g.id}
+                                                   onClick={() => onGenreChange(g.id)} as="li">
                                 {g.name}
                             </ListGroup.Item>
                         })}
@@ -89,7 +90,7 @@ function MoviesPage({getMovieByGenre, genres, moviesByGenre, getGenre, isFetchin
                             })}
                             {moviesByGenre.length
                                 ?
-                               <Paginator pages={pages} onPageChange={onPageChange} currentPage={currentPage}/>
+                                <Paginator pages={pages} onPageChange={onPageChange} currentPage={currentPage}/>
                                 :
                                 ""
                             }
@@ -116,5 +117,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
     getMovieByGenre,
     getGenre,
-    getMoviesBySearch
+    getMoviesBySearch,
 })(MoviesPage);

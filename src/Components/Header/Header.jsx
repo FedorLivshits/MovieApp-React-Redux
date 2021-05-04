@@ -7,10 +7,10 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 import "./Header.css"
 
-const Header = (props) => {
+const Header = ({isFetching, match }) => {
     return (
-        <header className={props.match.isExact ? "header" : "other-page__header"}>
-            {props.isFetching ? <ProgressBar animated now={45} /> : ""}
+        <header className={match.isExact ? "header" : "other-page__header"}>
+            {isFetching ? <ProgressBar animated now={45} /> : ""}
             <Container>
                 <div className="inner-content">
                     <div className="brand">
@@ -31,7 +31,7 @@ const Header = (props) => {
 
                         <li>
                             <NavLink to="/add" className="btn btn-main">
-                                <i className="fas fa-search"></i>
+                                <i className="fas fa-search"/>
                             </NavLink>
                         </li>
                     </ul>
