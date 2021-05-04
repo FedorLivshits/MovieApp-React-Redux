@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from "react-redux";
-import {getMovieCast, getMovieDetails, getSimilarMovies, getTrailer} from "../redux/moviePage-reducer";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 import {Button, Card, Carousel, Container, Spinner} from "react-bootstrap";
@@ -11,7 +10,7 @@ import TrailerModal from "../Components/Modal/TrailerModal";
 import {initializeMoviePage} from "../redux/initial-reducer";
 
 
-const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilarMovies, getMovieCast, movieCast, similarMovies, getTrailer, trailer, initializeMoviePage, initializedMoviePage}) => {
+const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, trailer, initializeMoviePage, initializedMoviePage}) => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -47,21 +46,21 @@ const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilar
                             </div>
                             :
                             <div className="movie-page">
-                                    <Carousel controls={false} indicators={false}>
-                                        <Carousel.Item className="carousel-img">
-                                            <img
-                                                className="d-block w-100"
-                                                src={movieDetails.backPoster}
-                                                alt="First slide"
-                                            />
-                                            <div className="input-section-title">
-                                                <h2 className="input-title justify-content-center">{movieDetails.title}</h2>
-                                            </div>
-                                            <Carousel.Caption>
-                                                <Button variant="primary" onClick={handleShow}>Watch Trailer</Button>
-                                            </Carousel.Caption>
-                                        </Carousel.Item>
-                                    </Carousel>
+                                <Carousel controls={false} indicators={false}>
+                                    <Carousel.Item className="carousel-img">
+                                        <img
+                                            className="d-block w-100"
+                                            src={movieDetails.backPoster}
+                                            alt="First slide"
+                                        />
+                                        <div className="input-section-title">
+                                            <h2 className="input-title justify-content-center">{movieDetails.title}</h2>
+                                        </div>
+                                        <Carousel.Caption>
+                                            <Button variant="primary" onClick={handleShow}>Watch Trailer</Button>
+                                        </Carousel.Caption>
+                                    </Carousel.Item>
+                                </Carousel>
                                 <Container>
                                     <div className="movie-page__content">
                                         <div className="row">
