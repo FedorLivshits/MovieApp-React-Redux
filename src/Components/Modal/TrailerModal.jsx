@@ -25,7 +25,7 @@ const TrailerModal = (props) => {
                     </Modal.Body>
                 </Modal>
                 :
-                ""
+                null
             }
             </>
     );

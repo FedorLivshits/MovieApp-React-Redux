@@ -4,10 +4,10 @@ import {
 } from "../api/api";
 import {setIsFetching} from "./moviesPage-reducer";
 
-const SET_MOVIE_DETAILS = "movie-reducer/SET_MOVIE_DETAILS"
-const SET_MOVIE_CAST = "movie-reducer/SET_MOVIE_CAST"
-const SET_SIMILAR_MOVIES = "movie-reducer/SET_SIMILAR_MOVIES"
-const SET_TRAILER = "movie-reducer/SET_TRAILER"
+const SET_MOVIE_DETAILS = "moviePage-reducer/SET_MOVIE_DETAILS"
+const SET_MOVIE_CAST = "moviePage-reducer/SET_MOVIE_CAST"
+const SET_SIMILAR_MOVIES = "moviePage-reducer/SET_SIMILAR_MOVIES"
+const SET_TRAILER = "moviePage-reducer/SET_TRAILER"
 
 let initialState = {
     movieDetails: null,

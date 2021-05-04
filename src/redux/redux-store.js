@@ -4,12 +4,14 @@ import mainPageReducer from "./mainPage-reducer";
 import moviePageReducer from "./moviePage-reducer";
 import moviesPageReducer from "./moviesPage-reducer";
 import personPageReducer from "./personPage-reducer";
+import initializedReducer from "./initial-reducer";
 
 let reducers = combineReducers({
     mainPage: mainPageReducer,
     moviePage: moviePageReducer,
     moviesPage: moviesPageReducer,
-    personPage: personPageReducer
+    personPage: personPageReducer,
+    initial: initializedReducer,
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

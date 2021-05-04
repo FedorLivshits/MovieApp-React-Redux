@@ -4,11 +4,11 @@ import {
 } from "../api/api";
 
 
-const SET_GENRE = "movie-reducer/SET_GENRE"
-const SET_MOVIES_BY_GENRE = "movie-reducer/SET_MOVIES_BY_GENRE"
-const SET_MOVIES_BY_SEARCH = "movie-reducer/SET_MOVIES_BY_SEARCH"
-const IS_FETCHING = "movie-reducer/IS_FETCHING"
-const SET_PAGES = "movie-reducer/SET_PAGES"
+const SET_GENRE = "moviesPage-reducer/SET_GENRE"
+const SET_MOVIES_BY_GENRE = "moviesPage-reducer/SET_MOVIES_BY_GENRE"
+const SET_MOVIES_BY_SEARCH = "moviesPage-reducer/SET_MOVIES_BY_SEARCH"
+const IS_FETCHING = "moviesPage-reducer/IS_FETCHING"
+const SET_PAGES = "moviesPage-reducer/SET_PAGES"
 
 let initialState = {
     genres: [],

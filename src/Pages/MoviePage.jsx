@@ -8,9 +8,10 @@ import SimilarMovies from "../Components/SimilarMovies/SimilarMovies";
 import MovieCast from "../Components/MovieCast/MovieCast";
 import ReactStars from "react-rating-stars-component";
 import TrailerModal from "../Components/Modal/TrailerModal";
+import {initializeMoviePage} from "../redux/initial-reducer";
 
 
-const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilarMovies, getMovieCast, movieCast, similarMovies, getTrailer, trailer}) => {
+const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilarMovies, getMovieCast, movieCast, similarMovies, getTrailer, trailer, initializeMoviePage, initializedMoviePage}) => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -19,10 +20,7 @@ const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilar
     let params = match.params
 
     useEffect(() => {
-        getMovieDetails(params.id)
-        getSimilarMovies(params.id)
-        getMovieCast(params.id)
-        getTrailer(params.id)
+        initializeMoviePage(params.id)
     }, [params.id])
 
     const isNotEmptyObj = (obj) => {
@@ -31,7 +29,11 @@ const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilar
         }
         return false;
     }
-
+    if (!initializedMoviePage) {
+        return <div className="row mt-3 d-flex justify-content-center">
+            <Spinner animation="grow" variant="primary"/>
+        </div>
+    }
     return (
         <>
             {
@@ -124,10 +126,11 @@ const mapStateToProps = (state) => {
         movieCast: state.moviePage.movieCast,
         similarMovies: state.moviePage.similarMovies,
         trailer: state.moviePage.trailer,
-        isFetching: state.moviesPage.isFetching
+        isFetching: state.moviesPage.isFetching,
+        initializedMoviePage: state.initial.initializedMoviePage
     }
 }
 export default compose(
-    connect(mapStateToProps, {getMovieDetails, getSimilarMovies, getMovieCast, getTrailer}),
+    connect(mapStateToProps, {initializeMoviePage}),
     withRouter,
 )(MoviePage);

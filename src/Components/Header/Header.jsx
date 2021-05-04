@@ -24,11 +24,6 @@ const Header = ({isFetching, match }) => {
                         <li>
                             <NavLink to="/watchlist">Watch List</NavLink>
                         </li>
-
-                        <li>
-                            <NavLink to="/watched">Watched</NavLink>
-                        </li>
-
                         <li>
                             <NavLink to="/add" className="btn btn-main">
                                 <i className="fas fa-search"/>

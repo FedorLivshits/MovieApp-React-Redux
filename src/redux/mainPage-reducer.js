@@ -5,10 +5,10 @@ import {
     fetchTopRatedMovies
 } from "../api/api";
 
-const SET_MOVIES = "movie-reducer/SET_MOVIES"
-const SET_TRENDING_PERSONS = "movie-reducer/SET_TRENDING_PERSONS"
-const SET_TOP_RATED_MOVIES = "movie-reducer/SET_TOP_RATED_MOVIES"
-const SET_POPULAR_MOVIES = "movie-reducer/SET_POPULAR_MOVIES"
+const SET_MOVIES = "mainPage-reducer/SET_MOVIES"
+const SET_TRENDING_PERSONS = "mainPage-reducer/SET_TRENDING_PERSONS"
+const SET_TOP_RATED_MOVIES = "mainPage-reducer/SET_TOP_RATED_MOVIES"
+const SET_POPULAR_MOVIES = "mainPage-reducer/SET_POPULAR_MOVIES"
 
 let initialState = {
     movies: [],

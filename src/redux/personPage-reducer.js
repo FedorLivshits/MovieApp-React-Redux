@@ -5,8 +5,8 @@ import {
 import {setIsFetching, setMovieByGenre, setPages} from "./moviesPage-reducer";
 
 
-const SET_PERSON = "movie-reducer/SET_PERSON"
-const SET_PERSON_MOVIES = "movie-reducer/SET_PERSON_MOVIES"
+const SET_PERSON = "personPage-reducer/SET_PERSON"
+const SET_PERSON_MOVIES = "personPage-reducer/SET_PERSON_MOVIES"
 
 let initialState = {
     personDetail: null,
