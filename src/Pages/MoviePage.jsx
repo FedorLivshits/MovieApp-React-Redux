@@ -4,6 +4,9 @@ import {getMovieCast, getMovieDetails, getSimilarMovies} from "../redux/moviePag
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 import {Button, Card, Carousel, Container, ListGroup, Spinner} from "react-bootstrap";
+import SimilarMovies from "../Components/SimilarMovies/SimilarMovies";
+import MovieCast from "../Components/MovieCast/MovieCast";
+import ReactStars from "react-rating-stars-component";
 
 
 const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilarMovies, getMovieCast, movieCast, similarMovies}) => {
@@ -36,12 +39,6 @@ const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilar
                             </div>
                             :
                             <div className="movie-page">
-                                {/*<div className="movie-content">*/}
-                                {/*    <div className="movie-background__img">*/}
-                                {/*        <img className="d-block w-100" src={movieDetails.backPoster} alt=""/>*/}
-                                {/*    </div>*/}
-                                {/*</div>*/}
-
                                 <Carousel controls={false} indicators={false}>
                                     <Carousel.Item className="carousel-img">
                                         <img
@@ -51,7 +48,6 @@ const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilar
                                         />
                                         <div className="input-section-title">
                                             <h2 className="input-title justify-content-center">{movieDetails.title}</h2>
-                                            {/*<p className="movie-overview">{movieDetails.overview}</p>*/}
                                             <Button variant="primary">Watch Trailer</Button>
                                         </div>
                                     </Carousel.Item>
@@ -69,15 +65,30 @@ const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilar
                                             </div>
                                             <div className="col-8">
                                                 <h2>{movieDetails.title}</h2>
+
                                                 <p>{movieDetails.release_date.split("-").reverse().join('/')} {movieDetails.genres.map(g =>
                                                     <span className="ml-1">*{g.name}*</span>)}</p>
-                                                <p>"{movieDetails.tagline}"</p>
+
+                                                {movieDetails.tagline
+                                                    ?
+                                                    <p>"{movieDetails.tagline}"</p>
+                                                    :
+                                                    ""
+                                                }
+                                                <ReactStars
+                                                    value={movieDetails.rating}
+                                                    count={10}
+                                                    size={15}
+                                                    color1={"#f4c10f"}
+                                                />
                                                 <h4>Overview:</h4>
                                                 <p>{movieDetails.overview}</p>
+
                                             </div>
                                         </div>
                                     </div>
-
+                                    <MovieCast movieCast={movieCast}/>
+                                    <SimilarMovies similarMovies={similarMovies}/>
                                 </Container>
 
                             </div>

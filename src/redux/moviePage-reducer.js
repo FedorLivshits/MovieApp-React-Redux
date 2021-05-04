@@ -97,6 +97,7 @@ export const getSimilarMovies = (id) => {
                 overview: m['overview'],
                 rating: m['vote_average'],
             }))
+            console.log(modifiedData)
             dispatch(setSimilarMovies(modifiedData))
         } catch (e) {
             alert("error")
