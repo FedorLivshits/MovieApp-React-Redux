@@ -75,7 +75,7 @@ export const getMovieCast = (id) => {
         try {
             let data = await fetchCasts(id)
             const modifiedData = data['cast'].map((c) => ({
-                id: c['cast_id'],
+                id: c['id'],
                 character: c['character'],
                 name: c['name'],
                 img: 'https://image.tmdb.org/t/p/w200' + c['profile_path'],

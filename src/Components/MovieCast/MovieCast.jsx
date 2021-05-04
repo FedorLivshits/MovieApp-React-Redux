@@ -26,7 +26,7 @@ const MovieCast = ({movieCast}) => (
                         className="font-weight-light text-center"
                         style={{color: "#5a606b"}}
                     >
-                        Character {p.character}
+                        {p.character}
                     </p>
                 </div>
             })}
