@@ -50,7 +50,7 @@ export const fetchMovieDetail = (id) => {
     return axios.get(`${movieUrl}/${id}?api_key=${apiKey}&&language=en-US`)
         .then(response => response.data)
 }
-export const fetchMovieVideos = (id) => {
+export const fetchMovieTrailer = (id) => {
     return axios.get(`${movieUrl}/${id}/videos?api_key=${apiKey}`)
         .then(response => response.data)
 }

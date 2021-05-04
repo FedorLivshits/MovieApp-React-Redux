@@ -8,6 +8,7 @@ import {compose} from "redux";
 import "./Header.css"
 
 const Header = ({isFetching, match }) => {
+    debugger
     return (
         <header className={match.isExact ? "header" : "other-page__header"}>
             {isFetching ? <ProgressBar animated now={45} /> : ""}

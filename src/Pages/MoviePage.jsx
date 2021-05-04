@@ -1,15 +1,20 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from "react-redux";
-import {getMovieCast, getMovieDetails, getSimilarMovies} from "../redux/moviePage-reducer";
+import {getMovieCast, getMovieDetails, getSimilarMovies, getTrailer} from "../redux/moviePage-reducer";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
-import {Button, Card, Carousel, Container, ListGroup, Spinner} from "react-bootstrap";
+import {Button, Card, Carousel, Container, ListGroup, Modal, Spinner} from "react-bootstrap";
 import SimilarMovies from "../Components/SimilarMovies/SimilarMovies";
 import MovieCast from "../Components/MovieCast/MovieCast";
 import ReactStars from "react-rating-stars-component";
+import ReactPlayer from "react-player";
 
 
-const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilarMovies, getMovieCast, movieCast, similarMovies}) => {
+const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilarMovies, getMovieCast, movieCast, similarMovies, getTrailer, trailer}) => {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     let params = match.params
 
@@ -17,6 +22,7 @@ const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilar
         getMovieDetails(params.id)
         getSimilarMovies(params.id)
         getMovieCast(params.id)
+        getTrailer(params.id)
     }, [params.id])
 
     const isNotEmptyObj = (obj) => {
@@ -48,8 +54,11 @@ const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilar
                                         />
                                         <div className="input-section-title">
                                             <h2 className="input-title justify-content-center">{movieDetails.title}</h2>
-                                            <Button variant="primary">Watch Trailer</Button>
+
                                         </div>
+                                        <Carousel.Caption>
+                                            <Button variant="primary" onClick={handleShow}>Watch Trailer</Button>
+                                        </Carousel.Caption>
                                     </Carousel.Item>
                                 </Carousel>
                                 <Container>
@@ -64,6 +73,7 @@ const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilar
                                                 </Card>
                                             </div>
                                             <div className="col-8">
+
                                                 <h2>{movieDetails.title}</h2>
 
                                                 <p>{movieDetails.release_date.split("-").reverse().join('/')} {movieDetails.genres.map(g =>
@@ -88,7 +98,13 @@ const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilar
                                         </div>
                                     </div>
                                     <MovieCast movieCast={movieCast}/>
-                                    <SimilarMovies similarMovies={similarMovies}/>
+                                    {similarMovies.length
+                                        ?
+                                        <SimilarMovies similarMovies={similarMovies}/>
+                                        :
+                                        ""
+                                    }
+                                    <TrailerModal show={show} onHide={handleClose} trailer={trailer}/>
                                 </Container>
 
                             </div>
@@ -101,6 +117,26 @@ const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilar
         </>
     );
 }
+function TrailerModal(props) {
+    const youtubeUrl = "https://www.youtube.com/watch?v=";
+    return (
+        <Modal
+            {...props}
+            size='lg'
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+        >
+            <Modal.Body className="m-0 p-0">
+                <ReactPlayer
+                    className="container-fluid p-0"
+                    url={youtubeUrl + props.trailer.key}
+                    playing
+                    width="100%"
+                />
+            </Modal.Body>
+        </Modal>
+    );
+}
 
 
 const mapStateToProps = (state) => {
@@ -108,10 +144,11 @@ const mapStateToProps = (state) => {
         movieDetails: state.moviePage.movieDetails,
         movieCast: state.moviePage.movieCast,
         similarMovies: state.moviePage.similarMovies,
+        trailer: state.moviePage.trailer,
         isFetching: state.moviesPage.isFetching
     }
 }
 export default compose(
-    connect(mapStateToProps, {getMovieDetails, getSimilarMovies, getMovieCast}),
+    connect(mapStateToProps, {getMovieDetails, getSimilarMovies, getMovieCast, getTrailer}),
     withRouter,
 )(MoviePage);

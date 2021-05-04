@@ -215,3 +215,6 @@ section{
     margin-top: 50px;
     margin-bottom: 50px;
 }
+.modal-body{
+    padding: 0 !important;
+}

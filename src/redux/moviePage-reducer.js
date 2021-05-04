@@ -1,17 +1,19 @@
 import {
     fetchCasts,
-    fetchMovieDetail, fetchSimilarMovies,
+    fetchMovieDetail, fetchMovieTrailer, fetchMovieVideos, fetchSimilarMovies,
 } from "../api/api";
 import {setIsFetching} from "./moviesPage-reducer";
 
 const SET_MOVIE_DETAILS = "movie-reducer/SET_MOVIE_DETAILS"
 const SET_MOVIE_CAST = "movie-reducer/SET_MOVIE_CAST"
 const SET_SIMILAR_MOVIES = "movie-reducer/SET_SIMILAR_MOVIES"
+const SET_TRAILER = "movie-reducer/SET_TRAILER"
 
 let initialState = {
     movieDetails: null,
     movieCast: [],
-    similarMovies: []
+    similarMovies: [],
+    trailer: []
 }
 
 
@@ -27,6 +29,9 @@ const moviePageReducer = (state = initialState, action) => {
         case SET_SIMILAR_MOVIES: {
             return {...state, similarMovies: action.movies}
         }
+        case SET_TRAILER: {
+            return {...state, trailer: action.trailer}
+        }
         default:
             return state
     }
@@ -35,6 +40,7 @@ const moviePageReducer = (state = initialState, action) => {
 export const setMovieDetails = (movie) => ({type: SET_MOVIE_DETAILS, movie})
 export const setMovieCast = (cast) => ({type: SET_MOVIE_CAST, cast})
 export const setSimilarMovies = (movies) => ({type: SET_SIMILAR_MOVIES, movies})
+export const setMovieTrailer = (trailer) => ({type: SET_TRAILER, trailer})
 
 
 
@@ -104,6 +110,15 @@ export const getSimilarMovies = (id) => {
         }
     }
 }
-
+export const getTrailer = (id) => {
+    return async (dispatch) => {
+        try {
+            let data = await fetchMovieTrailer(id)
+            dispatch(setMovieTrailer(data['results'][0]))
+        } catch (e) {
+            alert("error")
+        }
+    }
+}
 
 export default moviePageReducer
