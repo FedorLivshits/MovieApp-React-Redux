@@ -8,12 +8,14 @@ const SET_MOVIE_DETAILS = "moviePage-reducer/SET_MOVIE_DETAILS"
 const SET_MOVIE_CAST = "moviePage-reducer/SET_MOVIE_CAST"
 const SET_SIMILAR_MOVIES = "moviePage-reducer/SET_SIMILAR_MOVIES"
 const SET_TRAILER = "moviePage-reducer/SET_TRAILER"
+const SET_IS_MOVIE_PAGE_OPEN = "moviePage-reducer/SET_IS_MOVIE_PAGE_OPEN"
 
 let initialState = {
     movieDetails: null,
     movieCast: [],
     similarMovies: [],
-    trailer: []
+    trailer: [],
+    isMoviePageOpen: false
 }
 
 
@@ -32,6 +34,9 @@ const moviePageReducer = (state = initialState, action) => {
         case SET_TRAILER: {
             return {...state, trailer: action.trailer}
         }
+        case SET_IS_MOVIE_PAGE_OPEN: {
+            return {...state, isMoviePageOpen: action.isOpen}
+        }
         default:
             return state
     }
@@ -41,6 +46,7 @@ export const setMovieDetails = (movie) => ({type: SET_MOVIE_DETAILS, movie})
 export const setMovieCast = (cast) => ({type: SET_MOVIE_CAST, cast})
 export const setSimilarMovies = (movies) => ({type: SET_SIMILAR_MOVIES, movies})
 export const setMovieTrailer = (trailer) => ({type: SET_TRAILER, trailer})
+export const setIsMoviePageOpen = (isOpen) => ({type: SET_IS_MOVIE_PAGE_OPEN, isOpen})
 
 
 

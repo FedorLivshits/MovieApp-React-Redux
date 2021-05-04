@@ -7,9 +7,9 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 import "./Header.css"
 
-const Header = ({isFetching, match }) => {
+const Header = ({isFetching, match, isMoviePageOpen}) => {
     return (
-        <header className={match.isExact ? "header" : "other-page__header"}>
+        <header className={match.isExact || isMoviePageOpen ? "header" : "other-page__header"}>
             {isFetching ? <ProgressBar animated now={45} /> : ""}
             <Container>
                 <div className="inner-content">
@@ -38,7 +38,8 @@ const Header = ({isFetching, match }) => {
 
 
 let mapStateToProps = (state) => ({
-    isFetching: state.moviesPage.isFetching
+    isFetching: state.moviesPage.isFetching,
+    isMoviePageOpen: state.moviePage.isMoviePageOpen
 })
 
 export default compose(

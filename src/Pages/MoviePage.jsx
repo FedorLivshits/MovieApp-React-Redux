@@ -8,9 +8,10 @@ import MovieCast from "../Components/MovieCast/MovieCast";
 import ReactStars from "react-rating-stars-component";
 import TrailerModal from "../Components/Modal/TrailerModal";
 import {initializeMoviePage} from "../redux/initial-reducer";
+import {setIsMoviePageOpen} from "../redux/moviePage-reducer";
 
 
-const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, trailer, initializeMoviePage, initializedMoviePage}) => {
+const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, trailer, initializeMoviePage, initializedMoviePage, setIsMoviePageOpen}) => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -20,6 +21,10 @@ const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, t
 
     useEffect(() => {
         initializeMoviePage(params.id)
+        setIsMoviePageOpen(true)
+        return function cleanup () {
+            setIsMoviePageOpen(false)
+        }
     }, [params.id])
 
     const isNotEmptyObj = (obj) => {
@@ -126,10 +131,10 @@ const mapStateToProps = (state) => {
         similarMovies: state.moviePage.similarMovies,
         trailer: state.moviePage.trailer,
         isFetching: state.moviesPage.isFetching,
-        initializedMoviePage: state.initial.initializedMoviePage
+        initializedMoviePage: state.initial.initializedMoviePage,
     }
 }
 export default compose(
-    connect(mapStateToProps, {initializeMoviePage}),
+    connect(mapStateToProps, {initializeMoviePage, setIsMoviePageOpen}),
     withRouter,
 )(MoviePage);

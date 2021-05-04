@@ -100,7 +100,6 @@ const MoviesPage = ({getMovieByGenre, genres, moviesByGenre, getGenre, isFetchin
             </div>
         </Container>
 
-
     );
 }
 

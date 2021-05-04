@@ -8,8 +8,6 @@ import {initializePersonPage} from "../redux/initial-reducer";
 
 
 const PersonPage = ({personDetail, match, isFetching, personMovies, initializePersonPage, initializedPersonPage}) => {
-
-
     let params = match.params
 
     useEffect(() => {
