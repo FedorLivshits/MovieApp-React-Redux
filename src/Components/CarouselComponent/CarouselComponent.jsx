@@ -1,14 +1,14 @@
 import React from 'react';
-import {Carousel, Container} from "react-bootstrap";
+import {Carousel} from "react-bootstrap";
 
-function CarouselComponent({movies}) {
+const CarouselComponent = ({movies}) => {
 
     if (!movies.length) return null
 
     return (
         <Carousel fade controls={false}>
             {movies.map(m => {
-                return <Carousel.Item className="carousel-img" interval={3000}>
+                return <Carousel.Item key={m.id} className="carousel-img" interval={3000}>
                     <img
                         className="d-block w-100"
                         src={m.backPoster}
@@ -25,6 +25,6 @@ function CarouselComponent({movies}) {
             })}
         </Carousel>
     );
-}
+};
 
 export default CarouselComponent;

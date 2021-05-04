@@ -1,5 +1,5 @@
 import React from "react";
-import {Link, NavLink, withRouter} from "react-router-dom";
+import {NavLink, withRouter} from "react-router-dom";
 
 import {Container, ProgressBar} from "react-bootstrap";
 
@@ -8,7 +8,6 @@ import {compose} from "redux";
 import "./Header.css"
 
 const Header = ({isFetching, match }) => {
-    debugger
     return (
         <header className={match.isExact ? "header" : "other-page__header"}>
             {isFetching ? <ProgressBar animated now={45} /> : ""}

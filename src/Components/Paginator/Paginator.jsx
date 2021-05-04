@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Pagination} from "react-bootstrap";
 
-function Paginator({ onPageChange, currentPage, pages, portionSize=10}) {
+const Paginator = ({ onPageChange, currentPage, pages, portionSize=10}) => {
     let [portionNumber, setPortionNumber] = useState(1)
 
     let totalPages = [];

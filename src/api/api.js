@@ -11,6 +11,7 @@ const moviesUrl = `${url}/discover/movie`;
 const personUrl = `${url}/trending/person/week`;
 const popularMoviesUrl = `${url}/movie/popular`;
 const searchMoviesURL = `${url}/search/movie`;
+const personDetailURL = `${url}/person`;
 
 export const fetchActualMovies = () => {
     return axios.get(`${nowPlayingUrl}?api_key=${apiKey}&language=en-US&page=1`)
@@ -62,5 +63,13 @@ export const fetchCasts = async (id) => {
 
 export const fetchSimilarMovies = async (id) => {
     return axios.get(`${movieUrl}/${id}/similar?api_key=${apiKey}&&language=en-US`)
+        .then(response => response.data)
+}
+export const fetchPersonDetail = async (id) => {
+    return axios.get(`${personDetailURL}/${id}?api_key=${apiKey}&&language=en-US`)
+        .then(response => response.data)
+}
+export const fetchPersonMovies = async (id) => {
+    return axios.get(`${url}/person/${id}/movie_credits?api_key=${apiKey}&&language=en-US`)
         .then(response => response.data)
 }

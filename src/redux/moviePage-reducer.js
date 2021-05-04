@@ -1,6 +1,6 @@
 import {
     fetchCasts,
-    fetchMovieDetail, fetchMovieTrailer, fetchMovieVideos, fetchSimilarMovies,
+    fetchMovieDetail, fetchMovieTrailer,  fetchSimilarMovies,
 } from "../api/api";
 import {setIsFetching} from "./moviesPage-reducer";
 
@@ -62,7 +62,6 @@ export const getMovieDetails = (id) => {
                 tagline: data['tagline'],
                 genres: data['genres']
             }
-            console.log(modifiedData)
             dispatch(setMovieDetails(modifiedData))
             dispatch(setIsFetching(false))
         } catch (e) {
@@ -81,7 +80,6 @@ export const getMovieCast = (id) => {
                 name: c['name'],
                 img: 'https://image.tmdb.org/t/p/w200' + c['profile_path'],
             }))
-            console.log(modifiedData)
             dispatch(setMovieCast(modifiedData))
         } catch (e) {
             alert("error")
@@ -103,7 +101,6 @@ export const getSimilarMovies = (id) => {
                 overview: m['overview'],
                 rating: m['vote_average'],
             }))
-            console.log(modifiedData)
             dispatch(setSimilarMovies(modifiedData))
         } catch (e) {
             alert("error")

@@ -2,17 +2,17 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 
-const SimilarMovies = ({similarMovies}) => (
+const PersonMovies = ({personMovies}) => (
     <section>
         <div className="row mt-3">
             <div className="col">
                 <p className="font-weight-bold">
-                    Similar Movies
+                    Known For
                 </p>
             </div>
         </div>
         <div className="scrolling-wrapper">
-            {similarMovies.map(m => {
+            {personMovies.map(m => {
                 return <div className="my-card col-md-2" key={m.id}>
                     <div className="card">
                         <Link to={`/movie/${m.id}`}>
@@ -35,4 +35,4 @@ const SimilarMovies = ({similarMovies}) => (
     </section>
 );
 
-export default SimilarMovies;
+export default PersonMovies;

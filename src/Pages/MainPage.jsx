@@ -1,14 +1,13 @@
 import React, {useEffect} from 'react';
 import CarouselComponent from "../Components/CarouselComponent/CarouselComponent";
 import {connect} from "react-redux";
-
 import {Container} from "react-bootstrap";
 import TrendingPersons from "../Components/TrendingPersons/TrendingPersons";
 import TopRatedMovies from "../Components/TopRatedMovies/TopRatedMovies";
 import PopularMovies from "../Components/PopularMovies/PopularMovies";
 import {getActualFilms, getPopularMovies, getTopRatedMovies, getTrendingPerson} from "../redux/mainPage-reducer";
 
-function MainPage(props) {
+const MainPage = props => {
 
     useEffect(() => {
         props.getActualFilms()
@@ -27,7 +26,7 @@ function MainPage(props) {
             </Container>
         </>
     );
-}
+};
 
 const mapStateToProps = (state) => {
     return {

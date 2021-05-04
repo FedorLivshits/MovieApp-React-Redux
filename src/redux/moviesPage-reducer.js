@@ -1,5 +1,4 @@
 import {
-    fetchActualMovies,
     fetchGenreList,
     fetchMovieByGenre, fetchMoviesBySearch,
 } from "../api/api";
@@ -70,7 +69,6 @@ export const getGenre = () => {
         return async (dispatch) => {
             let data = await fetchGenreList()
             let genres = data.genres
-            console.log(genres)
             dispatch(setGenre(genres))
         }
     } catch (e) {
@@ -94,7 +92,6 @@ export const getMovieByGenre = (genreId, currentPage) => {
                 overview: m['overview'],
                 rating: m['vote_average'],
             }))
-            console.log(modifiedData)
             dispatch(setPages(pages))
             dispatch(setMovieByGenre(modifiedData))
             dispatch(setIsFetching(false))

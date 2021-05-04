@@ -3,11 +3,13 @@ import thunkMiddleware from "redux-thunk";
 import mainPageReducer from "./mainPage-reducer";
 import moviePageReducer from "./moviePage-reducer";
 import moviesPageReducer from "./moviesPage-reducer";
+import personPageReducer from "./personPage-reducer";
 
 let reducers = combineReducers({
     mainPage: mainPageReducer,
     moviePage: moviePageReducer,
-    moviesPage: moviesPageReducer
+    moviesPage: moviesPageReducer,
+    personPage: personPageReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

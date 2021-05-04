@@ -3,11 +3,11 @@ import {connect} from "react-redux";
 import {getMovieCast, getMovieDetails, getSimilarMovies, getTrailer} from "../redux/moviePage-reducer";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
-import {Button, Card, Carousel, Container, ListGroup, Modal, Spinner} from "react-bootstrap";
+import {Button, Card, Carousel, Container, Spinner} from "react-bootstrap";
 import SimilarMovies from "../Components/SimilarMovies/SimilarMovies";
 import MovieCast from "../Components/MovieCast/MovieCast";
 import ReactStars from "react-rating-stars-component";
-import ReactPlayer from "react-player";
+import TrailerModal from "../Components/Modal/TrailerModal";
 
 
 const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilarMovies, getMovieCast, movieCast, similarMovies, getTrailer, trailer}) => {
@@ -45,22 +45,21 @@ const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilar
                             </div>
                             :
                             <div className="movie-page">
-                                <Carousel controls={false} indicators={false}>
-                                    <Carousel.Item className="carousel-img">
-                                        <img
-                                            className="d-block w-100"
-                                            src={movieDetails.backPoster}
-                                            alt="First slide"
-                                        />
-                                        <div className="input-section-title">
-                                            <h2 className="input-title justify-content-center">{movieDetails.title}</h2>
-
-                                        </div>
-                                        <Carousel.Caption>
-                                            <Button variant="primary" onClick={handleShow}>Watch Trailer</Button>
-                                        </Carousel.Caption>
-                                    </Carousel.Item>
-                                </Carousel>
+                                    <Carousel controls={false} indicators={false}>
+                                        <Carousel.Item className="carousel-img">
+                                            <img
+                                                className="d-block w-100"
+                                                src={movieDetails.backPoster}
+                                                alt="First slide"
+                                            />
+                                            <div className="input-section-title">
+                                                <h2 className="input-title justify-content-center">{movieDetails.title}</h2>
+                                            </div>
+                                            <Carousel.Caption>
+                                                <Button variant="primary" onClick={handleShow}>Watch Trailer</Button>
+                                            </Carousel.Caption>
+                                        </Carousel.Item>
+                                    </Carousel>
                                 <Container>
                                     <div className="movie-page__content">
                                         <div className="row">
@@ -75,9 +74,14 @@ const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilar
                                             <div className="col-8">
 
                                                 <h2>{movieDetails.title}</h2>
-
+                                                <ReactStars
+                                                    value={movieDetails.rating}
+                                                    count={10}
+                                                    size={15}
+                                                    color1={"#f4c10f"}
+                                                />
                                                 <p>{movieDetails.release_date.split("-").reverse().join('/')} {movieDetails.genres.map(g =>
-                                                    <span className="ml-1">*{g.name}*</span>)}</p>
+                                                    <span key={g.id} className="ml-1">{g.name},</span>)}</p>
 
                                                 {movieDetails.tagline
                                                     ?
@@ -85,14 +89,10 @@ const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilar
                                                     :
                                                     ""
                                                 }
-                                                <ReactStars
-                                                    value={movieDetails.rating}
-                                                    count={10}
-                                                    size={15}
-                                                    color1={"#f4c10f"}
-                                                />
                                                 <h4>Overview:</h4>
                                                 <p>{movieDetails.overview}</p>
+
+                                                <Button variant="primary" onClick={handleShow}>Watch Trailer</Button>
 
                                             </div>
                                         </div>
@@ -106,7 +106,6 @@ const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilar
                                     }
                                     <TrailerModal show={show} onHide={handleClose} trailer={trailer}/>
                                 </Container>
-
                             </div>
 
                         }
@@ -115,26 +114,6 @@ const MoviePage = ({movieDetails, getMovieDetails, match, isFetching, getSimilar
                     ""
             }
         </>
-    );
-}
-function TrailerModal(props) {
-    const youtubeUrl = "https://www.youtube.com/watch?v=";
-    return (
-        <Modal
-            {...props}
-            size='lg'
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-        >
-            <Modal.Body className="m-0 p-0">
-                <ReactPlayer
-                    className="container-fluid p-0"
-                    url={youtubeUrl + props.trailer.key}
-                    playing
-                    width="100%"
-                />
-            </Modal.Body>
-        </Modal>
     );
 }
 
