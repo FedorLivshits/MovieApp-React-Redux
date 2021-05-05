@@ -20,6 +20,8 @@ const PersonPage = ({personDetail, match, isFetching, personMovies, initializePe
         }
         return false;
     }
+
+
     if (!initializedPersonPage) {
         return <div className="row mt-3 d-flex justify-content-center">
             <Spinner animation="grow" variant="primary"/>

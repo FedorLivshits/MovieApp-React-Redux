@@ -2,8 +2,8 @@ import React from 'react';
 import {Link} from "react-router-dom";
 
 
-const TrendingPersons = ({trendingPersons}) => (
-    <section>
+const TrendingPersons = ({trendingPersons, isNoneImg}) => {
+    return <section>
         <div className="row mt-3">
             <div className="col">
                 <p className="font-weight-bold">
@@ -15,11 +15,7 @@ const TrendingPersons = ({trendingPersons}) => (
             {trendingPersons.map(p => {
                 return <div className="my-card col-md-2  col-sm-3 text-center" key={p.id}>
                     <Link to={`/person/${p.id}`}>
-                    <img
-                        className="img-fluid rounded-circle mx-auto d-block"
-                        src={p.profileImg}
-                        alt={p.name}
-                    />
+                        {isNoneImg(p.profileImg)}
                     </Link>
                     <p className="font-weight-bold text-center">{p.name}</p>
                     <p
@@ -32,6 +28,6 @@ const TrendingPersons = ({trendingPersons}) => (
             })}
         </div>
     </section>
-);
+}
 
 export default TrendingPersons;

@@ -17,6 +17,21 @@ const MoviesPage = ({getMovieByGenre, genres, moviesByGenre, getGenre, isFetchin
         getGenre()
     }, [])
 
+    const isNoneImg = (anyString) => {
+        let anyString4 = anyString.substring(anyString.length - 4);
+        if(anyString4 === "null"){
+            return  <img
+                className="img-fluid card-img"
+                src="https://www.colorhexa.com/d3d3d3.png"
+                alt="img"
+            />
+        }
+        return <img
+            className="img-fluid card-img"
+            src={anyString}
+            alt="img"
+        />
+    }
     const onGenreChange = (id) => {
         setCurrentGenreId(id)
         getMovieByGenre(id, currentPage)
@@ -68,11 +83,7 @@ const MoviesPage = ({getMovieByGenre, genres, moviesByGenre, getGenre, isFetchin
                             {moviesByGenre.map(m => {
                                 return <div className="col-md-2 col-sm-6 card  mb-3 ml-3" key={m.id}>
                                     <Link to={`/movie/${m.id}`}>
-                                        {m.poster
-                                            ?
-                                            <img className="img-fluid card-img" src={m.poster} alt={m.title}/>
-                                            :
-                                            <div className="none-img"/>}
+                                        {isNoneImg(m.poster)}
                                     </Link>
                                     <div className="mt-2 p-2">
                                         <ReactStars

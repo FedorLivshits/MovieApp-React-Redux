@@ -11,7 +11,7 @@ import {initializeMoviePage} from "../redux/initial-reducer";
 import {setIsMoviePageOpen} from "../redux/moviePage-reducer";
 
 
-const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, trailer, initializeMoviePage, initializedMoviePage, setIsMoviePageOpen}) => {
+const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, trailer, initializeMoviePage, initializedMoviePage, setIsMoviePageOpen, isNoneImg}) => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -103,7 +103,7 @@ const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, t
                                             </div>
                                         </div>
                                     </div>
-                                    <MovieCast movieCast={movieCast}/>
+                                    <MovieCast movieCast={movieCast} isNoneImg={isNoneImg}/>
                                     {similarMovies.length
                                         ?
                                         <SimilarMovies similarMovies={similarMovies}/>

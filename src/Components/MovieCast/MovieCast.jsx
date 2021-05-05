@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 
 
-const MovieCast = ({movieCast}) => (
+const MovieCast = ({movieCast, isNoneImg}) => (
     <section>
         <div className="row mt-3">
             <div className="col">
@@ -15,11 +15,7 @@ const MovieCast = ({movieCast}) => (
             {movieCast.map(p => {
                 return <div className="my-card col-md-2  col-sm-3 text-center" key={p.id}>
                     <Link to={`/person/${p.id}`}>
-                    <img
-                        className="img-fluid rounded-circle mx-auto d-block"
-                        src={p.img}
-                        alt={p.name}
-                    />
+                        {isNoneImg(p.img)}
                     </Link>
                     <p className="font-weight-bold text-center">{p.name}</p>
                     <p
