@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 
 
-const TrendingPersons = ({trendingPersons, isNoneImg}) => {
+const TrendingPersons = ({trendingPersons, isNoneImgForPerson}) => {
     return <section>
         <div className="row mt-3">
             <div className="col">
@@ -15,7 +15,7 @@ const TrendingPersons = ({trendingPersons, isNoneImg}) => {
             {trendingPersons.map(p => {
                 return <div className="my-card col-md-2  col-sm-3 text-center" key={p.id}>
                     <Link to={`/person/${p.id}`}>
-                        {isNoneImg(p.profileImg)}
+                        {isNoneImgForPerson(p.profileImg)}
                     </Link>
                     <p className="font-weight-bold text-center">{p.name}</p>
                     <p

@@ -9,9 +9,10 @@ import ReactStars from "react-rating-stars-component";
 import TrailerModal from "../Components/Modal/TrailerModal";
 import {initializeMoviePage} from "../redux/initial-reducer";
 import {setIsMoviePageOpen} from "../redux/moviePage-reducer";
+import {addMovieToWatchlist} from "../redux/watchlist-reducer";
 
 
-const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, trailer, initializeMoviePage, initializedMoviePage, setIsMoviePageOpen, isNoneImg}) => {
+const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, trailer, initializeMoviePage, initializedMoviePage, setIsMoviePageOpen, isNoneImgForPerson,  addMovieToWatchlist}) => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -22,7 +23,7 @@ const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, t
     useEffect(() => {
         initializeMoviePage(params.id)
         setIsMoviePageOpen(true)
-        return function cleanup () {
+        return function cleanup() {
             setIsMoviePageOpen(false)
         }
     }, [params.id])
@@ -32,6 +33,9 @@ const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, t
             return true;
         }
         return false;
+    }
+    const onAddMovieToWatchlist = (movieDetails) => {
+        addMovieToWatchlist(movieDetails)
     }
     if (!initializedMoviePage) {
         return <div className="row mt-3 d-flex justify-content-center">
@@ -73,7 +77,8 @@ const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, t
                                                 <Card style={{width: '18rem'}} className="movie-card">
                                                     <Card.Img variant="top" src={movieDetails.poster}/>
                                                     <Card.Body>
-                                                        <Button variant="primary w-100">Add to watchlist</Button>
+                                                        <Button onClick={() => onAddMovieToWatchlist(movieDetails)}
+                                                                variant="primary w-100">Add to watchlist</Button>
                                                     </Card.Body>
                                                 </Card>
                                             </div>
@@ -103,14 +108,15 @@ const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, t
                                             </div>
                                         </div>
                                     </div>
-                                    <MovieCast movieCast={movieCast} isNoneImg={isNoneImg}/>
+                                    <MovieCast movieCast={movieCast} isNoneImgForPerson={isNoneImgForPerson}/>
                                     {similarMovies.length
                                         ?
                                         <SimilarMovies similarMovies={similarMovies}/>
                                         :
                                         ""
                                     }
-                                    <TrailerModal show={show} onHide={handleClose} trailer={trailer} isNotEmptyObj={isNotEmptyObj}/>
+                                    <TrailerModal show={show} onHide={handleClose} trailer={trailer}
+                                                  isNotEmptyObj={isNotEmptyObj}/>
                                 </Container>
                             </div>
 
@@ -135,6 +141,6 @@ const mapStateToProps = (state) => {
     }
 }
 export default compose(
-    connect(mapStateToProps, {initializeMoviePage, setIsMoviePageOpen}),
+    connect(mapStateToProps, {initializeMoviePage, setIsMoviePageOpen, addMovieToWatchlist}),
     withRouter,
 )(MoviePage);

@@ -5,6 +5,7 @@ import moviePageReducer from "./moviePage-reducer";
 import moviesPageReducer from "./moviesPage-reducer";
 import personPageReducer from "./personPage-reducer";
 import initializedReducer from "./initial-reducer";
+import watchlistReducer from "./watchlist-reducer";
 
 let reducers = combineReducers({
     mainPage: mainPageReducer,
@@ -12,6 +13,7 @@ let reducers = combineReducers({
     moviesPage: moviesPageReducer,
     personPage: personPageReducer,
     initial: initializedReducer,
+    watchlistPage: watchlistReducer,
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

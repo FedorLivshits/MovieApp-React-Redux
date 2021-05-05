@@ -23,7 +23,7 @@ const MainPage = props => {
             <Container>
                 <PopularMovies popularMovies={props.popularMovies}/>
                 <TopRatedMovies topRatedMovies={props.topRatedMovies}/>
-                <TrendingPersons trendingPersons={props.trendingPersons} isNoneImg={props.isNoneImg}/>
+                <TrendingPersons trendingPersons={props.trendingPersons} isNoneImgForPerson={props.isNoneImgForPerson}/>
             </Container>
         </>
     );

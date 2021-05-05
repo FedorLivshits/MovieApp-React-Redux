@@ -8,10 +8,11 @@ import MainPage from "./Pages/MainPage";
 import MoviePage from "./Pages/MoviePage";
 import MoviesPage from "./Pages/MoviesPage";
 import PersonPage from "./Pages/PersonPage";
+import WatchlistPage from "./Pages/WatchlistPage";
 
 
 const App = () => {
-    const isNoneImg = (anyString) => {
+    const isNoneImgForPerson = (anyString) => {
         let anyString4 = anyString.substring(anyString.length - 4);
         if (anyString4 === "null") {
             return <img
@@ -26,11 +27,27 @@ const App = () => {
             alt="img"
         />
     }
+    const isNoneImgForMovie = (anyString) => {
+        let anyString4 = anyString.substring(anyString.length - 4);
+        if (anyString4 === "null") {
+            return <img
+                className="img-fluid"
+                src="https://www.colorhexa.com/d3d3d3.png"
+                alt="img"
+            />
+        }
+        return <img
+            className="img-fluid"
+            src={anyString}
+            alt="img"
+        />
+    }
     return <div className="app">
         <Header/>
-        <Route exact path="/" render={() => <MainPage isNoneImg={isNoneImg}/>}/>
-        <Route path="/movies" render={() => <MoviesPage isNoneImg={isNoneImg}/>}/>
-        <Route path="/movie/:id" render={() => <MoviePage isNoneImg={isNoneImg}/>}/>
+        <Route exact path="/" render={() => <MainPage isNoneImgForPerson={isNoneImgForPerson}/>}/>
+        <Route path="/movies" render={() => <MoviesPage isNoneImgForMovie={isNoneImgForMovie}/>}/>
+        <Route path="/movie/:id" render={() => <MoviePage isNoneImgForPerson={isNoneImgForPerson}/>}/>
+        <Route path="/watchlist" render={() => <WatchlistPage isNoneImgForMovie={isNoneImgForMovie}/>}/>
         <Route path="/person/:id" render={() => <PersonPage/>}/>
         <Footer/>
     </div>
