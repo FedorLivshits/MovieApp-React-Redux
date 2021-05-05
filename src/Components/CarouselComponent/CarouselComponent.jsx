@@ -8,7 +8,7 @@ const CarouselComponent = ({movies}) => {
     return (
         <Carousel fade controls={false}>
             {movies.map(m => {
-                return <Carousel.Item key={m.id} className="carousel-img" interval={3000}>
+                return <Carousel.Item key={m.id} className="carousel-img" interval={2000}>
                     <img
                         className="d-block w-100"
                         src={m.backPoster}

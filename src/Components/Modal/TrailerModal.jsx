@@ -7,7 +7,7 @@ const TrailerModal = (props) => {
 
     return (
         <>
-            {props.trailer.key
+            {props.isNotEmptyObj(props.trailer)
                 ?
                 <Modal
                     {...props}

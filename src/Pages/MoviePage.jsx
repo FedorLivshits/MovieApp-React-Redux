@@ -110,7 +110,7 @@ const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, t
                                         :
                                         ""
                                     }
-                                    <TrailerModal show={show} onHide={handleClose} trailer={trailer}/>
+                                    <TrailerModal show={show} onHide={handleClose} trailer={trailer} isNotEmptyObj={isNotEmptyObj}/>
                                 </Container>
                             </div>
 
