@@ -12,11 +12,20 @@ import {setIsMoviePageOpen} from "../redux/moviePage-reducer";
 import {addMovieToWatchlist} from "../redux/watchlist-reducer";
 
 
-const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, trailer, initializeMoviePage, initializedMoviePage, setIsMoviePageOpen, isNoneImgForPerson,  addMovieToWatchlist}) => {
+const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, trailer, initializeMoviePage, initializedMoviePage, watchlist, setIsMoviePageOpen, isNoneImgForPerson, addMovieToWatchlist}) => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const disabledBtn = () => {
+        if (movieDetails) {
+            let storedMovie = watchlist.find(o => o.id === movieDetails.id);
+            return !!storedMovie
+        }
+    }
+
+
 
     let params = match.params
 
@@ -78,7 +87,8 @@ const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, t
                                                     <Card.Img variant="top" src={movieDetails.poster}/>
                                                     <Card.Body>
                                                         <Button onClick={() => onAddMovieToWatchlist(movieDetails)}
-                                                                variant="primary w-100">Add to watchlist</Button>
+                                                                variant="primary w-100" disabled={disabledBtn()}>Add
+                                                            to watchlist</Button>
                                                     </Card.Body>
                                                 </Card>
                                             </div>
@@ -138,6 +148,7 @@ const mapStateToProps = (state) => {
         trailer: state.moviePage.trailer,
         isFetching: state.moviesPage.isFetching,
         initializedMoviePage: state.initial.initializedMoviePage,
+        watchlist: state.watchlistPage.watchlist
     }
 }
 export default compose(
