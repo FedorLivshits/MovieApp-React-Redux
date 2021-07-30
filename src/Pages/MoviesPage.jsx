@@ -3,12 +3,12 @@ import {Link} from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import {connect} from "react-redux";
 import Container from "react-bootstrap/cjs/Container";
-import {ListGroup, Spinner} from "react-bootstrap";
+import {DropdownButton, ListGroup, Spinner, Dropdown} from 'react-bootstrap'
 import Paginator from "../Components/Paginator/Paginator";
 import {getGenre, getMovieByGenre, getMoviesBySearch} from "../redux/moviesPage-reducer";
 
 
-const MoviesPage = ({getMovieByGenre, genres, moviesByGenre, getGenre, isFetching, getMoviesBySearch, pages, isNoneImgForMovie}) => {
+const MoviesPage = ({getMovieByGenre, genres, moviesByGenre, getGenre, isFetching, getMoviesBySearch, pages, isNoneImgForMovie, screenWidth}) => {
     const [textInput, setTextInput] = useState('')
     const [currentPage, setCurrentPage] = useState(1)
     const [currentGenreId, setCurrentGenreId] = useState(null)
@@ -36,16 +36,32 @@ const MoviesPage = ({getMovieByGenre, genres, moviesByGenre, getGenre, isFetchin
     return (
         <Container>
             <div className="row movies-page">
-                <div className="col-3">
-                    <ListGroup as="ul">
+                {screenWidth > 780
+                ?
+                    <div className="col-3">
+                        <ListGroup as="ul">
+                            {genres.map(g => {
+                                return <ListGroup.Item className={currentGenreId === g.id ? "active" : ""} key={g.id}
+                                                       onClick={() => onGenreChange(g.id)} as="li">
+                                    {g.name}
+                                </ListGroup.Item>
+                            })}
+                        </ListGroup>
+                    </div>
+                    :
+                    <DropdownButton id="dropdown-basic-button" title="Dropdown button" className="mb-3">
                         {genres.map(g => {
-                            return <ListGroup.Item className={currentGenreId === g.id ? "active" : ""} key={g.id}
-                                                   onClick={() => onGenreChange(g.id)} as="li">
+                            return <Dropdown.Item  className={currentGenreId === g.id ? "active" : ""} key={g.id}
+                                                   onClick={() => onGenreChange(g.id)}>
                                 {g.name}
-                            </ListGroup.Item>
+                            </Dropdown.Item >
                         })}
-                    </ListGroup>
-                </div>
+                        {/*<Dropdown.Item href="#/action-1">Action</Dropdown.Item>*/}
+                        {/*<Dropdown.Item href="#/action-2">Another action</Dropdown.Item>*/}
+                        {/*<Dropdown.Item href="#/action-3">Something else</Dropdown.Item>*/}
+                    </DropdownButton>
+                }
+
                 <div className="col-9">
                     <div className="search-input__wrapper">
                         <input className="main-input" type="text" placeholder="Search for a movie" value={textInput}
