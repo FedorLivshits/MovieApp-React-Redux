@@ -1,22 +1,23 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
+import {Col, Row, Image} from 'react-bootstrap'
 
 const SimilarMovies = ({similarMovies}) => (
-    <section>
-        <div className="row mt-3">
-            <div className="col">
+    <>
+        <Row className="mt-5 mb-3">
+            <Col className="ml-3">
                 <p className="font-weight-bold">
-                    Similar Movies
+                   Similar Movies
                 </p>
-            </div>
-        </div>
+            </Col>
+        </Row>
         <div className="scrolling-wrapper">
             {similarMovies.map(m => {
-                return <div className="my-card col-md-2" key={m.id}>
+                return <Col lg={2} md={3} sm={4} xs={6} className="my-card" key={m.id}>
                     <div className="card">
                         <Link to={`/movie/${m.id}`}>
-                            <img className="img-fluid" src={m.poster} alt={m.title}/>
+                            <Image src={m.poster} alt={m.title} fluid/>
                         </Link>
                     </div>
                     <div className="mt-2">
@@ -29,10 +30,10 @@ const SimilarMovies = ({similarMovies}) => (
                             color1={"#f4c10f"}
                         />
                     </div>
-                </div>
+                </Col>
             })}
         </div>
-    </section>
+    </>
 );
 
 export default SimilarMovies;

@@ -14,7 +14,7 @@ const TrendingPersons = ({trendingPersons, isNoneImgForPerson}) => {
         </Row>
         <div className="scrolling-wrapper">
             {trendingPersons.map(p => {
-                return <Col lg={2} md={3} sm={4} xs={12} className="my-card text-center" key={p.id}>
+                return <Col lg={2} md={3} sm={4} xs={6} className="my-card text-center" key={p.id}>
                     <Link to={`/person/${p.id}`}>
                         {isNoneImgForPerson(p.profileImg)}
                     </Link>

@@ -14,7 +14,7 @@ const PopularMovies = ({popularMovies}) => (
         </Row>
         <div className="scrolling-wrapper">
             {popularMovies.map(m => {
-                return <Col lg={2} md={3} sm={4} xs={12} className="my-card" key={m.id}>
+                return <Col lg={2} md={3} sm={4} xs={6} className="my-card" key={m.id}>
                     <div className="card">
                         <Link to={`/movie/${m.id}`}>
                             <img className="img-fluid" src={m.poster} alt={m.title}/>

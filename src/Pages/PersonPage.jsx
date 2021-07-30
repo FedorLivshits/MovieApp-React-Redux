@@ -1,10 +1,10 @@
-import React, {useEffect} from 'react';
-import {connect} from "react-redux";
-import {withRouter} from "react-router-dom";
-import {compose} from "redux";
-import {Card, Container, Spinner} from "react-bootstrap";
-import PersonMovies from "../Components/PersonMovies/PersonMovies";
-import {initializePersonPage} from "../redux/initial-reducer";
+import React, {useEffect} from 'react'
+import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
+import {compose} from 'redux'
+import {Card, Col, Container, Row, Spinner} from 'react-bootstrap'
+import PersonMovies from '../Components/PersonMovies/PersonMovies'
+import {initializePersonPage} from '../redux/initial-reducer'
 
 
 const PersonPage = ({personDetail, match, isFetching, personMovies, initializePersonPage, initializedPersonPage}) => {
@@ -16,9 +16,9 @@ const PersonPage = ({personDetail, match, isFetching, personMovies, initializePe
 
     const isNotEmptyObj = (obj) => {
         for (let key in obj) {
-            return true;
+            return true
         }
-        return false;
+        return false
     }
 
     if (!initializedPersonPage) {
@@ -34,38 +34,38 @@ const PersonPage = ({personDetail, match, isFetching, personMovies, initializePe
                     <>
                         {isFetching
                             ?
-                            <div className="row mt-3 d-flex justify-content-center">
+                            <Row className="mt-3 d-flex justify-content-center">
                                 <Spinner animation="grow" variant="primary"/>
-                            </div>
+                            </Row>
                             :
                             <div className="movie-page">
                                 <Container>
-                                    <div className="movie-page__content">
-                                        <div className="row">
-                                            <div className="col-4">
-                                                <Card style={{width: '18rem'}} className="movie-card">
-                                                    <Card.Img variant="top"
+                                    <Col className="movie-page__content">
+                                        <Row>
+                                            <Col md={4} sm={6} xs={12}>
+                                                <Card className="movie-card mb-3">
+                                                    <Card.Img fluid variant="top"
                                                               src={'https://image.tmdb.org/t/p/w200' + personDetail['profile_path']}/>
                                                 </Card>
-                                            </div>
-                                            <div className="col-8">
+                                            </Col>
+                                            <Col md={8} sm={6} xs={12}>
                                                 <h2>{personDetail.name}</h2>
-                                                <p>{personDetail.birthday.split("-").reverse().join('/')}</p>
+                                                <p>{personDetail.birthday.split('-').reverse().join('/')}</p>
                                                 <h4>Biography:</h4>
                                                 <p>{personDetail.biography}</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                            </Col>
+                                        </Row>
+                                    </Col>
                                     <PersonMovies personMovies={personMovies}/>
                                 </Container>
                             </div>
                         }
                     </>
                     :
-                    ""
+                    ''
             }
         </>
-    );
+    )
 }
 
 
@@ -80,4 +80,4 @@ const mapStateToProps = (state) => {
 export default compose(
     connect(mapStateToProps, {initializePersonPage}),
     withRouter,
-)(PersonPage);
+)(PersonPage)

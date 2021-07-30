@@ -1,17 +1,18 @@
 import React from 'react'
-import {Carousel, Container} from 'react-bootstrap'
+import {Carousel} from 'react-bootstrap'
+import TopSectionMobile from '../TopSectionMobile/TopSectionMobile'
 
 const CarouselComponent = ({movies, screenWidth}) => {
 
     if (!movies.length) return null
 
     return (
-        screenWidth > 550
+        screenWidth > 710
             ?
             <>
                 <Carousel fade controls={false}>
                     {movies.map(m => {
-                        return <Carousel.Item key={m.id} className="carousel-img" interval={1000000}>
+                        return <Carousel.Item key={m.id} className="carousel-img" interval={3000}>
                             <img
                                 className="d-block w-100"
                                 src={m.backPoster}
@@ -30,16 +31,7 @@ const CarouselComponent = ({movies, screenWidth}) => {
             </>
             :
             <>
-               <div className='top'>
-                   <Container>
-                       <div className='top__inner'>
-                           <div className='top__content'>
-                               <h2 className="top__title">Welcome.</h2>
-                               <p className="top__text">Millions of movie to discover. Explore now.</p>
-                           </div>
-                       </div>
-                   </Container>
-               </div>
+              <TopSectionMobile/>
             </>
     )
 }

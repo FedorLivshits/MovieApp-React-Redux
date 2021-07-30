@@ -1,19 +1,20 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {Col, Row} from 'react-bootstrap'
 
 
 const MovieCast = ({movieCast, isNoneImgForPerson}) => (
-    <section>
-        <div className="row mt-3">
-            <div className="col">
+    <>
+        <Row className="mt-5 mb-3">
+            <Col className="ml-3">
                 <p className="font-weight-bold">
-                    Cast
+                    Film Cast
                 </p>
-            </div>
-        </div>
+            </Col>
+        </Row>
         <div className="scrolling-wrapper">
             {movieCast.map(p => {
-                return <div className="my-card col-md-2  col-sm-3 text-center" key={p.id}>
+                return <Col lg={2} md={3} sm={4} xs={6} className="my-card text-center" key={p.id}>
                     <Link to={`/person/${p.id}`}>
                         {isNoneImgForPerson(p.img)}
                     </Link>
@@ -24,10 +25,10 @@ const MovieCast = ({movieCast, isNoneImgForPerson}) => (
                     >
                         {p.character}
                     </p>
-                </div>
+                </Col>
             })}
         </div>
-    </section>
+    </>
 );
 
 export default MovieCast;

@@ -20,15 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2401579e-65fe-4e72-b2c6-7aff375048e8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Components/TopSectionMobile/TopSectionMobile.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/CarouselComponent/CarouselComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/CarouselComponent/CarouselComponent.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/MovieCast/MovieCast.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MovieCast/MovieCast.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/PersonMovies/PersonMovies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/PersonMovies/PersonMovies.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/PopularMovies/PopularMovies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/PopularMovies/PopularMovies.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/SimilarMovies/SimilarMovies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/SimilarMovies/SimilarMovies.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/TopRatedMovies/TopRatedMovies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/TopRatedMovies/TopRatedMovies.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/TrendingPersons/TrendingPersons.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/TrendingPersons/TrendingPersons.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/MainPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/MainPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Pages/MoviePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/MoviePage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/MoviesPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/MoviesPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/PersonPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/PersonPage.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +100,7 @@
       <workItem from="1625478921129" duration="1234000" />
       <workItem from="1625838202536" duration="1208000" />
       <workItem from="1625847853494" duration="3244000" />
-      <workItem from="1627648932515" duration="18160000" />
+      <workItem from="1627648932515" duration="23210000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <created>1619042216014</created>
@@ -357,7 +361,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627669002124</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="finish addaptive for main page">
+      <created>1627673841246</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1627673841246</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -376,7 +387,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added popular movies + font awesome icons" />
     <MESSAGE value="added isFetching status" />
     <MESSAGE value="added search movies" />
     <MESSAGE value="added css for movie page" />
@@ -401,7 +411,8 @@
     <MESSAGE value="starting media" />
     <MESSAGE value="add dropdowns" />
     <MESSAGE value="add reacting on window screen size" />
-    <option name="LAST_COMMIT_MESSAGE" value="add reacting on window screen size" />
+    <MESSAGE value="finish addaptive for main page" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish addaptive for main page" />
   </component>
   <component name="WindowStateProjectService">
     <state x="498" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1620045748178">
@@ -425,9 +436,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1620218510137" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1627669402388">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1627675400056">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1627669402388" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1627675400056" />
   </component>
 </project>

@@ -7,14 +7,14 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 import "./Header.css"
 
-const Header = ({isFetching, match, isMoviePageOpen}) => {
+const Header = ({isFetching, match, isMoviePageOpen, screenWidth}) => {
     const [menuOpen, setMenuOpen] = useState(false)
 
     const onMenuOpen = () =>{
         setMenuOpen(!menuOpen)
     }
     return (
-        <header className={match.isExact || isMoviePageOpen ? "header" : "other-page__header"}>
+        <header className={match.isExact || (isMoviePageOpen && screenWidth > 710) ? "header" : "other-page__header"}>
             {isFetching ? <ProgressBar animated now={45} /> : ""}
             <Container fluid>
                 <div className="inner-content">
