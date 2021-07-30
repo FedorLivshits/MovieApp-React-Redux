@@ -1,12 +1,12 @@
-/*p{*/
-/*    white-space: normal;*/
-/*}*/
-html{
+
+html {
     background: #f9f9f9;
 }
-p{
+
+p {
     overflow: hidden;
 }
+
 .app {
     background: #f9f9f9;
     height: 100vh;
@@ -14,6 +14,23 @@ p{
     flex-direction: column;
 }
 
+.burger-menu {
+    display: none;
+}
+
+.top {
+    background: #032039;
+}
+
+.top__inner {
+    color: white;
+    height: 30vh;
+    width: 100vw;
+}
+
+.top__content {
+    padding-top: 100px;
+}
 
 .input-wrapper {
     z-index: 100;
@@ -88,9 +105,11 @@ p{
     background: rgba(0, 0, 0, 0.5);
     z-index: 2;
 }
-.movie-img{
+
+.movie-img {
     max-height: 100vh;
 }
+
 .movie-img:after {
     content: '';
     position: absolute;
@@ -101,6 +120,7 @@ p{
     background: rgba(0, 0, 0, 0.68);
     z-index: 2;
 }
+
 .footer {
     margin-top: auto;
     background: linear-gradient(to bottom, #032039 0%, #032541 100%);
@@ -126,9 +146,11 @@ p{
     white-space: nowrap;
     margin-bottom: 50px;
 }
+
 .my-card {
     display: inline-block;
 }
+
 /* width */
 ::-webkit-scrollbar {
     width: 8px;
@@ -161,60 +183,183 @@ div .spinner-grow {
     opacity: 0;
     animation: .75s linear infinite spinner-grow;
 }
-.movies-page{
+
+.movies-page {
     margin-top: 40px;
     margin-bottom: 40px;
 }
-.no-movies{
+
+.no-movies {
     margin-top: 40px;
 }
-section{
+
+section {
     margin-top: 50px;
 }
 
-.genre-list{
+.genre-list {
     padding-left: 0;
 }
-.card{
+
+.card {
     padding: 0 !important;
     border-radius: 15px;
     box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
     top: 0;
 }
+
 /*.my-card{*/
 /*    margin-bottom: 20px;*/
 /*}*/
-.card-img{
+.card-img {
     -moz-border-radius-topleft: 20px;
     -moz-border-radius-topright: 20px;
 }
-.list-group{
+
+.list-group {
     box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
     cursor: pointer;
 }
-.list-group-item:hover{
+
+.list-group-item:hover {
     background-color: #dbdbdb;
 }
 
-.movie-info{
+.movie-info {
     font-size: 0.75rem;
 }
-.none-img{
+
+.none-img {
     background-color: #c7c7c7;
 }
-.movie-img img{
+
+.movie-img img {
     height: 100vh;
     position: relative;
 }
-.movie-overview{
+
+.movie-overview {
     font-weight: normal;
     line-height: 20px;
     max-width: 500px;
 }
-.movie-page__content{
+
+.movie-page__content {
     margin-top: 50px;
     margin-bottom: 50px;
 }
-.modal-body{
+
+.modal-body {
     padding: 0 !important;
+}
+
+.card-title {
+    margin-bottom: .75rem;
+    height: 4rem;
+}
+@media(max-width: 780px){
+    .col-9 {
+        flex: 0 0 90% !important;
+        max-width: 100% !important;
+        margin: 0 auto;
+    }
+}
+@media (max-width: 710px) {
+    .carousel-inner {
+        height: 100vh;
+    }
+
+    .carousel-img img {
+        height: 100vh;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 550px) {
+    .nav-links {
+        z-index: 99;
+        position: fixed;
+        background: rgba(255, 255, 255, 0.9);
+        width: 100%;
+        height: 54%;
+        margin-left: -15px !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 45% !important;
+        transform: translateY(-400px);
+        transition: all 0.5s ease;
+    }
+
+    .nav-links--active {
+        transform: translateY(0);
+    }
+
+    .nav-links li {
+        margin-bottom: 15px;
+    }
+
+    .nav-links li a {
+        color: #032039;
+        font-size: 22px;
+        font-weight: 600;
+    }
+    .nav-links li a:hover {
+        color: #02b5e1;
+        font-size: 22px;
+        font-weight: 600;
+    }
+    .btn.btn-main {
+        display: none;
+    }
+
+    .brand {
+        z-index: 100;
+    }
+
+    .burger-menu {
+        z-index: 100;
+        display: block;
+        height: 30px;
+        width: 30px;
+        cursor: pointer;
+        position: relative;
+        top: 7px;
+    }
+
+    .burger-menu span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: white;
+        margin-bottom: 5px;
+        border-radius: 4px;
+    }
+
+    .burger-menu span:last-child {
+        margin-bottom: 0;
+    }
+
+    .burger-menu--active span {
+        background: #032039;
+    }
+
+    .burger-menu--active span:first-child {
+        position: relative;
+        top: 9px;
+        transform: rotate(45deg);
+        transition: all 0.5s ease;
+    }
+
+    .burger-menu--active span:nth-child(2) {
+        display: none;
+    }
+
+    .burger-menu--active span:last-child {
+        position: relative;
+        bottom: -1px;
+        transform: rotate(-45deg);
+        transition: all 0.5s ease;
+    }
 }
