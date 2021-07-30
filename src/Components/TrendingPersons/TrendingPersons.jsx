@@ -1,19 +1,20 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {Col, Row} from 'react-bootstrap'
 
 
 const TrendingPersons = ({trendingPersons, isNoneImgForPerson}) => {
-    return <section>
-        <div className="row mt-3">
-            <div className="col">
+    return <>
+        <Row className="mt-5 mb-3">
+            <Col className="ml-3">
                 <p className="font-weight-bold">
-                    Trending Persons Of This Week
+                   Tranding Persons
                 </p>
-            </div>
-        </div>
+            </Col>
+        </Row>
         <div className="scrolling-wrapper">
             {trendingPersons.map(p => {
-                return <div className="my-card col-md-2  col-sm-3 text-center" key={p.id}>
+                return <Col lg={2} md={3} sm={4} xs={12} className="my-card text-center" key={p.id}>
                     <Link to={`/person/${p.id}`}>
                         {isNoneImgForPerson(p.profileImg)}
                     </Link>
@@ -24,10 +25,10 @@ const TrendingPersons = ({trendingPersons, isNoneImgForPerson}) => {
                     >
                         Trending for {p.known}
                     </p>
-                </div>
+                </Col>
             })}
         </div>
-    </section>
+    </>
 }
 
 export default TrendingPersons;

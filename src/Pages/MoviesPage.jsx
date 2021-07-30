@@ -34,7 +34,7 @@ const MoviesPage = ({getMovieByGenre, genres, moviesByGenre, getGenre, isFetchin
     }
 
     return (
-        <Container>
+        <Container fluid>
             <div className="row movies-page">
                 {screenWidth > 780
                 ?
@@ -56,12 +56,8 @@ const MoviesPage = ({getMovieByGenre, genres, moviesByGenre, getGenre, isFetchin
                                 {g.name}
                             </Dropdown.Item >
                         })}
-                        {/*<Dropdown.Item href="#/action-1">Action</Dropdown.Item>*/}
-                        {/*<Dropdown.Item href="#/action-2">Another action</Dropdown.Item>*/}
-                        {/*<Dropdown.Item href="#/action-3">Something else</Dropdown.Item>*/}
                     </DropdownButton>
                 }
-
                 <div className="col-9">
                     <div className="search-input__wrapper">
                         <input className="main-input" type="text" placeholder="Search for a movie" value={textInput}

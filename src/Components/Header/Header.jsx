@@ -16,7 +16,7 @@ const Header = ({isFetching, match, isMoviePageOpen}) => {
     return (
         <header className={match.isExact || isMoviePageOpen ? "header" : "other-page__header"}>
             {isFetching ? <ProgressBar animated now={45} /> : ""}
-            <Container>
+            <Container fluid>
                 <div className="inner-content">
                     <div className="brand">
                         <NavLink to="/">MovieApp</NavLink>

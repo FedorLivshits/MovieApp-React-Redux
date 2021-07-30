@@ -13,6 +13,11 @@ p {
     display: flex;
     flex-direction: column;
 }
+.my-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
 
 .burger-menu {
     display: none;

@@ -1,19 +1,20 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
+import {Col, Row} from 'react-bootstrap'
 
 const TopRatedMovies = ({topRatedMovies}) => (
-    <section>
-        <div className="row mt-3">
-            <div className="col">
+    <>
+        <Row className="mt-5 mb-3">
+            <Col className="ml-3">
                 <p className="font-weight-bold">
-                    Top Rated Movies
+                  Top Rated Movies
                 </p>
-            </div>
-        </div>
+            </Col>
+        </Row>
         <div className="scrolling-wrapper">
             {topRatedMovies.map(m => {
-                return <div className="my-card col-md-2 " key={m.id}>
+                return <Col lg={2} md={3} sm={4} xs={12} className="my-card" key={m.id}>
                     <div className="card">
                         <Link to={`/movie/${m.id}`}>
                             <img className="img-fluid" src={m.poster} alt={m.title}/>
@@ -29,10 +30,10 @@ const TopRatedMovies = ({topRatedMovies}) => (
                             color1={"#f4c10f"}
                         />
                     </div>
-                </div>
+                </Col>
             })}
         </div>
-    </section>
+    </>
 );
 
 export default TopRatedMovies;

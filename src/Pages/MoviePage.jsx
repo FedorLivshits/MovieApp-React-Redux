@@ -78,7 +78,7 @@ const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, t
                                         </Carousel.Caption>
                                     </Carousel.Item>
                                 </Carousel>
-                                <Container>
+                                <Container fluid>
                                     <div className="movie-page__content">
                                         <div className="row">
                                             <div className="col-4">

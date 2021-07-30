@@ -20,7 +20,7 @@ const MainPage = props => {
     return (
         <>
             <CarouselComponent movies={props.movies} screenWidth={props.screenWidth}/>
-            <Container>
+            <Container fluid>
                 <PopularMovies popularMovies={props.popularMovies}/>
                 <TopRatedMovies topRatedMovies={props.topRatedMovies}/>
                 <TrendingPersons trendingPersons={props.trendingPersons} isNoneImgForPerson={props.isNoneImgForPerson}/>
