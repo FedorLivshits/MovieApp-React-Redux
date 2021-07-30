@@ -19,7 +19,7 @@ const MainPage = props => {
     }
     return (
         <>
-            <CarouselComponent movies={props.movies}/>
+            <CarouselComponent movies={props.movies} screenWidth={props.screenWidth}/>
             <Container>
                 <PopularMovies popularMovies={props.popularMovies}/>
                 <TopRatedMovies topRatedMovies={props.topRatedMovies}/>

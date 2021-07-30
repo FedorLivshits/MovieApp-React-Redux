@@ -30,9 +30,9 @@ const WatchlistPage = ({watchlist, isNoneImgForMovie, removeMovieFromWatchlist})
                                     <div className="movie-info">
                                         <p>Rated: {m.rating}</p>
                                         <p className="card-title" style={{fontWeight: "bolder"}}>{m.title}</p>
-                                        <Button variant="danger" className="w-100"
-                                                onClick={() => removeMovieFromWatchlist(m.id)}>delete</Button>
                                     </div>
+                                    <Button variant="danger" className="w-100"
+                                            onClick={() => removeMovieFromWatchlist(m.id)}>delete</Button>
                                 </div>
                             </div>)}
                         </>

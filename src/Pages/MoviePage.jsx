@@ -26,7 +26,6 @@ const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, t
     }
 
 
-
     let params = match.params
 
     useEffect(() => {

@@ -21,14 +21,34 @@
   <component name="ChangeListManager">
     <list default="true" id="2401579e-65fe-4e72-b2c6-7aff375048e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/CarouselComponent/CarouselComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/CarouselComponent/CarouselComponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Header/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/MainPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/MainPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/MoviePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/MoviePage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/MoviesPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/MoviesPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/PersonPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/PersonPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/WatchlistPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/WatchlistPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/initial-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/initial-reducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="SOFT" />
   </component>
   <component name="ProjectId" id="1qqwSmDoEwtmpwkZJdQxKsUXs0e" />
   <component name="ProjectViewState">
@@ -39,11 +59,22 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Movie-Watchlist-React" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../portfolioExampleWebsite-gulp-scss" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Programming\GitHub\MovieApp-React-Redux\src\Components\TrendingPersons" />
+      <recent name="D:\Programming\GitHub\MovieApp-React-Redux\src\Components\TopRatedMovies" />
+      <recent name="D:\Programming\GitHub\MovieApp-React-Redux\src\Components\Header" />
+      <recent name="D:\Programming\GitHub\MovieApp-React-Redux\src\Components\Footer" />
+      <recent name="D:\Programming\GitHub\MovieApp-React-Redux\src\Components\CarouselComponent" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -59,6 +90,16 @@
       <workItem from="1618847554800" duration="155000" />
       <workItem from="1619032839383" duration="434000" />
       <workItem from="1619041857794" duration="2404000" />
+      <workItem from="1619707137191" duration="156208000" />
+      <workItem from="1622740903723" duration="1320000" />
+      <workItem from="1623268206128" duration="1277000" />
+      <workItem from="1624620381210" duration="1745000" />
+      <workItem from="1624715292454" duration="2615000" />
+      <workItem from="1625354870442" duration="2346000" />
+      <workItem from="1625478921129" duration="1234000" />
+      <workItem from="1625838202536" duration="1208000" />
+      <workItem from="1625847853494" duration="3244000" />
+      <workItem from="1627648932515" duration="13511000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <created>1619042216014</created>
@@ -67,7 +108,238 @@
       <option name="project" value="LOCAL" />
       <updated>1619042216014</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added base file structure + api.js + header component">
+      <created>1619713291288</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1619713291288</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added footer component + slider">
+      <created>1619714787403</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1619714787403</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added CarouselComponent.jsx and full flow for app">
+      <created>1619783586981</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1619783586981</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added genre list">
+      <created>1619807265200</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1619807265200</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added api and thunk creators for genres, movies by genres and top rated movies">
+      <created>1619811427446</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1619811427446</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added genre list and movies by genres">
+      <created>1619817718231</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1619817718231</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added title for carousel + star rating + trending persons + top rated movies">
+      <created>1619868031043</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1619868031043</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added scrolls, trending persons and top rating movies components">
+      <created>1619880771152</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1619880771152</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added movieByGenrePage component">
+      <created>1619882163411</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1619882163411</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added pages directory">
+      <created>1619882281163</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1619882281163</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added directories for components">
+      <created>1619884316450</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1619884316450</updated>
+    </task>
+    <task id="LOCAL-00013" summary="added popular movies + font awesome icons">
+      <created>1619887543060</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1619887543060</updated>
+    </task>
+    <task id="LOCAL-00014" summary="added isFetching status">
+      <created>1619890272618</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1619890272618</updated>
+    </task>
+    <task id="LOCAL-00015" summary="added search movies">
+      <created>1619968415581</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1619968415581</updated>
+    </task>
+    <task id="LOCAL-00016" summary="added css for movie page">
+      <created>1619969807614</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1619969807614</updated>
+    </task>
+    <task id="LOCAL-00017" summary="added dropdown menu for genres">
+      <created>1619970320162</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1619970320162</updated>
+    </task>
+    <task id="LOCAL-00018" summary="removed dropdown, added list">
+      <created>1619974242874</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1619974242874</updated>
+    </task>
+    <task id="LOCAL-00019" summary="movies page css">
+      <created>1619989223967</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1619989223967</updated>
+    </task>
+    <task id="LOCAL-00020" summary="added pagination">
+      <created>1620040355102</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1620040355103</updated>
+    </task>
+    <task id="LOCAL-00021" summary="added active button genre list">
+      <created>1620040943307</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1620040943307</updated>
+    </task>
+    <task id="LOCAL-00022" summary="added mainPage-reducer, moviePage-reducer and moviesPage-reducer">
+      <created>1620046245108</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1620046245108</updated>
+    </task>
+    <task id="LOCAL-00023" summary="added css for movie page + cast + similar movies">
+      <created>1620139968556</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1620139968556</updated>
+    </task>
+    <task id="LOCAL-00024" summary="added cast and similar movies on movie page">
+      <created>1620141839146</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1620141839146</updated>
+    </task>
+    <task id="LOCAL-00025" summary="added modal with video player">
+      <created>1620153259738</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1620153259738</updated>
+    </task>
+    <task id="LOCAL-00026" summary="added person page">
+      <created>1620158955813</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1620158955813</updated>
+    </task>
+    <task id="LOCAL-00027" summary="added id for persons page">
+      <created>1620159902858</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1620159902858</updated>
+    </task>
+    <task id="LOCAL-00028" summary="added initialize for main page and movie page">
+      <created>1620165931531</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1620165931531</updated>
+    </task>
+    <task id="LOCAL-00029" summary="added initialize for person page">
+      <created>1620166387465</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1620166387465</updated>
+    </task>
+    <task id="LOCAL-00030" summary="added IsMoviePageOpen in moviePage-reducer.js">
+      <created>1620169289480</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1620169289480</updated>
+    </task>
+    <task id="LOCAL-00031" summary="added check for empty object">
+      <created>1620198338661</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1620198338661</updated>
+    </task>
+    <task id="LOCAL-00032" summary="added none image">
+      <created>1620200324847</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1620200324847</updated>
+    </task>
+    <task id="LOCAL-00033" summary="added WatchlistPage.jsx">
+      <created>1620211529343</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1620211529343</updated>
+    </task>
+    <task id="LOCAL-00034" summary="added addMovieToWatchlist and removeMovieFromWatchlist">
+      <created>1620213113901</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1620213113901</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -83,19 +355,61 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="start project" />
-    <option name="LAST_COMMIT_MESSAGE" value="start project" />
+    <MESSAGE value="added movieByGenrePage component" />
+    <MESSAGE value="added pages directory" />
+    <MESSAGE value="added directories for components" />
+    <MESSAGE value="added popular movies + font awesome icons" />
+    <MESSAGE value="added isFetching status" />
+    <MESSAGE value="added search movies" />
+    <MESSAGE value="added css for movie page" />
+    <MESSAGE value="added dropdown menu for genres" />
+    <MESSAGE value="removed dropdown, added list" />
+    <MESSAGE value="movies page css" />
+    <MESSAGE value="added pagination" />
+    <MESSAGE value="added active button genre list" />
+    <MESSAGE value="added mainPage-reducer, moviePage-reducer and moviesPage-reducer" />
+    <MESSAGE value="added css for movie page + cast + similar movies" />
+    <MESSAGE value="added cast and similar movies on movie page" />
+    <MESSAGE value="added modal with video player" />
+    <MESSAGE value="added person page" />
+    <MESSAGE value="added id for persons page" />
+    <MESSAGE value="added initialize for main page and movie page" />
+    <MESSAGE value="added initialize for person page" />
+    <MESSAGE value="added IsMoviePageOpen in moviePage-reducer.js" />
+    <MESSAGE value="added check for empty object" />
+    <MESSAGE value="added none image" />
+    <MESSAGE value="added WatchlistPage.jsx" />
+    <MESSAGE value="added addMovieToWatchlist and removeMovieFromWatchlist" />
+    <option name="LAST_COMMIT_MESSAGE" value="added addMovieToWatchlist and removeMovieFromWatchlist" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="548" y="166" key="FileChooserDialogImpl" timestamp="1619102984931">
+    <state x="498" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1620045748178">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="548" y="166" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1619102984931" />
-    <state x="360" y="129" key="Vcs.Push.Dialog.v2" timestamp="1619042240668">
+    <state x="498" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1620045748178" />
+    <state x="548" y="166" key="FileChooserDialogImpl" timestamp="1627652709345">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="360" y="129" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1619042240668" />
+    <state x="548" y="166" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1627652709345" />
+    <state x="548" y="174" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1623268517997" />
+    <state x="277" y="57" key="SettingsEditor" timestamp="1627661248019">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1627661248019" />
+    <state x="360" y="129" key="Vcs.Push.Dialog.v2" timestamp="1625848492987">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="360" y="129" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1625848492987" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1620218510137">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1620218510137" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1624716136389">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1624716136389" />
   </component>
 </project>

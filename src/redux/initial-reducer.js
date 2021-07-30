@@ -38,11 +38,11 @@ export const initializedPersonPageSuccess = () => ({type: SET_INITIALIZED_PERSON
 export const initializeMainPage = () => {
     return async (dispatch) => {
         try {
-            let promise1 = dispatch(getActualFilms())
-            let promise2 = dispatch(getTopRatedMovies())
-            let promise3 = dispatch(getTrendingPerson())
-            let promise4 = dispatch(getPopularMovies())
-            Promise.all([promise1, promise2, promise3, promise4])
+            let [promise1, promise2, promise3, promise4] =
+                [dispatch(getActualFilms()), dispatch(getTopRatedMovies()),
+                dispatch(getTrendingPerson()), dispatch(getPopularMovies())]
+            let promises = [promise1, promise2, promise3, promise4]
+            Promise.all(promises)
                 .then(() => dispatch(initializedMainSuccess()))
         } catch (e) {
             alert("error")

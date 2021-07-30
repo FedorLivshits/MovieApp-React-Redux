@@ -21,7 +21,6 @@ const PersonPage = ({personDetail, match, isFetching, personMovies, initializePe
         return false;
     }
 
-
     if (!initializedPersonPage) {
         return <div className="row mt-3 d-flex justify-content-center">
             <Spinner animation="grow" variant="primary"/>
@@ -45,7 +44,8 @@ const PersonPage = ({personDetail, match, isFetching, personMovies, initializePe
                                         <div className="row">
                                             <div className="col-4">
                                                 <Card style={{width: '18rem'}} className="movie-card">
-                                                    <Card.Img variant="top" src={'https://image.tmdb.org/t/p/w200' + personDetail['profile_path']}/>
+                                                    <Card.Img variant="top"
+                                                              src={'https://image.tmdb.org/t/p/w200' + personDetail['profile_path']}/>
                                                 </Card>
                                             </div>
                                             <div className="col-8">
@@ -59,7 +59,6 @@ const PersonPage = ({personDetail, match, isFetching, personMovies, initializePe
                                     <PersonMovies personMovies={personMovies}/>
                                 </Container>
                             </div>
-
                         }
                     </>
                     :
