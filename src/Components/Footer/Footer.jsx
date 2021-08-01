@@ -1,10 +1,10 @@
-import React from 'react';
-import {Container, Row} from "react-bootstrap";
+import React from 'react'
+import {Container, Row} from 'react-bootstrap'
 
 const Footer = () => {
     return (
         <footer className="footer">
-           <Container>
+            <Container>
                 <div className="footer-inner">
                     <Row className="footer-info">
                         <p>This app use <a
@@ -14,9 +14,9 @@ const Footer = () => {
                             Livshits</a></p>
                     </Row>
                 </div>
-           </Container>
+            </Container>
         </footer>
-    );
-};
+    )
+}
 
-export default Footer;
+export default Footer

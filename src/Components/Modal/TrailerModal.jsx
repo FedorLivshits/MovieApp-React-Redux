@@ -1,9 +1,9 @@
-import {Modal} from "react-bootstrap";
-import ReactPlayer from "react-player";
-import React from "react";
+import {Modal} from 'react-bootstrap'
+import ReactPlayer from 'react-player'
+import React from 'react'
 
 const TrailerModal = (props) => {
-    const youtubeUrl = "https://www.youtube.com/watch?v=";
+    const youtubeUrl = 'https://www.youtube.com/watch?v='
 
     return (
         <>
@@ -27,7 +27,7 @@ const TrailerModal = (props) => {
                 :
                 null
             }
-            </>
-    );
+        </>
+    )
 }
-export default TrailerModal;
+export default TrailerModal

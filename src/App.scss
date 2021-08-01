@@ -308,6 +308,15 @@ div .spinner-grow {
   }
 }
 
+@media (max-width: 768px) {
+  .footer {
+    &-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
 
 @media (max-width: 550px) {
   .nav-links {
@@ -321,7 +330,7 @@ div .spinner-grow {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 75% !important;
+    padding-top: 250px !important;
     transform: translateY(-400px);
     transition: all 0.5s ease;
 
@@ -399,5 +408,10 @@ div .spinner-grow {
     max-width: 300px;
     margin-top: 30px;
     font-size: 1.5rem;
+  }
+  .footer {
+    &-info {
+      font-size: 0.75rem;
+    }
   }
 }

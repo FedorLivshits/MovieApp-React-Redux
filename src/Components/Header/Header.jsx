@@ -1,21 +1,22 @@
 import React, {useState} from 'react'
-import {NavLink, withRouter} from "react-router-dom";
+import {NavLink, withRouter} from 'react-router-dom'
 
-import {Container, ProgressBar} from "react-bootstrap";
+import {Container, ProgressBar} from 'react-bootstrap'
 
-import {connect} from "react-redux";
-import {compose} from "redux";
-import "../../App.scss"
+import {connect} from 'react-redux'
+import {compose} from 'redux'
+import '../../App.scss'
 
 const Header = ({isFetching, match, isMoviePageOpen, screenWidth}) => {
     const [menuOpen, setMenuOpen] = useState(false)
 
-    const onMenuOpen = () =>{
+    const onMenuOpen = () => {
         setMenuOpen(!menuOpen)
     }
     return (
-        <header className={(match.isExact && screenWidth > 710) || (isMoviePageOpen && screenWidth > 710) ? "header" : "other-page__header"}>
-            {isFetching ? <ProgressBar animated now={45} /> : ""}
+        <header
+            className={(match.isExact && screenWidth > 710) || (isMoviePageOpen && screenWidth > 710) ? 'header' : 'other-page__header'}>
+            {isFetching ? <ProgressBar animated now={45}/> : ''}
             <Container fluid>
                 <div className="inner-content">
                     <div className="brand">
@@ -28,7 +29,7 @@ const Header = ({isFetching, match, isMoviePageOpen, screenWidth}) => {
                         <li>
                             <NavLink to="/watchlist" onClick={() => setMenuOpen(false)}>Watch List</NavLink>
                         </li>
-                        <li >
+                        <li>
                             <NavLink to="/add" className="btn btn-main" onClick={() => setMenuOpen(false)}>
                                 <i className="fas fa-search"/>
                             </NavLink>
@@ -41,8 +42,8 @@ const Header = ({isFetching, match, isMoviePageOpen, screenWidth}) => {
                 </div>
             </Container>
         </header>
-    );
-};
+    )
+}
 
 
 let mapStateToProps = (state) => ({
@@ -53,4 +54,4 @@ let mapStateToProps = (state) => ({
 export default compose(
     connect(mapStateToProps, null),
     withRouter,
-)(Header);
+)(Header)

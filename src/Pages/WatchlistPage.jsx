@@ -36,7 +36,7 @@ const WatchlistPage = ({watchlist, removeMovieFromWatchlist}) => {
                             )}
                         </>
                     ) : (
-                        <h2 className="no-movies">No movies in your list! Add some!</h2>
+                        <h2 className="search__movies-none">No movies in your list! Add some!</h2>
                     )}
 
                 </Row>
