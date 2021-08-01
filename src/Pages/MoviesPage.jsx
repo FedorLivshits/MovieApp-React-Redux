@@ -3,12 +3,12 @@ import {Link} from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import {connect} from "react-redux";
 import Container from "react-bootstrap/cjs/Container";
-import {DropdownButton, ListGroup, Spinner, Dropdown} from 'react-bootstrap'
+import {DropdownButton, ListGroup, Spinner, Dropdown, Row, Col, Image, Card} from 'react-bootstrap'
 import Paginator from "../Components/Paginator/Paginator";
 import {getGenre, getMovieByGenre, getMoviesBySearch} from "../redux/moviesPage-reducer";
 
 
-const MoviesPage = ({getMovieByGenre, genres, moviesByGenre, getGenre, isFetching, getMoviesBySearch, pages, isNoneImgForMovie, screenWidth}) => {
+const MoviesPage = ({getMovieByGenre, genres, moviesByGenre, getGenre, isFetching, getMoviesBySearch, pages, screenWidth}) => {
     const [textInput, setTextInput] = useState('')
     const [currentPage, setCurrentPage] = useState(1)
     const [currentGenreId, setCurrentGenreId] = useState(null)
@@ -35,10 +35,10 @@ const MoviesPage = ({getMovieByGenre, genres, moviesByGenre, getGenre, isFetchin
 
     return (
         <Container fluid>
-            <div className="row movies-page">
-                {screenWidth > 780
+            <Row className="mt-5 mb-5">
+                {screenWidth > 768
                 ?
-                    <div className="col-3">
+                    <Col xl={2} lg={3} md={3} sm={12} xs={12}>
                         <ListGroup as="ul">
                             {genres.map(g => {
                                 return <ListGroup.Item className={currentGenreId === g.id ? "active" : ""} key={g.id}
@@ -47,9 +47,9 @@ const MoviesPage = ({getMovieByGenre, genres, moviesByGenre, getGenre, isFetchin
                                 </ListGroup.Item>
                             })}
                         </ListGroup>
-                    </div>
+                    </Col>
                     :
-                    <DropdownButton id="dropdown-basic-button" title="Dropdown button" className="mb-3">
+                    <DropdownButton title="Genre" className="mb-3">
                         {genres.map(g => {
                             return <Dropdown.Item  className={currentGenreId === g.id ? "active" : ""} key={g.id}
                                                    onClick={() => onGenreChange(g.id)}>
@@ -58,54 +58,56 @@ const MoviesPage = ({getMovieByGenre, genres, moviesByGenre, getGenre, isFetchin
                         })}
                     </DropdownButton>
                 }
-                <div className="col-9">
-                    <div className="search-input__wrapper">
-                        <input className="main-input" type="text" placeholder="Search for a movie" value={textInput}
+                <Col xl={10} lg={9} md={9} sm={12} xs={12}>
+                    <div className="search__movies">
+                        <input className="search__movies-input" type="text" placeholder="Search for a movie" value={textInput}
                                onChange={onInputChange}/>
-                        <button className="search-film-btn" onClick={searchMovie}>
+                        <button className="search__movies-btn" onClick={searchMovie}>
                             search
                         </button>
                     </div>
                     {!moviesByGenre.length && <div className="row mt-3 d-flex justify-content-center">
-                        <h2 className="no-movies">Search movies or choose by genre</h2>
+                        <h2 className="search__movies-none">Search movies or choose by genre</h2>
                     </div>
                     }
                     {isFetching
                         ?
-                        <div className="row mt-3 d-flex justify-content-center">
+                        <Row className="mt-3 d-flex justify-content-center">
                             <Spinner animation="grow" variant="primary"/>
-                        </div>
+                        </Row>
                         :
-                        <div className="row mt-3 justify-content-center">
+                        <Row className="mt-3 justify-content-center">
                             {moviesByGenre.map(m => {
-                                return <div className="col-md-2 col-sm-6 card  mb-3 ml-3" key={m.id}>
-                                    <Link to={`/movie/${m.id}`}>
-                                        {isNoneImgForMovie(m.poster)}
-                                    </Link>
-                                    <div className="mt-2 p-2">
+                             return  <Col xl={2} lg={3} md={4} sm={4} xs={6} key={m.id} className="mb-3">
+                                    <Card className="mb-2">
+                                        <Link to={`/movie/${m.id}`}>
+                                            <Image fluid rounded src={m.poster} alt=""/>
+                                        </Link>
+                                    </Card>
+                                        <p style={{fontWeight: 'bolder',  whiteSpace: 'nowrap'}}>{m.title}</p>
+                                        <p className="mb-0">Rated: {m.rating}</p>
                                         <ReactStars
                                             value={m.rating}
                                             count={10}
-                                            size={13}
-                                            color1={"#f4c10f"}
+                                            size={15}
+                                            color1={'#f4c10f'}
                                         />
-                                        <div className="movie-info">
-                                            <p>Rated: {m.rating}</p>
-                                            <p className="card-title" style={{fontWeight: "bolder"}}>{m.title}</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                </Col>
                             })}
-                            {moviesByGenre.length
-                                ?
-                                <Paginator pages={pages} onPageChange={onPageChange} currentPage={currentPage}/>
-                                :
-                                ""
-                            }
-                        </div>
+                        </Row>
                     }
-                </div>
-            </div>
+                    {moviesByGenre.length
+                        ?
+                        <Row className="mt-3">
+                            <Col>
+                                <Paginator pages={pages} onPageChange={onPageChange} currentPage={currentPage} screenWidth={screenWidth}/>
+                            </Col>
+                        </Row>
+                        :
+                        ""
+                    }
+                </Col>
+            </Row>
         </Container>
 
     );

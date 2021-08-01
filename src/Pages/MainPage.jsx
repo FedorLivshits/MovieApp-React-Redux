@@ -1,11 +1,11 @@
-import React, {useEffect} from 'react';
-import CarouselComponent from "../Components/CarouselComponent/CarouselComponent";
-import {connect} from "react-redux";
-import {Container, Spinner} from "react-bootstrap";
-import TrendingPersons from "../Components/TrendingPersons/TrendingPersons";
-import TopRatedMovies from "../Components/TopRatedMovies/TopRatedMovies";
-import PopularMovies from "../Components/PopularMovies/PopularMovies";
-import {initializeMainPage} from "../redux/initial-reducer";
+import React, {useEffect} from 'react'
+import CarouselComponent from '../Components/CarouselComponent/CarouselComponent'
+import {connect} from 'react-redux'
+import {Container, Spinner} from 'react-bootstrap'
+import TrendingPersons from '../Components/TrendingPersons/TrendingPersons'
+import TopRatedMovies from '../Components/TopRatedMovies/TopRatedMovies'
+import PopularMovies from '../Components/PopularMovies/PopularMovies'
+import {initializeMainPage} from '../redux/initial-reducer'
 
 const MainPage = props => {
     useEffect(() => {
@@ -23,11 +23,11 @@ const MainPage = props => {
             <Container fluid>
                 <PopularMovies popularMovies={props.popularMovies}/>
                 <TopRatedMovies topRatedMovies={props.topRatedMovies}/>
-                <TrendingPersons trendingPersons={props.trendingPersons} isNoneImgForPerson={props.isNoneImgForPerson}/>
+                <TrendingPersons trendingPersons={props.trendingPersons}/>
             </Container>
         </>
-    );
-};
+    )
+}
 
 const mapStateToProps = (state) => {
     return {
@@ -41,4 +41,4 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
     initializeMainPage
-})(MainPage);
+})(MainPage)

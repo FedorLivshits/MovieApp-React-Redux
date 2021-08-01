@@ -1,11 +1,11 @@
-import {applyMiddleware, combineReducers, compose, createStore} from "redux";
-import thunkMiddleware from "redux-thunk";
-import mainPageReducer from "./mainPage-reducer";
-import moviePageReducer from "./moviePage-reducer";
-import moviesPageReducer from "./moviesPage-reducer";
-import personPageReducer from "./personPage-reducer";
-import initializedReducer from "./initial-reducer";
-import watchlistReducer from "./watchlist-reducer";
+import {applyMiddleware, combineReducers, compose, createStore} from 'redux'
+import thunkMiddleware from 'redux-thunk'
+import mainPageReducer from './mainPage-reducer'
+import moviePageReducer from './moviePage-reducer'
+import moviesPageReducer from './moviesPage-reducer'
+import personPageReducer from './personPage-reducer'
+import initializedReducer from './initial-reducer'
+import watchlistReducer from './watchlist-reducer'
 
 let reducers = combineReducers({
     mainPage: mainPageReducer,
@@ -16,9 +16,9 @@ let reducers = combineReducers({
     watchlistPage: watchlistReducer,
 })
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducers,  composeEnhancers(applyMiddleware(thunkMiddleware)));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const store = createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)))
 
-window.store = store;
+window.store = store
 
-export default store;
+export default store

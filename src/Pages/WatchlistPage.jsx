@@ -1,50 +1,49 @@
-import React, {useEffect} from 'react';
-import {connect} from "react-redux";
-import {Button, Container} from "react-bootstrap";
-import {Link} from "react-router-dom";
-import ReactStars from "react-rating-stars-component";
-import {removeMovieFromWatchlist} from "../redux/watchlist-reducer";
+import React, {useEffect} from 'react'
+import {connect} from 'react-redux'
+import {Button, Card, Col, Container, Image, Row} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
+import ReactStars from 'react-rating-stars-component'
+import {removeMovieFromWatchlist} from '../redux/watchlist-reducer'
 
-const WatchlistPage = ({watchlist, isNoneImgForMovie, removeMovieFromWatchlist}) => {
+const WatchlistPage = ({watchlist, removeMovieFromWatchlist}) => {
     useEffect(() => {
-        localStorage.setItem("watchlist", JSON.stringify(watchlist));
-    }, [watchlist]);
+        localStorage.setItem('watchlist', JSON.stringify(watchlist))
+    }, [watchlist])
 
     return (
         <>
             <Container>
-                <div className="row mt-3 justify-content-center">
+                <Row className="mt-3 justify-content-center">
                     {watchlist.length > 0 ? (
                         <>
-                            {watchlist.map(m => <div className="col-md-2 col-sm-6 card  mb-3 ml-3" key={m.id}>
-                                <Link to={`/movie/${m.id}`}>
-                                    {isNoneImgForMovie(m.poster)}
-                                </Link>
-                                <div className="mt-2 p-2">
+                            {watchlist.map(m => <Col xl={2} lg={3} md={4} sm={4} xs={6} className="mb-3" key={m.id}>
+                                    <Card className="mb-2">
+                                        <Link to={`/movie/${m.id}`}>
+                                            <Image fluid rounded src={m.poster} alt={m.title}/>
+                                        </Link>
+                                    </Card>
+                                    <p style={{fontWeight: 'bolder', whiteSpace: 'nowrap'}}>{m.title}</p>
+                                    <p className="mb-0">Rated: {m.rating}</p>
                                     <ReactStars
                                         value={m.rating}
                                         count={10}
-                                        size={13}
-                                        color1={"#f4c10f"}
+                                        size={15}
+                                        color1={'#f4c10f'}
                                     />
-                                    <div className="movie-info">
-                                        <p>Rated: {m.rating}</p>
-                                        <p className="card-title" style={{fontWeight: "bolder"}}>{m.title}</p>
-                                    </div>
                                     <Button variant="danger" className="w-100"
                                             onClick={() => removeMovieFromWatchlist(m.id)}>delete</Button>
-                                </div>
-                            </div>)}
+                                </Col>
+                            )}
                         </>
                     ) : (
                         <h2 className="no-movies">No movies in your list! Add some!</h2>
                     )}
 
-                </div>
+                </Row>
             </Container>
         </>
-    );
-};
+    )
+}
 
 const mapStateToProps = (state) => {
     return {
@@ -52,4 +51,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {removeMovieFromWatchlist})(WatchlistPage);
+export default connect(mapStateToProps, {removeMovieFromWatchlist})(WatchlistPage)

@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {Col, Row} from 'react-bootstrap'
+import {Col, Image, Row} from 'react-bootstrap'
 
 
-const TrendingPersons = ({trendingPersons, isNoneImgForPerson}) => {
+const TrendingPersons = ({trendingPersons}) => {
     return <>
         <Row className="mt-5 mb-3">
             <Col className="ml-3">
@@ -16,7 +16,7 @@ const TrendingPersons = ({trendingPersons, isNoneImgForPerson}) => {
             {trendingPersons.map(p => {
                 return <Col lg={2} md={3} sm={4} xs={6} className="my-card text-center" key={p.id}>
                     <Link to={`/person/${p.id}`}>
-                        {isNoneImgForPerson(p.profileImg)}
+                        <Image src={p.profileImg} alt='' fluid rounded/>
                     </Link>
                     <p className="font-weight-bold text-center">{p.name}</p>
                     <p

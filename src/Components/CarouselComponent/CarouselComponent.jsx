@@ -18,9 +18,9 @@ const CarouselComponent = ({movies, screenWidth}) => {
                                 src={m.backPoster}
                                 alt="First slide"
                             />
-                            <div className="input-section-title">
-                                <h2 className="input-title ">Welcome.</h2>
-                                <h3 className="input-title-descr">Millions of movie to discover. Explore now.</h3>
+                            <div className="carousel-content">
+                                <h2 className="carousel-title ">Welcome.</h2>
+                                <h3 className="carousel-text">Millions of movie to discover. Explore now.</h3>
                             </div>
                             <Carousel.Caption>
                                 <h3>{m.title}</h3>

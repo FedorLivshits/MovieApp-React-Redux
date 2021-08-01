@@ -38,7 +38,7 @@ const PersonPage = ({personDetail, match, isFetching, personMovies, initializePe
                                 <Spinner animation="grow" variant="primary"/>
                             </Row>
                             :
-                            <div className="movie-page">
+                            <div className="mt-5 mb-5">
                                 <Container>
                                     <Col className="movie-page__content">
                                         <Row>
@@ -50,9 +50,17 @@ const PersonPage = ({personDetail, match, isFetching, personMovies, initializePe
                                             </Col>
                                             <Col md={8} sm={6} xs={12}>
                                                 <h2>{personDetail.name}</h2>
+                                                {personDetail.birthday !== null
+                                                &&
                                                 <p>{personDetail.birthday.split('-').reverse().join('/')}</p>
-                                                <h4>Biography:</h4>
-                                                <p>{personDetail.biography}</p>
+                                                }
+                                                {personDetail.biography !== ''
+                                                &&
+                                                <>
+                                                    <h4>Biography:</h4>
+                                                    <p>{personDetail.biography}</p>
+                                                </>
+                                                }
                                             </Col>
                                         </Row>
                                     </Col>

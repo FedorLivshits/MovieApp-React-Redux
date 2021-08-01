@@ -1,8 +1,5 @@
-import {
-    fetchGenreList,
-    fetchMovieByGenre, fetchMoviesBySearch, fetchPersonDetail, fetchPersonMovies,
-} from "../api/api";
-import {setIsFetching, setMovieByGenre, setPages} from "./moviesPage-reducer";
+import {fetchPersonDetail, fetchPersonMovies,} from '../api/api'
+import {setIsFetching} from './moviesPage-reducer'
 
 
 const SET_PERSON = "personPage-reducer/SET_PERSON"
@@ -40,7 +37,7 @@ export const getPersonDetail = (id) => {
             dispatch(setPersonDetail(data))
             dispatch(setIsFetching(false))
         } catch (e) {
-            alert("error")
+            alert('error: ' + e)
         }
     }
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import ReactStars from 'react-rating-stars-component'
-import {Row, Col} from 'react-bootstrap'
+import {Row, Col, Image, Card} from 'react-bootstrap'
 
 const PopularMovies = ({popularMovies}) => (
     <>
@@ -15,14 +15,14 @@ const PopularMovies = ({popularMovies}) => (
         <div className="scrolling-wrapper">
             {popularMovies.map(m => {
                 return <Col lg={2} md={3} sm={4} xs={6} className="my-card" key={m.id}>
-                    <div className="card">
+                    <Card>
                         <Link to={`/movie/${m.id}`}>
-                            <img className="img-fluid" src={m.poster} alt={m.title}/>
+                            <Image fluid rounded src={m.poster} alt={m.title} />
                         </Link>
-                    </div>
+                    </Card>
                     <div className="mt-2">
                         <p style={{fontWeight: 'bolder'}}>{m.title}</p>
-                        <p>Rated: {m.rating}</p>
+                        <p className="mb-0">Rated: {m.rating}</p>
                         <ReactStars
                             value={m.rating}
                             count={10}

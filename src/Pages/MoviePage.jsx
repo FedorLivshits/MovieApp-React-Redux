@@ -10,10 +10,9 @@ import TrailerModal from '../Components/Modal/TrailerModal'
 import {initializeMoviePage} from '../redux/initial-reducer'
 import {setIsMoviePageOpen} from '../redux/moviePage-reducer'
 import {addMovieToWatchlist} from '../redux/watchlist-reducer'
-import TopSectionMobile from '../Components/TopSectionMobile/TopSectionMobile'
 
 
-const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, trailer, initializeMoviePage, initializedMoviePage, watchlist, setIsMoviePageOpen, isNoneImgForPerson, addMovieToWatchlist, screenWidth}) => {
+const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, trailer, initializeMoviePage, initializedMoviePage, watchlist, setIsMoviePageOpen, addMovieToWatchlist, screenWidth}) => {
     const [show, setShow] = useState(false)
 
     const handleClose = () => setShow(false)
@@ -73,8 +72,8 @@ const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, t
                                                 src={movieDetails.backPoster}
                                                 alt="First slide"
                                             />
-                                            <div className="input-section-title">
-                                                <h2 className="input-title justify-content-center">{movieDetails.title}</h2>
+                                            <div className="carousel-content">
+                                                <h2 className="carousel-title justify-content-center">{movieDetails.title}</h2>
                                             </div>
                                             <Carousel.Caption>
                                                 <Button variant="primary" onClick={handleShow}>Watch Trailer</Button>
@@ -84,45 +83,50 @@ const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, t
                                     :
                                     null
                                 }
-                                <Col className="movie-page__content">
+                                <Col className="mt-5 mb-5">
                                     <Container>
                                         <Row>
-                                            <Col md={4} sm={6} xs={12} >
-                                                <Card className="movie-card mb-3">
+                                            <Col md={4} sm={6} xs={12}>
+                                                <Card className="mb-3">
                                                     <Card.Img variant="top" src={movieDetails.poster} fluid/>
                                                     <Card.Body>
                                                         <Button onClick={() => onAddMovieToWatchlist(movieDetails)}
                                                                 variant="primary w-100" disabled={disabledBtn()}>Add
-                                                            to watchlist</Button>
+                                                            to
+                                                            watchlist</Button>
                                                     </Card.Body>
                                                 </Card>
                                             </Col>
                                             <Col md={8} sm={6} xs={12}>
-                                                <h2>{movieDetails.title}</h2>
+                                                <h2 className="mb-0">{movieDetails.title}</h2>
                                                 <ReactStars
                                                     value={movieDetails.rating}
                                                     count={10}
                                                     size={15}
                                                     color1={'#f4c10f'}
                                                 />
-                                                <p>{movieDetails.release_date.split('-').reverse().join('/')} {movieDetails.genres.map(g =>
+                                                <p className="mt-1">{movieDetails.release_date.split('-').reverse().join('/')} {movieDetails.genres.map(g =>
                                                     <span key={g.id} className="ml-1">{g.name},</span>)}
                                                 </p>
                                                 {movieDetails.tagline
                                                     ?
-                                                    <p>"{movieDetails.tagline}"</p>
+                                                    <p className="font-italic mt-3">"{movieDetails.tagline}"</p>
                                                     :
                                                     ''
                                                 }
-                                                <h4>Overview:</h4>
+                                                <h5>Overview:</h5>
                                                 <p>{movieDetails.overview}</p>
-                                                <Button variant="primary" onClick={handleShow}>Watch Trailer</Button>
+                                                {screenWidth <= 710
+                                                &&
+                                                <Button className="w-100" variant="primary" onClick={handleShow}>Watch
+                                                    Trailer</Button>
+                                                }
                                             </Col>
                                         </Row>
                                     </Container>
                                 </Col>
                                 <Container>
-                                    <MovieCast movieCast={movieCast} isNoneImgForPerson={isNoneImgForPerson}/>
+                                    <MovieCast movieCast={movieCast}/>
                                     {similarMovies.length
                                         ?
                                         <SimilarMovies similarMovies={similarMovies}/>
@@ -133,7 +137,6 @@ const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, t
                                                   isNotEmptyObj={isNotEmptyObj}/>
                                 </Container>
                             </div>
-
                         }
                     </>
                     :

@@ -1,14 +1,14 @@
 import {
     fetchGenreList,
     fetchMovieByGenre, fetchMoviesBySearch,
-} from "../api/api";
+} from '../api/api'
 
 
-const SET_GENRE = "moviesPage-reducer/SET_GENRE"
-const SET_MOVIES_BY_GENRE = "moviesPage-reducer/SET_MOVIES_BY_GENRE"
-const SET_MOVIES_BY_SEARCH = "moviesPage-reducer/SET_MOVIES_BY_SEARCH"
-const IS_FETCHING = "moviesPage-reducer/IS_FETCHING"
-const SET_PAGES = "moviesPage-reducer/SET_PAGES"
+const SET_GENRE = 'moviesPage-reducer/SET_GENRE'
+const SET_MOVIES_BY_GENRE = 'moviesPage-reducer/SET_MOVIES_BY_GENRE'
+const SET_MOVIES_BY_SEARCH = 'moviesPage-reducer/SET_MOVIES_BY_SEARCH'
+const IS_FETCHING = 'moviesPage-reducer/IS_FETCHING'
+const SET_PAGES = 'moviesPage-reducer/SET_PAGES'
 
 let initialState = {
     genres: [],
@@ -48,7 +48,7 @@ export const setPages = (pages) => ({type: SET_PAGES, pages})
 
 const modifiedMovieDataFlow = async (dispatch, apiMethod, actionCreator, parameter_1, parameter_2) => {
     let data = await apiMethod(parameter_1, parameter_2)
-    const posterUrl = 'https://image.tmdb.org/t/p/original/';
+    const posterUrl = 'https://image.tmdb.org/t/p/original/'
     const pages = data.total_pages
     const modifiedData = data.results.map((m) => ({
         id: m['id'],
@@ -72,7 +72,7 @@ export const getGenre = () => {
             dispatch(setGenre(genres))
         }
     } catch (e) {
-        alert("error")
+        alert('error')
     }
 }
 
@@ -81,7 +81,7 @@ export const getMovieByGenre = (genreId, currentPage) => {
         try {
             dispatch(setIsFetching(true))
             let data = await fetchMovieByGenre(currentPage, genreId)
-            const posterUrl = 'https://image.tmdb.org/t/p/original/';
+            const posterUrl = 'https://image.tmdb.org/t/p/original/'
             const pages = data.total_pages
             const modifiedData = data.results.map((m) => ({
                 id: m['id'],
@@ -96,7 +96,7 @@ export const getMovieByGenre = (genreId, currentPage) => {
             dispatch(setMovieByGenre(modifiedData))
             dispatch(setIsFetching(false))
         } catch (e) {
-            alert("error")
+            alert('error')
         }
     }
 }
@@ -108,7 +108,7 @@ export const getMoviesBySearch = (queryText) => {
             await modifiedMovieDataFlow(dispatch, fetchMoviesBySearch, setMovieBySearch, queryText)
             dispatch(setIsFetching(false))
         } catch (e) {
-            alert("error")
+            alert('error')
         }
     }
 }
