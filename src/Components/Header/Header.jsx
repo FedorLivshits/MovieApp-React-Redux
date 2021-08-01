@@ -1,22 +1,41 @@
 import React, {useState} from 'react'
 import {NavLink, withRouter} from 'react-router-dom'
-
-import {Container, ProgressBar} from 'react-bootstrap'
-
+import {Container} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {compose} from 'redux'
 import '../../App.scss'
+import {fetchOnInputChangeMovies} from '../../api/api'
+import HeaderSearchMovieCard from '../HeaderSearchMovieCard/HeaderSearchMovieCard'
 
-const Header = ({isFetching, match, isMoviePageOpen, screenWidth}) => {
+const Header = ({match, isMoviePageOpen, screenWidth}) => {
     const [menuOpen, setMenuOpen] = useState(false)
+    const [inputText, setInputText] = useState('')
+    const [result, setResult] = useState([])
 
+    const onInputChange = (event) => {
+        event.preventDefault()
+        let newText = event.target.value
+        setInputText(newText)
+
+        fetchOnInputChangeMovies(newText)
+            .then(data => {
+                if (!data.errors) {
+                    setResult(data.results)
+                } else {
+                    setResult([])
+                }
+            })
+    }
+    const closeSearchList = () => {
+        setInputText('')
+    }
     const onMenuOpen = () => {
         setMenuOpen(!menuOpen)
     }
+
     return (
         <header
             className={(match.isExact && screenWidth > 710) || (isMoviePageOpen && screenWidth > 710) ? 'header' : 'other-page__header'}>
-            {isFetching ? <ProgressBar animated now={45}/> : ''}
             <Container fluid>
                 <div className="inner-content">
                     <div className="brand">
@@ -29,26 +48,35 @@ const Header = ({isFetching, match, isMoviePageOpen, screenWidth}) => {
                         <li>
                             <NavLink to="/watchlist" onClick={() => setMenuOpen(false)}>Watch List</NavLink>
                         </li>
-                        <li>
-                            <NavLink to="/add" className="btn btn-main" onClick={() => setMenuOpen(false)}>
-                                <i className="fas fa-search"/>
-                            </NavLink>
+                        <li className="header-search__input-section">
+                            <div className="header__search">
+                                <input className="header__search-input" type="text" placeholder="Search for a movie"
+                                       value={inputText} onChange={onInputChange}/>
+                                <button className="header__search-btn">
+                                    <i className="fas fa-search"/>
+                                </button>
+                            </div>
                         </li>
                     </ul>
-
                     <div className={menuOpen ? 'burger-menu burger-menu--active' : 'burger-menu'} onClick={onMenuOpen}>
                         <span></span><span></span><span></span>
                     </div>
+                </div>
+                <div className={inputText ? 'header__search-content--active' : 'header__search-content'}>
+                    <ul className="header__search-items">
+                        {result.map(movie => (
+                           <HeaderSearchMovieCard movie={movie} closeSearchList={closeSearchList}/>
+                        ))}
+                    </ul>
                 </div>
             </Container>
         </header>
     )
 }
 
-
 let mapStateToProps = (state) => ({
     isFetching: state.moviesPage.isFetching,
-    isMoviePageOpen: state.moviePage.isMoviePageOpen
+    isMoviePageOpen: state.moviePage.isMoviePageOpen,
 })
 
 export default compose(

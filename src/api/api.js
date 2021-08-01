@@ -17,7 +17,10 @@ export const fetchActualMovies = () => {
     return axios.get(`${nowPlayingUrl}?api_key=${apiKey}&language=en-US&page=1`)
         .then(response => response.data)
 }
-
+export const fetchOnInputChangeMovies = (inputText) => {
+    return axios.get(   `${url}/search/movie?api_key=${apiKey}&language=en-US&page=1&include_adult=false&query=${inputText}`)
+        .then(response => response.data)
+}
 export const fetchGenreList = () => {
     return axios.get(`${genreUrl}?api_key=${apiKey}&language=en-US&page=1`)
         .then(response => response.data)
