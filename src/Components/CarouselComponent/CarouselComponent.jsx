@@ -10,7 +10,7 @@ const CarouselComponent = ({movies, screenWidth}) => {
         screenWidth > 710
             ?
             <>
-                <Carousel fade controls={false}>
+                <Carousel fade controls={true}>
                     {movies.map(m => {
                         return <Carousel.Item key={m.id} className="carousel-img" interval={3000}>
                             <img
