@@ -6,6 +6,8 @@ import TrendingPersons from '../Components/TrendingPersons/TrendingPersons'
 import TopRatedMovies from '../Components/TopRatedMovies/TopRatedMovies'
 import PopularMovies from '../Components/PopularMovies/PopularMovies'
 import {initializeMainPage} from '../redux/initial-reducer'
+import FadeInWhenVisible from '../Components/FadeInWhenVisible/FadeInWhenVisible'
+import {motion} from 'framer-motion'
 
 const MainPage = props => {
     useEffect(() => {
@@ -21,9 +23,27 @@ const MainPage = props => {
         <>
             <CarouselComponent movies={props.movies} screenWidth={props.screenWidth}/>
             <Container fluid>
-                <PopularMovies popularMovies={props.popularMovies}/>
-                <TopRatedMovies topRatedMovies={props.topRatedMovies}/>
-                <TrendingPersons trendingPersons={props.trendingPersons}/>
+                {props.screenWidth < 710
+                    ?
+                    <>
+                        <FadeInWhenVisible>
+                            <PopularMovies popularMovies={props.popularMovies}/>
+                        </FadeInWhenVisible>
+                        <FadeInWhenVisible>
+                            <TopRatedMovies topRatedMovies={props.topRatedMovies}/>
+                        </FadeInWhenVisible>
+                        <FadeInWhenVisible>
+                            <TrendingPersons trendingPersons={props.trendingPersons}/>
+                        </FadeInWhenVisible>
+                    </>
+                    :
+                    <>
+                        <PopularMovies popularMovies={props.popularMovies}/>
+                        <TopRatedMovies topRatedMovies={props.topRatedMovies}/>
+                        <TrendingPersons trendingPersons={props.trendingPersons}/>
+                    </>
+                }
+
             </Container>
         </>
     )

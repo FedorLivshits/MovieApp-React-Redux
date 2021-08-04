@@ -5,6 +5,8 @@ import {compose} from 'redux'
 import {Card, Col, Container, Row, Spinner} from 'react-bootstrap'
 import PersonMovies from '../Components/PersonMovies/PersonMovies'
 import {initializePersonPage} from '../redux/initial-reducer'
+import {motion} from 'framer-motion'
+import FadeInWhenVisible from '../Components/FadeInWhenVisible/FadeInWhenVisible'
 
 
 const PersonPage = ({personDetail, match, isFetching, personMovies, initializePersonPage, initializedPersonPage}) => {
@@ -27,7 +29,9 @@ const PersonPage = ({personDetail, match, isFetching, personMovies, initializePe
         </div>
     }
     return (
-        <>
+        <motion.div initial={{opacity: 0}}
+                    animate={{opacity: 1, transition: {duration: .4}}}
+                    exit={{opacity: 0}}>
             {
                 (isNotEmptyObj(personDetail))
                     ?
@@ -43,24 +47,30 @@ const PersonPage = ({personDetail, match, isFetching, personMovies, initializePe
                                     <Col className="movie-page__content">
                                         <Row>
                                             <Col md={4} sm={6} xs={12}>
-                                                <Card className="movie-card mb-3">
+                                                <Card className="movie-card mb-3"
+                                                      as={motion.div}
+                                                      initial={{y: 100, opacity: 0}}
+                                                      animate={{y: 0, opacity: 1, transition: {duration: .8}}}
+                                                >
                                                     <Card.Img fluid variant="top"
                                                               src={'https://image.tmdb.org/t/p/w200' + personDetail['profile_path']}/>
                                                 </Card>
                                             </Col>
                                             <Col md={8} sm={6} xs={12}>
-                                                <h2>{personDetail.name}</h2>
-                                                {personDetail.birthday !== null
-                                                &&
-                                                <p>{personDetail.birthday.split('-').reverse().join('/')}</p>
-                                                }
-                                                {personDetail.biography !== ''
-                                                &&
-                                                <>
-                                                    <h4>Biography:</h4>
-                                                    <p>{personDetail.biography}</p>
-                                                </>
-                                                }
+                                                <FadeInWhenVisible>
+                                                    <h2>{personDetail.name}</h2>
+                                                    {personDetail.birthday !== null
+                                                    &&
+                                                    <p>{personDetail.birthday.split('-').reverse().join('/')}</p>
+                                                    }
+                                                    {personDetail.biography !== ''
+                                                    &&
+                                                    <>
+                                                        <h4>Biography:</h4>
+                                                        <p>{personDetail.biography}</p>
+                                                    </>
+                                                    }
+                                                </FadeInWhenVisible>
                                             </Col>
                                         </Row>
                                     </Col>
@@ -72,7 +82,7 @@ const PersonPage = ({personDetail, match, isFetching, personMovies, initializePe
                     :
                     ''
             }
-        </>
+        </motion.div>
     )
 }
 

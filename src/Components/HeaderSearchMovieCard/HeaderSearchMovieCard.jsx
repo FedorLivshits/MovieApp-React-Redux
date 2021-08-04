@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import {Image} from 'react-bootstrap'
 import ReactStars from 'react-rating-stars-component'
 
+
 const HeaderSearchMovieCard = ({movie, closeSearchList}) => {
     return (
         <li key={movie.id}>

@@ -9,6 +9,7 @@ import MoviePage from './Pages/MoviePage'
 import MoviesPage from './Pages/MoviesPage'
 import PersonPage from './Pages/PersonPage'
 import WatchlistPage from './Pages/WatchlistPage'
+import {AnimatePresence} from 'framer-motion'
 
 
 const App = () => {
@@ -22,11 +23,13 @@ const App = () => {
 
     return <div className="app">
         <Header screenWidth={screenWidth}/>
-        <Route exact path="/" render={() => <MainPage screenWidth={screenWidth}/>}/>
-        <Route path="/movies" render={() => <MoviesPage screenWidth={screenWidth}/>}/>
-        <Route path="/movie/:id" render={() => <MoviePage screenWidth={screenWidth}/>}/>
-        <Route path="/watchlist" render={() => <WatchlistPage/>}/>
-        <Route path="/person/:id" render={() => <PersonPage/>}/>
+        <AnimatePresence>
+            <Route exact path="/" render={() => <MainPage screenWidth={screenWidth}/>}/>
+            <Route path="/movies" render={() => <MoviesPage screenWidth={screenWidth}/>}/>
+            <Route path="/movie/:id" render={() => <MoviePage screenWidth={screenWidth}/>}/>
+            <Route path="/watchlist" render={() => <WatchlistPage/>}/>
+            <Route path="/person/:id" render={() => <PersonPage/>}/>
+        </AnimatePresence>
         <Footer/>
     </div>
 }

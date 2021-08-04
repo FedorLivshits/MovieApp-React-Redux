@@ -6,6 +6,7 @@ import Container from "react-bootstrap/cjs/Container";
 import {DropdownButton, ListGroup, Spinner, Dropdown, Row, Col, Image, Card} from 'react-bootstrap'
 import Paginator from "../Components/Paginator/Paginator";
 import {getGenre, getMovieByGenre, getMoviesBySearch} from "../redux/moviesPage-reducer";
+import {motion} from 'framer-motion'
 
 
 const MoviesPage = ({getMovieByGenre, genres, moviesByGenre, getGenre, isFetching, getMoviesBySearch, pages, screenWidth}) => {
@@ -34,6 +35,9 @@ const MoviesPage = ({getMovieByGenre, genres, moviesByGenre, getGenre, isFetchin
     }
 
     return (
+        <motion.div initial={{opacity: 0}}
+                    animate={{opacity: 1, transition:{duration: .4}}}
+                    exit={{opacity: 0}}>
         <Container fluid>
             <Row className="mt-5 mb-5">
                 {screenWidth > 768
@@ -109,7 +113,7 @@ const MoviesPage = ({getMovieByGenre, genres, moviesByGenre, getGenre, isFetchin
                 </Col>
             </Row>
         </Container>
-
+        </motion.div>
     );
 }
 

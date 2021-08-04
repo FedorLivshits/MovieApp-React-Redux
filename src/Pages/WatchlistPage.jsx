@@ -4,6 +4,7 @@ import {Button, Card, Col, Container, Image, Row} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import ReactStars from 'react-rating-stars-component'
 import {removeMovieFromWatchlist} from '../redux/watchlist-reducer'
+import {motion} from 'framer-motion'
 
 const WatchlistPage = ({watchlist, removeMovieFromWatchlist}) => {
     useEffect(() => {
@@ -11,7 +12,9 @@ const WatchlistPage = ({watchlist, removeMovieFromWatchlist}) => {
     }, [watchlist])
 
     return (
-        <>
+        <motion.div initial={{opacity: 0}}
+                    animate={{opacity: 1, transition: {duration: .4}}}
+                    exit={{opacity: 0}}>
             <Container>
                 <Row className="mt-3 justify-content-center">
                     {watchlist.length > 0 ? (
@@ -41,7 +44,7 @@ const WatchlistPage = ({watchlist, removeMovieFromWatchlist}) => {
 
                 </Row>
             </Container>
-        </>
+        </motion.div>
     )
 }
 

@@ -10,6 +10,8 @@ import TrailerModal from '../Components/Modal/TrailerModal'
 import {initializeMoviePage} from '../redux/initial-reducer'
 import {setIsMoviePageOpen} from '../redux/moviePage-reducer'
 import {addMovieToWatchlist} from '../redux/watchlist-reducer'
+import {motion} from 'framer-motion'
+import FadeInWhenVisible from '../Components/FadeInWhenVisible/FadeInWhenVisible'
 
 
 const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, trailer, initializeMoviePage, initializedMoviePage, watchlist, setIsMoviePageOpen, addMovieToWatchlist, screenWidth}) => {
@@ -72,9 +74,12 @@ const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, t
                                                 src={movieDetails.backPoster}
                                                 alt="First slide"
                                             />
-                                            <div className="carousel-content">
+                                            <motion.div className="carousel-content"
+                                                 initial={{opacity: 0}}
+                                                 animate={{opacity: 1, transition:{delay: .2, duration: .4}}}
+                                            >
                                                 <h2 className="carousel-title justify-content-center">{movieDetails.title}</h2>
-                                            </div>
+                                            </motion.div>
                                             <Carousel.Caption>
                                                 <Button variant="primary" onClick={handleShow}>Watch Trailer</Button>
                                             </Carousel.Caption>
@@ -87,7 +92,10 @@ const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, t
                                     <Container>
                                         <Row>
                                             <Col md={4} sm={6} xs={12}>
-                                                <Card className="mb-3">
+                                                <Card as={motion.div}
+                                                      initial={{y: 100, opacity: 0}}
+                                                      animate={{y: 0, opacity: 1, transition:{duration: .8}}}
+                                                      className="mb-3">
                                                     <Card.Img variant="top" src={movieDetails.poster} fluid/>
                                                     <Card.Body>
                                                         <Button onClick={() => onAddMovieToWatchlist(movieDetails)}
@@ -98,6 +106,7 @@ const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, t
                                                 </Card>
                                             </Col>
                                             <Col md={8} sm={6} xs={12}>
+                                                <FadeInWhenVisible>
                                                 <h2 className="mb-0">{movieDetails.title}</h2>
                                                 <ReactStars
                                                     value={movieDetails.rating}
@@ -121,6 +130,7 @@ const MoviePage = ({movieDetails, match, isFetching, movieCast, similarMovies, t
                                                 <Button className="w-100" variant="primary" onClick={handleShow}>Watch
                                                     Trailer</Button>
                                                 }
+                                                </FadeInWhenVisible>
                                             </Col>
                                         </Row>
                                     </Container>
