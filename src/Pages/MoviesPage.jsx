@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import {
-    Card,
-    Col,
-    Dropdown,
-    DropdownButton,
-    ListGroup,
-    Row,
-    Spinner
+	Card,
+	Col,
+	Dropdown,
+	DropdownButton,
+	ListGroup,
+	Row,
+	Spinner,
 } from 'react-bootstrap'
 import Container from 'react-bootstrap/cjs/Container'
 import ReactStars from 'react-rating-stars-component'
@@ -16,9 +16,9 @@ import { Link } from 'react-router-dom'
 import { IsImageNull } from '../Components/IsImageNull/IsImageNull'
 import Paginator from '../Components/Paginator/Paginator'
 import {
-    getGenre,
-    getMovieByGenre,
-    getMoviesBySearch
+	getGenre,
+	getMovieByGenre,
+	getMoviesBySearch,
 } from '../redux/moviesPage-reducer'
 
 const MoviesPage = ({

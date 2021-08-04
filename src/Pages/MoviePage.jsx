@@ -1,23 +1,12 @@
-import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
-import {
-	Button,
-	Card,
-	Carousel,
-	Col,
-	Container,
-	Row,
-	Spinner,
-} from 'react-bootstrap'
-import ReactStars from 'react-rating-stars-component'
+import { Col, Container, Row, Spinner } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'redux'
-import FadeInWhenVisible from '../Components/FadeInWhenVisible/FadeInWhenVisible'
-import { IsImageNull } from '../Components/IsImageNull/IsImageNull'
+import CarouselForMovie from '../Components/CarouselComponent/CarouselForMovie'
 import TrailerModal from '../Components/Modal/TrailerModal'
-import MovieCast from '../Components/MovieCast/MovieCast'
-import SimilarMovies from '../Components/SimilarMovies/SimilarMovies'
+import MovieCard from '../Components/MovieCard/MovieCard'
+import SliderComponent from '../Components/SliderComponent/SliderComponent'
 import { initializeMoviePage } from '../redux/initial-reducer'
 import { setIsMoviePageOpen } from '../redux/moviePage-reducer'
 import { addMovieToWatchlist } from '../redux/watchlist-reducer'
@@ -86,107 +75,34 @@ const MoviePage = ({
 					) : (
 						<div className='movie-page'>
 							{screenWidth > 710 ? (
-								<Carousel controls={false} indicators={false}>
-									<Carousel.Item className='carousel-img'>
-										{console.log('poster: ' + movieDetails.backPoster)}
-										<IsImageNull
-											inputImage={movieDetails.backPoster}
-											className={'d-block w-100'}
-											blackBackground={true}
-										/>
-										<motion.div
-											className='carousel-content'
-											initial={{ opacity: 0 }}
-											animate={{
-												opacity: 1,
-												transition: { delay: 0.2, duration: 0.4 },
-											}}>
-											<h2 className='carousel-title justify-content-center'>
-												{movieDetails.title}
-											</h2>
-										</motion.div>
-										<Carousel.Caption>
-											<Button variant='primary' onClick={handleShow}>
-												Watch Trailer
-											</Button>
-										</Carousel.Caption>
-									</Carousel.Item>
-								</Carousel>
+								<CarouselForMovie
+									movieDetails={movieDetails}
+									handleShow={handleShow}
+								/>
 							) : null}
 							<Col className='mt-5 mb-5'>
 								<Container>
-									<Row>
-										<Col md={4} sm={6} xs={12}>
-											<Card
-												as={motion.div}
-												initial={{ y: 100, opacity: 0 }}
-												animate={{
-													y: 0,
-													opacity: 1,
-													transition: { duration: 0.8 },
-												}}
-												className='mb-3'>
-												<IsImageNull
-													inputImage={movieDetails.poster}
-												/>
-												<Card.Body>
-													<Button
-														onClick={() => onAddMovieToWatchlist(movieDetails)}
-														variant='primary w-100'
-														disabled={disabledBtn()}>
-														Add to watchlist
-													</Button>
-												</Card.Body>
-											</Card>
-										</Col>
-										<Col md={8} sm={6} xs={12}>
-											<FadeInWhenVisible>
-												<h2 className='mb-0'>{movieDetails.title}</h2>
-												<ReactStars
-													value={movieDetails.rating}
-													count={10}
-													size={15}
-													color1={'#f4c10f'}
-												/>
-												<p className='mt-1'>
-													{movieDetails.release_date
-														.split('-')
-														.reverse()
-														.join('/')}{' '}
-													{movieDetails.genres.map(g => (
-														<span key={g.id} className='ml-1'>
-															{g.name},
-														</span>
-													))}
-												</p>
-												{movieDetails.tagline ? (
-													<p className='font-italic mt-3'>
-														"{movieDetails.tagline}"
-													</p>
-												) : (
-													''
-												)}
-												<h5>Overview:</h5>
-												<p>{movieDetails.overview}</p>
-												{screenWidth <= 710 && (
-													<Button
-														className='w-100'
-														variant='primary'
-														onClick={handleShow}>
-														Watch Trailer
-													</Button>
-												)}
-											</FadeInWhenVisible>
-										</Col>
-									</Row>
+									<MovieCard
+										movieDetails={movieDetails}
+										onAddMovieToWatchlist={onAddMovieToWatchlist}
+										disabledBtn={disabledBtn}
+										screenWidth={screenWidth}
+										handleShow={handleShow}
+									/>
 								</Container>
 							</Col>
 							<Container>
-								<MovieCast movieCast={movieCast} />
-								{similarMovies.length ? (
-									<SimilarMovies similarMovies={similarMovies} />
-								) : (
-									''
+								<SliderComponent
+									title={'Film Cast'}
+									array={movieCast}
+									isForPersons={true}
+									movieCast={true}
+								/>
+								{similarMovies.length && (
+									<SliderComponent
+										title={'Similar Movies'}
+										array={similarMovies}
+									/>
 								)}
 								<TrailerModal
 									show={show}

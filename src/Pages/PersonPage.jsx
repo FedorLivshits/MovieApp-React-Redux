@@ -1,12 +1,11 @@
 import { motion } from 'framer-motion'
 import React, { useEffect } from 'react'
-import { Card, Col, Container, Row, Spinner } from 'react-bootstrap'
+import { Col, Container, Row, Spinner } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'redux'
-import FadeInWhenVisible from '../Components/FadeInWhenVisible/FadeInWhenVisible'
-import { IsImageNull } from '../Components/IsImageNull/IsImageNull'
-import PersonMovies from '../Components/PersonMovies/PersonMovies'
+import PersonCard from '../Components/PersonCard/PersonCard'
+import SliderComponent from '../Components/SliderComponent/SliderComponent'
 import { initializePersonPage } from '../redux/initial-reducer'
 
 const PersonPage = ({
@@ -52,47 +51,9 @@ const PersonPage = ({
 						<div className='mt-5 mb-5'>
 							<Container>
 								<Col className='movie-page__content'>
-									<Row>
-										<Col md={4} sm={6} xs={12}>
-											<Card
-												className='movie-card mb-3'
-												as={motion.div}
-												initial={{ y: 100, opacity: 0 }}
-												animate={{
-													y: 0,
-													opacity: 1,
-													transition: { duration: 0.8 },
-												}}>
-												<IsImageNull
-													inputImage={
-														'https://image.tmdb.org/t/p/w200' +
-														personDetail['profile_path']
-													}
-												/>
-											</Card>
-										</Col>
-										<Col md={8} sm={6} xs={12}>
-											<FadeInWhenVisible>
-												<h2>{personDetail.name}</h2>
-												{personDetail.birthday !== null && (
-													<p>
-														{personDetail.birthday
-															.split('-')
-															.reverse()
-															.join('/')}
-													</p>
-												)}
-												{personDetail.biography !== '' && (
-													<>
-														<h4>Biography:</h4>
-														<p>{personDetail.biography}</p>
-													</>
-												)}
-											</FadeInWhenVisible>
-										</Col>
-									</Row>
+									<PersonCard personDetail={personDetail} />
 								</Col>
-								<PersonMovies personMovies={personMovies} />
+								<SliderComponent title={'Known for'} array={personMovies} />
 							</Container>
 						</div>
 					)}
