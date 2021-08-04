@@ -21,14 +21,23 @@ const App = () => {
         })
     })
 
+    const isImageNull = (img) => {
+        let str = img.substr(img.length - 4)
+        if(str === 'null'){
+            return true
+        }else{
+            return false
+        }
+      }
+
     return <div className="app">
         <Header screenWidth={screenWidth}/>
         <AnimatePresence>
-            <Route exact path="/" render={() => <MainPage screenWidth={screenWidth}/>}/>
+            <Route exact path="/" render={() => <MainPage isImageNull={isImageNull} screenWidth={screenWidth}/>}/>
             <Route path="/movies" render={() => <MoviesPage screenWidth={screenWidth}/>}/>
-            <Route path="/movie/:id" render={() => <MoviePage screenWidth={screenWidth}/>}/>
+            <Route path="/movie/:id" render={() => <MoviePage isImageNull={isImageNull} screenWidth={screenWidth}/>}/>
             <Route path="/watchlist" render={() => <WatchlistPage/>}/>
-            <Route path="/person/:id" render={() => <PersonPage/>}/>
+            <Route path="/person/:id" render={() => <PersonPage isImageNull={isImageNull}/>}/>
         </AnimatePresence>
         <Footer/>
     </div>

@@ -1,13 +1,12 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
+import { Container, Spinner } from 'react-bootstrap'
+import { connect } from 'react-redux'
 import CarouselComponent from '../Components/CarouselComponent/CarouselComponent'
-import {connect} from 'react-redux'
-import {Container, Spinner} from 'react-bootstrap'
-import TrendingPersons from '../Components/TrendingPersons/TrendingPersons'
-import TopRatedMovies from '../Components/TopRatedMovies/TopRatedMovies'
-import PopularMovies from '../Components/PopularMovies/PopularMovies'
-import {initializeMainPage} from '../redux/initial-reducer'
 import FadeInWhenVisible from '../Components/FadeInWhenVisible/FadeInWhenVisible'
-import {motion} from 'framer-motion'
+import PopularMovies from '../Components/PopularMovies/PopularMovies'
+import TopRatedMovies from '../Components/TopRatedMovies/TopRatedMovies'
+import TrendingPersons from '../Components/TrendingPersons/TrendingPersons'
+import { initializeMainPage } from '../redux/initial-reducer'
 
 const MainPage = props => {
     useEffect(() => {
@@ -43,7 +42,6 @@ const MainPage = props => {
                         <TrendingPersons trendingPersons={props.trendingPersons}/>
                     </>
                 }
-
             </Container>
         </>
     )

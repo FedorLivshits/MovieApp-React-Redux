@@ -1,7 +1,7 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-import {Col, Image, Row} from 'react-bootstrap'
-
+import { Col, Row } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import { IsImageNull } from '../IsImageNull/IsImageNull'
 
 const MovieCast = ({movieCast}) => (
     <>
@@ -16,8 +16,7 @@ const MovieCast = ({movieCast}) => (
             {movieCast.map(p => {
                 return <Col lg={2} md={3} sm={4} xs={6} className="my-card text-center" key={p.id}>
                     <Link to={`/person/${p.id}`}>
-                        {console.log(p.img)}
-                        <Image fluid rounded src={p.img} alt=''/>
+                     <IsImageNull inputImage={p.img}/>
                     </Link>
                     <p className="font-weight-bold text-center">{p.name}</p>
                     <p

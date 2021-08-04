@@ -1,7 +1,8 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
-import {Card, Col, Image, Row} from 'react-bootstrap'
+import {Card, Col, Row} from 'react-bootstrap'
+import { IsImageNull } from '../IsImageNull/IsImageNull';
 
 const PersonMovies = ({personMovies}) => (
     <section>
@@ -17,7 +18,7 @@ const PersonMovies = ({personMovies}) => (
                 return <Col lg={2} md={3} sm={4} xs={6} className="my-card" key={m.id}>
                     <Card>
                         <Link to={`/movie/${m.id}`}>
-                            <Image fluid rounded src={m.poster} alt={m.title}/>
+                        <IsImageNull inputImage={m.poster}/>
                         </Link>
                     </Card>
                     <div className="mt-2">

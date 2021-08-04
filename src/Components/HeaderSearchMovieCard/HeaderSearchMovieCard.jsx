@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {Image} from 'react-bootstrap'
 import ReactStars from 'react-rating-stars-component'
+import { IsImageNull } from '../IsImageNull/IsImageNull'
 
 
 const HeaderSearchMovieCard = ({movie, closeSearchList}) => {
@@ -12,9 +13,7 @@ const HeaderSearchMovieCard = ({movie, closeSearchList}) => {
                     {movie.poster_path
                         ? (
                             <Link to={`/movie/${movie.id}`} onClick={closeSearchList}>
-                                <Image fluid rounded
-                                       src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-                                       alt=""/>
+                                <IsImageNull inputImage={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}/>
                             </Link>
                         )
                         : (

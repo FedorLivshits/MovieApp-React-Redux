@@ -1,7 +1,8 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Card, Col, Row } from 'react-bootstrap'
 import ReactStars from 'react-rating-stars-component'
-import {Row, Col, Image, Card} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import { IsImageNull } from '../IsImageNull/IsImageNull'
 
 const PopularMovies = ({popularMovies}) => (
     <>
@@ -17,7 +18,7 @@ const PopularMovies = ({popularMovies}) => (
                 return <Col lg={2} md={3} sm={4} xs={6} className="my-card" key={m.id}>
                     <Card>
                         <Link to={`/movie/${m.id}`}>
-                            <Image fluid rounded src={m.poster} alt={m.title} />
+                        <IsImageNull inputImage={m.poster}/>
                         </Link>
                     </Card>
                     <div className="mt-2">
