@@ -1,8 +1,13 @@
 import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import {
-    Card, Col, Dropdown, DropdownButton,
-    ListGroup, Row, Spinner
+    Card,
+    Col,
+    Dropdown,
+    DropdownButton,
+    ListGroup,
+    Row,
+    Spinner
 } from 'react-bootstrap'
 import Container from 'react-bootstrap/cjs/Container'
 import ReactStars from 'react-rating-stars-component'

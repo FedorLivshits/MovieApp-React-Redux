@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import {
-    Button,
-    Card,
-    Carousel,
-    Col,
-    Container,
-    Row,
-    Spinner
+	Button,
+	Card,
+	Carousel,
+	Col,
+	Container,
+	Row,
+	Spinner,
 } from 'react-bootstrap'
 import ReactStars from 'react-rating-stars-component'
 import { connect } from 'react-redux'
@@ -126,10 +126,8 @@ const MoviePage = ({
 													transition: { duration: 0.8 },
 												}}
 												className='mb-3'>
-												<Card.Img
-													variant='top'
-													src={movieDetails.poster}
-													fluid
+												<IsImageNull
+													inputImage={movieDetails.poster}
 												/>
 												<Card.Body>
 													<Button
@@ -184,7 +182,7 @@ const MoviePage = ({
 								</Container>
 							</Col>
 							<Container>
-								<MovieCast movieCast={movieCast}/>
+								<MovieCast movieCast={movieCast} />
 								{similarMovies.length ? (
 									<SimilarMovies similarMovies={similarMovies} />
 								) : (
