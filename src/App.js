@@ -23,12 +23,12 @@ const App = () => {
 
     const isImageNull = (img) => {
         let str = img.substr(img.length - 4)
-        if(str === 'null'){
+        if (str === 'null') {
             return true
-        }else{
+        } else {
             return false
         }
-      }
+    }
 
     return <div className="app">
         <Header screenWidth={screenWidth}/>

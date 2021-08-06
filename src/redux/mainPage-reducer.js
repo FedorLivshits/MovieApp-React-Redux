@@ -3,12 +3,12 @@ import {
     fetchPerson,
     fetchPopularMovies,
     fetchTopRatedMovies
-} from "../api/api";
+} from '../api/api'
 
-const SET_MOVIES = "mainPage-reducer/SET_MOVIES"
-const SET_TRENDING_PERSONS = "mainPage-reducer/SET_TRENDING_PERSONS"
-const SET_TOP_RATED_MOVIES = "mainPage-reducer/SET_TOP_RATED_MOVIES"
-const SET_POPULAR_MOVIES = "mainPage-reducer/SET_POPULAR_MOVIES"
+const SET_MOVIES = 'mainPage-reducer/SET_MOVIES'
+const SET_TRENDING_PERSONS = 'mainPage-reducer/SET_TRENDING_PERSONS'
+const SET_TOP_RATED_MOVIES = 'mainPage-reducer/SET_TOP_RATED_MOVIES'
+const SET_POPULAR_MOVIES = 'mainPage-reducer/SET_POPULAR_MOVIES'
 
 let initialState = {
     movies: [],
@@ -45,7 +45,7 @@ export const setPopularMovies = (popularMovies) => ({type: SET_POPULAR_MOVIES, p
 
 const modifiedMovieDataFlow = async (dispatch, apiMethod, actionCreator, parameter_1) => {
     let data = await apiMethod(parameter_1)
-    const posterUrl = 'https://image.tmdb.org/t/p/original/';
+    const posterUrl = 'https://image.tmdb.org/t/p/original/'
     const modifiedData = data.results.map((m) => ({
         id: m['id'],
         backPoster: posterUrl + m['backdrop_path'],
@@ -63,7 +63,7 @@ export const getActualFilms = () => {
         try {
             await modifiedMovieDataFlow(dispatch, fetchActualMovies, setMovies)
         } catch (e) {
-            alert("error")
+            alert('error')
         }
     }
 }
@@ -82,7 +82,7 @@ export const getTrendingPerson = () => {
             dispatch(setTrendingPersons(modifiedData))
         }
     } catch (e) {
-        alert("error")
+        alert('error')
     }
 }
 
@@ -91,7 +91,7 @@ export const getTopRatedMovies = () => {
         try {
             await modifiedMovieDataFlow(dispatch, fetchTopRatedMovies, setTopRatedMovies)
         } catch (e) {
-            alert("error")
+            alert('error')
         }
     }
 }
@@ -101,11 +101,10 @@ export const getPopularMovies = () => {
         try {
             await modifiedMovieDataFlow(dispatch, fetchPopularMovies, setPopularMovies)
         } catch (e) {
-            alert("error")
+            alert('error')
         }
     }
 }
-
 
 
 export default mainPageReducer

@@ -65,7 +65,7 @@ const Header = ({match, isMoviePageOpen, screenWidth}) => {
                 <div className={inputText ? 'header__search-content--active' : 'header__search-content'}>
                     <ul className="header__search-items">
                         {result.map(movie => (
-                           <HeaderSearchMovieCard movie={movie} closeSearchList={closeSearchList}/>
+                            <HeaderSearchMovieCard movie={movie} closeSearchList={closeSearchList}/>
                         ))}
                     </ul>
                 </div>

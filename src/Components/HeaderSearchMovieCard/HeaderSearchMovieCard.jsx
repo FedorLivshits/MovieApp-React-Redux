@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {Image} from 'react-bootstrap'
 import ReactStars from 'react-rating-stars-component'
-import { IsImageNull } from '../IsImageNull/IsImageNull'
+import {IsImageNull} from '../IsImageNull/IsImageNull'
 
 
 const HeaderSearchMovieCard = ({movie, closeSearchList}) => {

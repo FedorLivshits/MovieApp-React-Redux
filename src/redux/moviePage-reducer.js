@@ -1,14 +1,14 @@
 import {
     fetchCasts,
-    fetchMovieDetail, fetchMovieTrailer,  fetchSimilarMovies,
-} from "../api/api";
-import {setIsFetching} from "./moviesPage-reducer";
+    fetchMovieDetail, fetchMovieTrailer, fetchSimilarMovies,
+} from '../api/api'
+import {setIsFetching} from './moviesPage-reducer'
 
-const SET_MOVIE_DETAILS = "moviePage-reducer/SET_MOVIE_DETAILS"
-const SET_MOVIE_CAST = "moviePage-reducer/SET_MOVIE_CAST"
-const SET_SIMILAR_MOVIES = "moviePage-reducer/SET_SIMILAR_MOVIES"
-const SET_TRAILER = "moviePage-reducer/SET_TRAILER"
-const SET_IS_MOVIE_PAGE_OPEN = "moviePage-reducer/SET_IS_MOVIE_PAGE_OPEN"
+const SET_MOVIE_DETAILS = 'moviePage-reducer/SET_MOVIE_DETAILS'
+const SET_MOVIE_CAST = 'moviePage-reducer/SET_MOVIE_CAST'
+const SET_SIMILAR_MOVIES = 'moviePage-reducer/SET_SIMILAR_MOVIES'
+const SET_TRAILER = 'moviePage-reducer/SET_TRAILER'
+const SET_IS_MOVIE_PAGE_OPEN = 'moviePage-reducer/SET_IS_MOVIE_PAGE_OPEN'
 
 let initialState = {
     movieDetails: null,
@@ -49,13 +49,12 @@ export const setMovieTrailer = (trailer) => ({type: SET_TRAILER, trailer})
 export const setIsMoviePageOpen = (isOpen) => ({type: SET_IS_MOVIE_PAGE_OPEN, isOpen})
 
 
-
 export const getMovieDetails = (id) => {
     return async (dispatch) => {
         try {
             dispatch(setIsFetching(true))
             let data = await fetchMovieDetail(id)
-            const posterUrl = 'https://image.tmdb.org/t/p/original/';
+            const posterUrl = 'https://image.tmdb.org/t/p/original/'
             const modifiedData = {
                 id: data['id'],
                 backPoster: posterUrl + data['backdrop_path'],
@@ -71,7 +70,7 @@ export const getMovieDetails = (id) => {
             dispatch(setMovieDetails(modifiedData))
             dispatch(setIsFetching(false))
         } catch (e) {
-            alert("error")
+            alert('error')
         }
     }
 }
@@ -88,7 +87,7 @@ export const getMovieCast = (id) => {
             }))
             dispatch(setMovieCast(modifiedData))
         } catch (e) {
-            alert("error")
+            alert('error')
         }
     }
 }
@@ -97,7 +96,7 @@ export const getSimilarMovies = (id) => {
     return async (dispatch) => {
         try {
             let data = await fetchSimilarMovies(id)
-            const posterUrl = 'https://image.tmdb.org/t/p/original/';
+            const posterUrl = 'https://image.tmdb.org/t/p/original/'
             const modifiedData = data['results'].map((m) => ({
                 id: m['id'],
                 backPoster: posterUrl + m['backdrop_path'],
@@ -109,7 +108,7 @@ export const getSimilarMovies = (id) => {
             }))
             dispatch(setSimilarMovies(modifiedData))
         } catch (e) {
-            alert("error")
+            alert('error')
         }
     }
 }
@@ -119,7 +118,7 @@ export const getTrailer = (id) => {
             let data = await fetchMovieTrailer(id)
             dispatch(setMovieTrailer(data['results'][0]))
         } catch (e) {
-            alert("error")
+            alert('error')
         }
     }
 }

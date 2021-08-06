@@ -1,10 +1,10 @@
-const ADD_MOVIE_TO_WATCHLIST= "initial-reducer/ADD_MOVIE_TO_WATCHLIST"
-const REMOVE_MOVIE_FROM_WATCHLIST= "initial-reducer/REMOVE_MOVIE_FROM_WATCHLIST"
+const ADD_MOVIE_TO_WATCHLIST = 'initial-reducer/ADD_MOVIE_TO_WATCHLIST'
+const REMOVE_MOVIE_FROM_WATCHLIST = 'initial-reducer/REMOVE_MOVIE_FROM_WATCHLIST'
 
 
 let initialState = {
-    watchlist: localStorage.getItem("watchlist")
-        ? JSON.parse(localStorage.getItem("watchlist"))
+    watchlist: localStorage.getItem('watchlist')
+        ? JSON.parse(localStorage.getItem('watchlist'))
         : [],
 }
 
@@ -18,7 +18,7 @@ const watchlistReducer = (state = initialState, action) => {
             return {
                 ...state,
                 watchlist: state.watchlist.filter(movie => movie.id !== action.id),
-            };
+            }
         default:
             return state
     }

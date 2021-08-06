@@ -2,8 +2,8 @@ import {fetchPersonDetail, fetchPersonMovies,} from '../api/api'
 import {setIsFetching} from './moviesPage-reducer'
 
 
-const SET_PERSON = "personPage-reducer/SET_PERSON"
-const SET_PERSON_MOVIES = "personPage-reducer/SET_PERSON_MOVIES"
+const SET_PERSON = 'personPage-reducer/SET_PERSON'
+const SET_PERSON_MOVIES = 'personPage-reducer/SET_PERSON_MOVIES'
 
 let initialState = {
     personDetail: null,
@@ -27,8 +27,6 @@ export const setPersonDetail = (personDetail) => ({type: SET_PERSON, personDetai
 export const setPersonMovies = (personMovies) => ({type: SET_PERSON_MOVIES, personMovies})
 
 
-
-
 export const getPersonDetail = (id) => {
     return async (dispatch) => {
         try {
@@ -45,7 +43,7 @@ export const getPersonMovies = (id) => {
     return async (dispatch) => {
         try {
             let data = await fetchPersonMovies(id)
-            const posterUrl = 'https://image.tmdb.org/t/p/original/';
+            const posterUrl = 'https://image.tmdb.org/t/p/original/'
             const modifiedData = data.cast.map((m) => ({
                 id: m['id'],
                 title: m['title'],
@@ -54,7 +52,7 @@ export const getPersonMovies = (id) => {
             }))
             dispatch(setPersonMovies(modifiedData))
         } catch (e) {
-            alert("error")
+            alert('error')
         }
     }
 }

@@ -1,10 +1,10 @@
-import {getActualFilms, getPopularMovies, getTopRatedMovies, getTrendingPerson} from "./mainPage-reducer";
-import {getMovieCast, getMovieDetails, getSimilarMovies, getTrailer} from "./moviePage-reducer";
-import {getPersonDetail, getPersonMovies} from "./personPage-reducer";
+import {getActualFilms, getPopularMovies, getTopRatedMovies, getTrendingPerson} from './mainPage-reducer'
+import {getMovieCast, getMovieDetails, getSimilarMovies, getTrailer} from './moviePage-reducer'
+import {getPersonDetail, getPersonMovies} from './personPage-reducer'
 
-const SET_INITIALIZED_MAIN_PAGE = "initial-reducer/SET_INITIALIZED_MAIN_PAGE"
-const SET_INITIALIZED_MOVIE_PAGE = "initial-reducer/SET_INITIALIZED_MOVIE_PAGE"
-const SET_INITIALIZED_PERSON_PAGE = "initial-reducer/SET_INITIALIZED_PERSON_PAGE"
+const SET_INITIALIZED_MAIN_PAGE = 'initial-reducer/SET_INITIALIZED_MAIN_PAGE'
+const SET_INITIALIZED_MOVIE_PAGE = 'initial-reducer/SET_INITIALIZED_MOVIE_PAGE'
+const SET_INITIALIZED_PERSON_PAGE = 'initial-reducer/SET_INITIALIZED_PERSON_PAGE'
 
 
 let initialState = {
@@ -40,12 +40,12 @@ export const initializeMainPage = () => {
         try {
             let [promise1, promise2, promise3, promise4] =
                 [dispatch(getActualFilms()), dispatch(getTopRatedMovies()),
-                dispatch(getTrendingPerson()), dispatch(getPopularMovies())]
+                    dispatch(getTrendingPerson()), dispatch(getPopularMovies())]
             let promises = [promise1, promise2, promise3, promise4]
             Promise.all(promises)
                 .then(() => dispatch(initializedMainSuccess()))
         } catch (e) {
-            alert("error")
+            alert('error')
         }
     }
 }
@@ -59,7 +59,7 @@ export const initializeMoviePage = (id) => {
             Promise.all([promise1, promise2, promise3, promise4])
                 .then(() => dispatch(initializedMoviePageSuccess()))
         } catch (e) {
-            alert("error")
+            alert('error')
         }
     }
 }
@@ -71,7 +71,7 @@ export const initializePersonPage = (id) => {
             Promise.all([promise1, promise2])
                 .then(() => dispatch(initializedPersonPageSuccess()))
         } catch (e) {
-            alert("error")
+            alert('error')
         }
     }
 }

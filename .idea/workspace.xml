@@ -20,10 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2401579e-65fe-4e72-b2c6-7aff375048e8" name="Default Changelist" comment="add search on input change">
-      <change afterPath="$PROJECT_DIR$/src/Components/assets/images/38119.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/CarouselComponent/CarouselComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/CarouselComponent/CarouselComponent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/MainPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/MainPage.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +60,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Components/assets/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Different/Ajax" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.jscs" value="true" />
@@ -81,7 +78,7 @@
     <property name="node.js.selected.package.stylelint" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Colors" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -128,6 +125,9 @@
       <workItem from="1628035929216" duration="16000" />
       <workItem from="1628037266696" duration="613000" />
       <workItem from="1628067684884" duration="252000" />
+      <workItem from="1628114213433" duration="189000" />
+      <workItem from="1628114422073" duration="262000" />
+      <workItem from="1628175602901" duration="30000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <created>1619042216014</created>
@@ -488,15 +488,15 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="498" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1627824700967" />
-    <state x="548" y="166" key="FileChooserDialogImpl" timestamp="1628000972312">
+    <state x="548" y="166" key="FileChooserDialogImpl" timestamp="1628175630519">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="548" y="166" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1628000972312" />
+    <state x="548" y="166" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1628175630519" />
     <state x="548" y="174" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1623268517997" />
-    <state x="277" y="57" key="SettingsEditor" timestamp="1627812751340">
+    <state x="422" y="17" key="SettingsEditor" timestamp="1628114637881">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1627812751340" />
+    <state x="422" y="17" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1628114637881" />
     <state x="360" y="129" key="Vcs.Push.Dialog.v2" timestamp="1628035355686">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

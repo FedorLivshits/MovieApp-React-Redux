@@ -71,7 +71,7 @@ export const getGenre = () => {
             let genres = data.genres
             dispatch(setGenre(genres))
         }
-    } catch(e) {
+    } catch (e) {
         alert('error ' + e)
     }
 }
