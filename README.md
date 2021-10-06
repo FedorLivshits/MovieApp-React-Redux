@@ -1,4 +1,4 @@
-# Кино приложение MovieApp
+# Кино-приложение MovieApp
 ## Активная версия: https://movie-app-react-redux.vercel.app
 ### Краткое описание:
 
